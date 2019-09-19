@@ -1,8 +1,10 @@
 @extends('layouts.app')
+@if(count($sliders) > 0)
 @section('style')
 <link rel="stylesheet" href="/css/themes/default/default.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="/css/nivo-slider.css" type="text/css" media="screen" />
 @endsection
+@endif
 
 @section('content')
 @if(count($sliders) > 0)
@@ -43,10 +45,15 @@
 @endsection
 
 @section('script')
+@if(count($sliders) > 0)
 <script src="/js/jquery.nivo.slider.js"></script>
+@endif
 <script>
+    var _slider = parseInt('<?php echo count($sliders); ?>');
     $(document).ready(function(){
-        $('#slider').nivoSlider();
+        if(_slider > 0){
+            $('#slider').nivoSlider();
+        }
     })
     
     var post_last_scroll = 0;

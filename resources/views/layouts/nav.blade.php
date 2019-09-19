@@ -16,7 +16,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <div class="navbar-nav ml-auto">
-                <div class="input-group w-400px">
+                <div class="input-group w-400px top-search">
                     {!! Form::text('search', '', array('placeholder' => 'Search','autocomplete'=>'off','class' => 'form-control form-control')) !!}
                     <div class="input-group-append">
                         <span class="input-group-text lighten-3">

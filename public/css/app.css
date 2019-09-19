@@ -465,7 +465,6 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 @media (min-width: 576px) {
   .card-columns {
     -webkit-column-count: 1;
-       -moz-column-count: 1;
             column-count: 1;
   }
 }
@@ -473,7 +472,6 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 @media (min-width: 768px) {
   .card-columns {
     -webkit-column-count: 2;
-       -moz-column-count: 2;
             column-count: 2;
   }
 }
@@ -481,7 +479,6 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 @media (min-width: 1200px) {
   .card-columns {
     -webkit-column-count: 2;
-       -moz-column-count: 2;
             column-count: 2;
   }
 }
@@ -620,6 +617,15 @@ h1.title:after {
   top: 0;
   right: -20px;
   font-size: 10px;
+}
+
+.top-search .input-group-text,
+.top-search .form-control {
+  border-radius: 25rem;
+}
+
+.top-search .form-control {
+  line-height: 1.2;
 }
 
 .welcome {
@@ -901,11 +907,9 @@ h1.title:after {
 }
 
 .make-columns {
-  -moz-column-width: 21em;
   -webkit-column-width: 21em;
   column-width: 21em;
   /*space of column*/
-  -moz-column-gap: .1em;
   -webkit-column-gap: .1em;
   column-gap: .1em;
   margin-right: -.5rem;

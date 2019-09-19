@@ -104,6 +104,17 @@ h1.title{
     }
 }
 
+.top-search{
+    .input-group-text,
+    .form-control{
+        border-radius: 25rem;
+    }
+
+    .form-control{
+        line-height: 1.2;
+    }
+}
+
 .welcome{
     font-size: 25px;
     font-weight: bold;
