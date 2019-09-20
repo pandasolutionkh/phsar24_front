@@ -2,28 +2,22 @@
 <div id="fb-root"></div>
 <script>
 window.fbAsyncInit = function() {
-  FB.init({
-    xfbml            : true,
-    version          : 'v4.0'
-  });
+    FB.init({
+            xfbml            : true,
+            version          : 'v4.0'
+            });
 };
 
 (function(d, s, id) {
-var js, fjs = d.getElementsByTagName(s)[0];
-if (d.getElementById(id)) return;
-js = d.createElement(s); js.id = id;
-js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+ var js, fjs = d.getElementsByTagName(s)[0];
+ if (d.getElementById(id)) return;
+ js = d.createElement(s); js.id = id;
+ js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+ fjs.parentNode.insertBefore(js, fjs);
+ }(document, 'script', 'facebook-jssdk'));</script>
 
 <!-- Your customer chat code -->
 <div class="fb-customerchat"
-<<<<<<< HEAD
-  attribution=setup_tool
-  page_id="{{ ENV('FACEBOOK_PAGE_ID') }}">
-</div>
-=======
 attribution=setup_tool
 page_id="{{ ENV('FACEBOOK_PAGE_ID') }}">
 </div>
->>>>>>> 142eeaa96d3805d2c7e3f8213b1ccd75c0a8c9d5
