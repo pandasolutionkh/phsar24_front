@@ -1803,7 +1803,7 @@ footer .no-list li a:hover {
 }
 
 .modal-data .product .product-content {
-  max-height: calc(100% - 200px);
+  max-height: 100%;
   overflow: scroll;
 }
 
