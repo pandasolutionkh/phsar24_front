@@ -33,18 +33,6 @@ $_incr = 0;
             <a class="carousel-control-next" href="#viewProduct" role="button" data-slide="next">
                 <i class="fa fa-angle-right fa-3x"></i>
             </a>
-
-            <ol class="carousel-indicators">
-                @for($ind=0; $ind < count($data->galleries); $ind++)
-                @php
-                    $_act = '';
-                    if($ind == 0){
-                        $_act = 'active';
-                    }
-                @endphp
-                <li data-target="#viewPost" data-slide-to="{{ $ind }}" class="{{ $_act }}">&nbsp;</li>
-                @endfor
-            </ol>
         </div>
     </div>
     <div class="col-lg-5">
