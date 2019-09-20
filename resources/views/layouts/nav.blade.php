@@ -4,7 +4,7 @@
             <span class="logo-table">
                 <span class="logo-row">
                     <span class="logo-cell text-center">
-                        <img width="150" src="/img/logo.png" alt="Globalive"/>
+                        <img width="150" src="/img/logo.png?v={!! $_v !!}" alt="ផ្សារ២៤"/>
                     </span>
                 </span>
             </span>

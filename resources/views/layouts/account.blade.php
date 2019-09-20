@@ -38,7 +38,7 @@
 <body>
     @include('layouts.modal')
     <div id="app">
-        @include('layouts.nav')
+        @include('layouts.nav',$_v)
         <main>
             <div class="py-4">
                 <div class="container">
