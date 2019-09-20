@@ -34,7 +34,7 @@
         
         <div class="text-center py-4">
             <div class="container">
-                &copy; {{ date('Y') }} Phsar24. All Right Reserved.
+                &copy; {{ date('Y') }} {{ _t('Phsar24') }}. {{ _t('All Right Reserved.') }}
             </div>
         </div>
     </div>
