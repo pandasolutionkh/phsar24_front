@@ -5,7 +5,7 @@ $_incr = 0;
 @endphp
 <div class="row">
     <div class="col-lg-7">
-        <div id="viewProduct" class="carousel mb-5" data-ride="carousel">
+        <div id="viewProduct" class="carousel" data-ride="carousel">
             
             <div class="carousel-inner">
             @foreach($data->galleries as $item)
