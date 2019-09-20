@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $product_per_page = 25;
+        $product_per_page = getPostPerPage();
         
         if($request->ajax()){
             $page = $request->input('page', 1);

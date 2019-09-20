@@ -264,3 +264,14 @@ if(! function_exists('getNumberOfDays')){
     }
 }
 
+
+if(! function_exists('getPostPerPage')){
+    function getPostPerPage(){
+        $setting = getSetting();
+        if(isset($setting['post_per_page'])){
+            return $setting['post_per_page'];
+        }
+        return 15;
+    }
+}
+
