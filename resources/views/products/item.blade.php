@@ -7,9 +7,21 @@
     <div class="card" data-id="p{{ $_id }}">
         <div class="card-body product">
             <div class="clearfix">
-                <div class="d-inline-block">
+                <div class="d-inline-block w-100">
                     <div>
-                        <strong>{{ $data->name }}</strong>
+                        <div class="d-table w-100">
+                            <div class="d-table-row">
+                                <div class="d-table-cell">
+                                    <strong class="product-title">{{ $data->name }}</strong>
+                                </div>
+                                @guest
+                                @else
+                                <div class="d-table-cell text-right w-15px">
+                                    <a href=""><i class="fa fa-heart-o"></i></a>
+                                </div>
+                                @endguest
+                            </div>
+                        </div>
                     </div>
                     <div class="product-time">
                         <i class="fa fa-clock-o"></i> {{ $_time }}
@@ -62,23 +74,23 @@
             </div>
             @endif
 
-            @if($data->price > 0 || $data->promotion > 0)
+            @if(floatval($data->price) > 0 || intval($data->promotion) > 0)
             <div class="product-like">
                 <div class="d-table w-100">
                     <div class="d-table-row">
                         <div class="d-table-cell">
+                            @if(floatval($data->price) > 0)
                             <a class="btn btn-secondary btn-sm">
-                                @if($data->price > 0)
                                 ${{ $data->price }}
-                                @endif
                             </a>
+                            @endif
                         </div>
                         <div class="d-table-cell text-right">
+                            @if(intval($data->promotion) > 0)
                             <a class="btn btn-primary btn-sm">
-                                @if($data->promotion > 0)
                                 {{ $data->promotion }}% OFF
-                                @endif
                             </a>
+                            @endif
                         </div>
                     </div>
                 </div>

@@ -3,7 +3,7 @@
 
 body {
     font-family: Calibri,Hanuman, sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.6;
     color: #636b6f;
     background-color: $white;
@@ -14,6 +14,8 @@ html,body{
 
 $light-blue: #0c4ca2 !important;
 $color: #0c4ca2 !important;
+
+$light-primary: #d94375 !important;
 
 a{
     color: #0c4ca2;
@@ -305,6 +307,10 @@ h1.title{
                 overflow: hidden;
                 border-radius: 50%;
             }
+        }
+
+        .product-title{
+            font-size: 18px;
         }
 
         .product-time{
@@ -719,6 +725,9 @@ h1.title{
     width: 100%;
 }
 
+.w-15px{
+    width: 15px;
+}
 .w-35px{
     width: 35px;
 }
@@ -1347,8 +1356,8 @@ footer{
 .btn-primary:hover, 
 .btn-primary:active, 
 .btn-primary:visited {
-    background-color: $light-blue;
-    border-color: $light-blue;
+    background-color: $light-primary;
+    border-color: $light-primary;
 }
 
 a.btn{
