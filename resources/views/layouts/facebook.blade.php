@@ -11,5 +11,5 @@
 <!-- Your customer chat code -->
 <div class="fb-customerchat"
   attribution=setup_tool
-  page_id="1841267949527998">
+  page_id="{{ ENV('FACEBOOK_PAGE_ID') }}">
 </div>
