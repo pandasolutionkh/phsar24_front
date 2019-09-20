@@ -1731,11 +1731,11 @@ footer .no-list li a:hover {
   z-index: 0;
 }
 
-#modalPopup1 .modal-dialog {
+#modalPopup .modal-dialog {
   max-width: 80% !important;
 }
 
-#modalPopup1 .modal-dialog .close {
+#modalPopup .modal-dialog .close {
   float: initial;
   position: absolute;
   top: 10px;
