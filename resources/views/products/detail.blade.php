@@ -4,7 +4,7 @@ $_time = getNumberOfDays($data->updated_at,date('Y-m-d H:i:s'));
 $_incr = 0;
 @endphp
 <div class="row">
-    <div class="col-lg-9">
+    <div class="col-lg-7">
         <div id="viewProduct" class="carousel mb-5" data-ride="carousel">
             
             <div class="carousel-inner">
@@ -47,7 +47,7 @@ $_incr = 0;
             </ol>
         </div>
     </div>
-    <div class="col-lg-3">
+    <div class="col-lg-5">
         <div class="product">
             <div class="clearfix">
                 <div class="d-inline-block">
