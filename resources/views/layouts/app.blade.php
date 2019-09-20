@@ -66,14 +66,14 @@
     @yield('script')
     @if(ENV('APP_ENV') == 'production')
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-120563437-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148358363-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'UA-120563437-1');
-    </script> -->
+      gtag('config', 'UA-148358363-1');
+    </script>
     @include('layouts.facebook')
     @endif
 </body>
