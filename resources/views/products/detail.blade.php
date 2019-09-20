@@ -59,7 +59,7 @@ $_incr = 0;
                     </div>
                 </div>
             </div>
-            <div class="data-content">
+            <div class="product-content">
                 <p>{!! nl2br($data->description) !!}</p>
             </div>
         </div>
