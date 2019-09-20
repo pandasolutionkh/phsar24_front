@@ -19,16 +19,16 @@ return [
 	'Download' => 'Download',
 
 	//user
-	'No' => 'No',
-	'Photo' => 'Photo',
-	'Name' => 'Name',
-	'Gender' => 'Gender',
-	'Phone' => 'Phone',
-	'Email' => 'Email',
-	'Male' => 'Male',
-	'Female' => 'Female',
-	'Address' => 'Address',
-	'Account' => 'Account',
+	'No' => 'ល.រ',
+	'Photo' => 'រូបថត',
+	'Name' => 'ឈ្មោះ',
+	'Gender' => 'ភេទ',
+	'Phone' => 'ទូរស័ព្ទ',
+	'Email' => 'អ៊ីមែល',
+	'Male' => 'ប្រុស',
+	'Female' => 'ស្រី',
+	'Address' => 'អាសយដ្ឋាន',
+	'Account' => 'គណនី',
 
 	'Menu'        => 'Menu',
 
