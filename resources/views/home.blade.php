@@ -159,11 +159,13 @@
     function removeInfiniteLoading(){
         removeInitToBody()
         $('.infinite-loading').removeClass('visible').addClass('invisible');
+        $('#product-load-more').removeClass('invisible').addClass('visible');
     }
 
     function infiniteLoading(){
         addInitToBody();
         $('.infinite-loading').removeClass('invisible').addClass('visible');
+        $('#product-load-more').removeClass('visible').addClass('invisible');
     }
 
     function addInitToBody(){
