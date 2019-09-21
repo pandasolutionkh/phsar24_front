@@ -5,6 +5,7 @@
 
 <div class="py-4">
     <div class="container">
+    	<h1 class="title">{{ _t('Favorite') }}</h1>
 		@if ($message = Session::get('message'))
 		<div class="alert alert-success">
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
