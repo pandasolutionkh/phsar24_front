@@ -42,9 +42,16 @@
             </div>
         </div>
         
-        <div class="text-center py-4">
+        <div class="py-4">
             <div class="container">
-                &copy; {{ date('Y') }} {{ _t('Phsar24') }} {{ _t('All Right Reserved.') }}
+                <div class="row">
+                    <div class="col-md-7">
+                        &copy; {{ date('Y') }} {{ _t('Phsar24') }} {{ _t('All Right Reserved.') }}
+                    </div>
+                    <div class="col-md-5 text-right">
+                        {{ _t('Created By:') }} <a target="_blank" class="created-by" href="http://www.panda-solution.net">Panda Solution</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

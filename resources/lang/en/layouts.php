@@ -86,5 +86,6 @@ return [
   	'Confirm New Password' => 'បញ្ចាក់លេខសម្ងាត់​ថ្មី',
 
   	'All Categories' => 'ប្រភេទ',
+  	'Created By:' => 'បង្កើតដោយ:',
 
 ];

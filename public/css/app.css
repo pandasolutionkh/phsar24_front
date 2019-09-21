@@ -1698,6 +1698,11 @@ footer .no-list li a:hover {
   color: #ededed;
 }
 
+footer a.created-by {
+  color: #fff;
+  font-weight: bold;
+}
+
 .photo-cover {
   position: relative;
   width: 200px;
