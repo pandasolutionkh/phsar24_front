@@ -241,4 +241,33 @@ $(document).on('show.bs.modal','#modalPopup',function(e){
   },200);
 });
 
+$(document).on('click','.btn-product-favorite',function(e){
+  e.preventDefault();
+  var _cls_ho = 'fa-heart-o';
+  var _cls_h = 'fa-heart';
+
+  var _th = $(this);
+  var _id = _th.attr('data-id');
+  var _fa = _th.find('i.fa');
+  var _is_fav = 0;
+  if(_fa.hasClass(_cls_ho)){
+    _is_fav = 1;
+  }
+
+  var _params = {
+    is_fav : _is_fav
+  };
+  axios.post('/favorites/dofav/'+_id,_params).then(response => {
+    //var _data = response.data;
+    if(_is_fav == 1){
+      _fa.removeClass(_cls_ho).addClass(_cls_h);
+    }else{
+      _fa.removeClass(_cls_h).addClass(_cls_ho);
+    }
+    
+  }).catch(response => {
+    console.log(response)
+  });
+});
+
 window.onload = function () { NProgress.done(); }

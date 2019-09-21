@@ -45,6 +45,22 @@ class User extends Authenticatable
     }
 
     /**
+     * Get all of favorite products for the user.
+     */
+    public function favorites()
+    {
+        return $this->belongsToMany(User::class, 'favorites', 'user_id', 'product_id')->withTimeStamps();
+    }
+
+    /**
+     * Get all of likes products for the user.
+     */
+    public function postLikes()
+    {
+        return $this->belongsToMany(User::class, 'post_likes', 'user_id', 'product_id')->withTimeStamps();
+    }
+
+    /**
      * The attributes that should be cast to native types.
      *
      * @var array
