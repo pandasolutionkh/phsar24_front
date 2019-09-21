@@ -46,10 +46,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
-                        &copy; {{ date('Y') }} {{ _t('Phsar24') }} {{ _t('All Right Reserved.') }}
+                        &copy; {!! _t('copy_right') !!} {{ date('Y') }}
                     </div>
                     <div class="col-md-5 text-right">
-                        {{ _t('Created By:') }} <a target="_blank" class="created-by" href="http://www.panda-solution.net">Panda Solution</a>
+                        {{ _t('Created By:') }} <a target="_blank" title="Panda Solution" class="created-by" href="http://www.panda-solution.net">Panda Solution</a>
                     </div>
                 </div>
             </div>

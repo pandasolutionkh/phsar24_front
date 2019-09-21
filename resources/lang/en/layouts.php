@@ -70,7 +70,7 @@ return [
   	'Your Profile' => 'ប្រវត្តិរូបរបស់អ្នក',
   	'Social Networks' => 'បណ្ដាញ​សង្គម',
   	'Phsar24' => 'ផ្សារ២៤។', 
-  	'All Right Reserved.' => 'រក្សា​សិទ្ធ​គ្រប់យ៉ាង។',
+  	'copy_right' => 'រក្សា​សិទ្ធិ​គ្រប់​យ៉ាង​ដោយ​ <strong>ផ្សារ២៤</strong> ឆ្នាំ',
   	'Useful Links' => 'Useful Links',
 
   	//contact
