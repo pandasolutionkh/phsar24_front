@@ -24,6 +24,11 @@ function getEmail(){
     return (isset($setting['email']) ? $setting['email'] : '');
 }
 
+function getPhone(){
+    $setting = getSetting();
+    return (isset($setting['phone']) ? $setting['phone'] : '');
+}
+
 function getAlert(){
     $setting = getSetting();
     return (isset($setting['alert']) ? $setting['alert'] : 0);
@@ -274,4 +279,35 @@ if(! function_exists('getPostPerPage')){
         return 15;
     }
 }
+
+if(! function_exists('getCategories')){
+    function getCategories(){
+        $data = \App\Models\Category::where('enabled',true)->get();
+        return $data;
+    }
+}
+
+if(! function_exists('getQueryString')){
+    function getQueryString($p_except = ''){
+        $_n = '&';
+        $_qs = \Request::getQueryString();
+        $_data = explode($_n, $_qs);
+        $_str = '';
+        foreach($_data as $_item){
+            $_tmp = explode($p_except, $_item);
+            if(count($_tmp) == 1){
+                if($_str){
+                    $_str .= $_n;
+                }
+                $_str .= $_item;
+            }
+        }
+        return $_str;
+    }
+}
+
+function setLike($txt){
+    return "%$txt%";
+}
+
 

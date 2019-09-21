@@ -23,6 +23,11 @@ class Category extends Base
         'name',
     ];
 
+    public function sub_categories()
+    {
+        return $this->hasMany(SubCategory::class,'category_id')->where('enabled',true);
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *

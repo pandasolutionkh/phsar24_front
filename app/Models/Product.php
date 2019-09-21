@@ -32,6 +32,13 @@ class Product extends Base
                             ->first();
     }
 
+    public function favorited()
+    {
+        return (bool) Favorite::where('user_id', Auth::id())
+                            ->where('product_id', $this->id)
+                            ->first();
+    }
+
     function sub_category(){
         return $this->belongsTo(SubCategory::class,'sub_category_id');
     }

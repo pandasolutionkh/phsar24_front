@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="/css/animate.css"/>
     @yield('style')
     @php
-        $_v = '1.0.6';
+        $_v = '1.0.7';
     @endphp
     <link rel="stylesheet" href="/css/nprogress.css"/>
     <link rel="stylesheet" href="/css/app.css?v={!! $_v !!}"/>
@@ -30,10 +30,10 @@
 
     <meta property="fb:app_id"        content="{{ ENV('FACEBOOK_APP_ID') }}"/>
     <meta property="og:site_name"     content="{{ ENV('APP_NAME') }}">
-    <meta property="og:url"           content="http://admission-itc.aladdan.asia/" />
+    <meta property="og:url"           content="http://www.phsar24.asia/" />
     <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Admission ITC" />
-    <meta property="og:description"   content="Admission ITC" />
+    <meta property="og:title"         content="Phsar24" />
+    <meta property="og:description"   content="Phsar24" />
     <meta property="og:image"         content="{{ asset('img/logo.png') }}" />
     <meta property="og:image:width"   content="200"/>
     <meta property="og:image:height"  content="200"/>

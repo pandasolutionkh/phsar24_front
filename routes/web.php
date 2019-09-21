@@ -98,4 +98,18 @@ Route::get('/product/{id}',[
 	'uses' => 'HomeController@product'
 ]);
 
+Route::get('/favorites',[
+	'as'=>'favorites.index',
+	'uses' => 'FavoriteController@index'
+]);
+Route::delete('/favorites/delete/{id}',[
+	'as'=>'favorites.delete',
+	'uses' => 'FavoriteController@deleteFavorite'
+]);
+
+Route::post('/favorites/dofav/{id}',[
+	'as'=>'favorites.dofav',
+	'uses' => 'FavoriteController@doFavorite'
+]);
+
 

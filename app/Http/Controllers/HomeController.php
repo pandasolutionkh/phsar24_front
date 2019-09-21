@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Banner;
 use App\Models\Product;
+use App\Models\SubCategory;
 
 class HomeController extends Controller
 {
@@ -26,11 +27,34 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $product_per_page = getPostPerPage();
+        $search = $request->input('s');
+        $c_id = $request->input('c');
+
+        $products = Product::orderBy('updated_at','DESC')
+          ->where('enabled',true);
         
+        $category_name = '';
+        
+        if($c_id){
+          $products->where('sub_category_id',$c_id);
+          $sub_category = SubCategory::find($c_id);
+          if(!empty($sub_category)){
+              $category_name = $sub_category->name;
+          }
+        }
+        
+        if ($search) {
+          $_search = setLike($search);
+          $products->where(function($q) use($_search){
+              $q->where('name', 'LIKE', $_search)
+                  ->orWhere('description', 'LIKE', $_search);
+          });
+        }
+        
+
         if($request->ajax()){
             $page = $request->input('page', 1);
 
-            $products = Product::where('enabled',true)->orderBy('updated_at','DESC');
             $products = $products->paginate($product_per_page);
             
             $last_page = $products->lastPage();
@@ -51,10 +75,9 @@ class HomeController extends Controller
             $page = $request->input('p', 1);
             $product_per_page = ($product_per_page * $page);
             $sliders = Banner::where('enabled',true)->where('is_activated',true)->get();
-            $products = Product::where('enabled',true)->orderBy('updated_at','DESC');
             $products = $products->paginate($product_per_page);
 
-            return view('home',compact('sliders','products','page'));
+            return view('home',compact('sliders','products','page','category_name','search'));
         }
     }
 

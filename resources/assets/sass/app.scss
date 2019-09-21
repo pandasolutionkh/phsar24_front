@@ -69,6 +69,53 @@ h1.title{
 .navbar-custom {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+
+    .dropdown{
+        &.dropdown-category{
+            position: initial;
+
+            .dropdown-menu{
+                &.show{
+                    width: 100%;
+                    padding: .5rem;
+                }
+            }
+        }
+    }
+    .menu-category{
+        li{
+            width: 20%;
+            float: left;
+            display: block; 
+
+            span{
+                font-weight: bold;
+                font-size: 18px;
+            }
+
+            .sub-category{
+                margin-top: 1rem;
+
+                li{
+                    width: 100%;
+                    padding-bottom: 1rem;
+
+                    &:last-child{
+                        padding-bottom: 0;
+                    }
+                }
+            }
+        }
+        &:after{
+            clear: both;
+            display: table;
+            content: "";
+        }
+    }
+
+    .container{
+        position: relative;
+    }
 }
 
 .navbar-light .navbar-nav .nav-link{
@@ -116,10 +163,7 @@ h1.title{
             box-shadow: none;
         }
     }
-
-    .form-control{
-        line-height: 1.2;
-    }
+    
 }
 
 .welcome{
