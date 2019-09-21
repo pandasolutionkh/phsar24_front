@@ -86,6 +86,11 @@
                 <li><a class="btn btn-primary btn-sm" href="{{ route('register') }}"><i class="fa fa-edit"></i> {!! _t('Register') !!}</a></li>
                 
                 @else
+                    <li>
+                        <a class="nav-link" href="{{ route('favorites.index') }}">
+                            <i class="fa fa-heart"></i> {!! _t('Favorite') !!}
+                        </a>
+                    </li>
                     <li class="nav-item dropdown">
                         <div class="d-table">
                             <div class="d-table-row">

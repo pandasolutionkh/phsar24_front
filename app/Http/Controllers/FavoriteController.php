@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Favorite;
 use App\Models\Product;
 use Auth;
+use Uuid;
 
 class FavoriteController extends Controller
 {
@@ -29,11 +30,11 @@ class FavoriteController extends Controller
         $page = $request->input('page', 1);
         $per_page = $this->per_page;
 
-        $products = Favorite::select('favorites.*')
+        $products = Product::join('favorites','products.id','favorites.product_id')
             ->orderBy('favorites.updated_at','DESC')
-            ->join('products','products.id','favorites.product_id')
             ->where('favorites.user_id', getUserId())
-            ->where('products.enabled', true);
+            ->where('products.enabled', true)
+            ->select('products.*');
 
         $products = $products->paginate($per_page);
 
@@ -70,11 +71,11 @@ class FavoriteController extends Controller
     {
         $faverited = $request->is_fav;
         if($faverited){
-            Auth::user()->favorites()->detach($id);   
+            Auth::user()->favorites()->attach($id,["id" => Uuid::generate()]);
         }else{
-            Auth::user()->favorites()->attach($id);
+            Auth::user()->favorites()->detach($id);
         }
 
-        return back();
+        return response()->json([]);
     }
 }

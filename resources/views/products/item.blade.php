@@ -17,7 +17,16 @@
                                 @guest
                                 @else
                                 <div class="d-table-cell text-right w-15px">
-                                    <a href=""><i class="fa fa-heart-o"></i></a>
+                                    <a data-id="{{ $_id }}" href="" class="btn-product-favorite">
+                                        @php
+                                            if($data->favorited()){
+                                                $_fh = 'fa-heart';
+                                            }else{
+                                                $_fh = 'fa-heart-o';
+                                            }
+                                        @endphp
+                                        <i class="fa {{ $_fh }}"></i>
+                                    </a>
                                 </div>
                                 @endguest
                             </div>
@@ -31,6 +40,7 @@
             <div class="product-content"> 
                 {!! showContentMore($data->description) !!}
             </div>
+            
             @php
                 $_galleries = $data->galleries;
                 $_count = count($data->galleries);
