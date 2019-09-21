@@ -12,11 +12,12 @@ return [
 	'please_select' => 'សូមជ្រើសរើស:msg',
 
 	//action
-	'Save' => 'Save',
+	'Save' => 'រក្សាទុក',
 	'Back' => 'Back',
 	'Next' => 'Next',
 	'Print' => 'Print',
 	'Download' => 'Download',
+	'Search' => 'ស្វែងរក',
 
 	//user
 	'No' => 'ល.រ',
@@ -30,7 +31,7 @@ return [
 	'Address' => 'អាសយដ្ឋាន',
 	'Account' => 'គណនី',
 
-	'Menu'        => 'Menu',
+	'Menu'        => 'ម៉ឺនុយ',
 
 	//page
 	'Setting' => 'Setting',
@@ -64,11 +65,26 @@ return [
 	'Chart'				=> 'Chart',
 
 	//profile
-  	'Profile' => 'Profile',
-  	'Your Profile' => 'Your Profile',
+	'My Account' => 'គណនី​របស់ខ្ញុំ',
+  	'Profile' => 'ប្រវត្តិរូប',
+  	'Your Profile' => 'ប្រវត្តិរូបរបស់អ្នក',
   	'Social Networks' => 'បណ្ដាញ​សង្គម',
-  	'Phsar24' => 'ផ្សារ២៤', 
-  	'All Right Reserved.' => 'រក្សា​សិទ្ធ​គ្រប់យ៉ាង',
+  	'Phsar24' => 'ផ្សារ២៤។', 
+  	'All Right Reserved.' => 'រក្សា​សិទ្ធ​គ្រប់យ៉ាង។',
+  	'Useful Links' => 'Useful Links',
+
+  	//contact
+  	'Subject' => 'កម្មវត្ថុ',
+  	'Message' => 'សារ',
+  	'Send' => 'ផ្ញើ',
   	
+  	'Favorite' => 'ចូលចិត្ត',
+
+  	//change password
+  	'Current Password' => 'លេខសម្ងាត់​បច្ចុប្បន្ន',
+  	'New Password' => 'លេខសម្ងាត់​ថ្មី',
+  	'Confirm New Password' => 'បញ្ចាក់លេខសម្ងាត់​ថ្មី',
+
+  	'All Categories' => 'ប្រភេទ',
 
 ];

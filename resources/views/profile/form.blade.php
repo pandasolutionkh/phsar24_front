@@ -1,32 +1,44 @@
 <div class="row">
     <div class="col-sm-6"> 
         <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
-            {!! Form::label('name', 'Name'.getRequireStar(), ['class' => 'control-label'],false) !!}
+            @php
+            $_label = _t('Name');
+            @endphp
+            {!! Form::label('name', $_label.getRequireStar(), ['class' => 'control-label'],false) !!}
             <div>
-                {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
+                {!! Form::text('name', null, array('placeholder' => $_label,'class' => 'form-control')) !!}
                 {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
             </div>
         </div>
 
         <div class="form-group">
-            {!! Form::label('gender', 'Gender', ['class' => 'control-label']) !!}
+            @php
+            $_label = _t('Gender');
+            @endphp
+            {!! Form::label('gender', $_label, ['class' => 'control-label']) !!}
             <div>
                 {!! Form::select('gender',getGenders(),null,['class' => 'form-control']) !!}
             </div>
         </div>
 
         <div class="form-group {{ $errors->has('phone') ? 'has-error' : ''}}">
-            {!! Form::label('phone', 'Phone'.getRequireStar(), ['class' => 'control-label'],false) !!}
+            @php
+            $_label = _t('Phone');
+            @endphp
+            {!! Form::label('phone', $_label.getRequireStar(), ['class' => 'control-label'],false) !!}
             <div>
-                {!! Form::text('phone', null, array('placeholder' => 'Phone','class' => 'form-control required','data-required'=>'phone','id'=>'phone')) !!}
+                {!! Form::text('phone', null, array('placeholder' => $_label,'class' => 'form-control required','data-required'=>$_label,'id'=>'phone')) !!}
                 {!! $errors->first('phone', '<p class="help-block">:message</p>') !!}
             </div>
         </div>
                 
          <div class="form-group {{ $errors->has('email') ? 'has-error' : ''}}">
-            {!! Form::label('email', 'Email'.getRequireStar(), ['class' => 'control-label'],false) !!}
+            @php
+            $_label = _t('Email');
+            @endphp
+            {!! Form::label('email', $_label.getRequireStar(), ['class' => 'control-label'],false) !!}
             <div>
-                {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control required-or-valid-email','data-required'=>'email','id'=>'email')) !!}
+                {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control required-or-valid-email','data-required'=>$_label,'id'=>'email')) !!}
                 {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
             </div>
         </div>
@@ -34,7 +46,10 @@
     </div>
     <div class="col-sm-6">
         <div class="form-group">
-            {!! Form::label('photo', 'Photo', ['class' => 'control-label']) !!}
+            @php
+            $_label = _t('Photo');
+            @endphp
+            {!! Form::label('photo', $_label, ['class' => 'control-label']) !!}
             <div class="photo-cover">
                 <div class="photo-profile" data-change="do-upload-banner" data-input="photo">
                     @if (isset($user) && $user->photo != '')
@@ -61,7 +76,7 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="form-group">
-            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ _t('Save') }}</button>
         </div>
     </div>
 </div>

@@ -49,6 +49,8 @@
 <script src="/js/jquery.nivo.slider.js"></script>
 @endif
 <script>
+    var _query_string = '<?php echo getQueryString('p='); ?>';
+    console.log(_query_string);
     var _slider = parseInt('<?php echo count($sliders); ?>');
     $(document).ready(function(){
         if(_slider > 0){
@@ -59,12 +61,24 @@
     var post_last_scroll = 0;
     var post_current_page = parseInt('<?php echo $page; ?>');
     var post_total_page = parseInt('<?php echo $products->total(); ?>');
+    var _last_page = parseInt('<?php echo $products->lastPage(); ?>');
+    var _current_page = parseInt('<?php echo $products->currentPage(); ?>');
     var post_next_page = post_current_page + 1;
+
+    if(_last_page == _current_page){
+        removeLoadMoreBtn();
+    }
     
     $('#products').after('<div class="infinite-scroll-trigger"></div>');
 
-    var _ajaxurl = '<?php echo route("home"); ?>';
-    _ajaxurl += '?page=';
+    var _base_url = '<?php echo route("home"); ?>'; 
+    var _ajaxurl = _base_url;
+    _ajaxurl += '?';
+    _ajaxurl += _query_string;
+    if(_query_string){
+        _ajaxurl += '&';
+    }
+    _ajaxurl += 'page=';
 
     function loadNextPage(){
         if(!$('body').hasClass('infinite-loading-pending')){
@@ -79,19 +93,32 @@
                     var _total = parseInt(_data.total);
                     if(_page >= _total){
                         post_next_page = (_total + 1)
-                        addInitToBody()
+                        addInitToBody();
+                        removeLoadMoreBtn();
                     }else{
                         post_next_page = (_page + 1);
                         removeInitToBody()
                     }
                     if(_html){
                         var _el = $('#products').append(_html);
-                        window.history.pushState("", "", updateQueryString('p',_page));
+                        var _history_url = _base_url;
+                        _history_url += '?' + _query_string;
+                        if(_query_string){
+                            _history_url += '&';
+                        }
+                        _history_url += 'p=' + _page;
+                        window.history.pushState("", "", _history_url);
+                    }else{
+                        removeLoadMoreBtn();
                     }
                 }).catch(error => {
                     removeInfiniteLoading();
                 });
         }
+    }
+
+    function removeLoadMoreBtn(){
+        $('#product-load-more').closest('div.text-center').remove();
     }
 
     function updateUrlParameter(param, value) {

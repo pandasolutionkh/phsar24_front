@@ -39,31 +39,34 @@
 
         
             <div class="form-group {{ $errors->has('current_password') ? 'has-error' : ''}}">
-                {!! Form::label('current_password', 'Current Password'.getRequireStar(), ['class' => 'control-label'],false) !!}
+                @php $_label = _t('Current Password'); @endphp
+                {!! Form::label('current_password', $_label.getRequireStar(), ['class' => 'control-label'],false) !!}
                 <div>
-                    {!! Form::password('current_password', array('placeholder' => 'Current Password','class' => 'form-control required','data-required'=>'current_password')) !!}
+                    {!! Form::password('current_password', array('placeholder' => $_label,'class' => 'form-control required','data-required'=>$_label)) !!}
                     {!! $errors->first('current_password', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
 
             <div class="form-group {{ $errors->has('new_password') ? 'has-error' : ''}}">
-                {!! Form::label('new_password', 'New Password'.getRequireStar(), ['class' => 'control-label'],false) !!}
+                @php $_label = _t('New Password'); @endphp
+                {!! Form::label('new_password', $_label.getRequireStar(), ['class' => 'control-label'],false) !!}
                 <div>
-                    {!! Form::password('new_password', array('placeholder' => 'New Password','class' => 'form-control required','data-required'=>'new password')) !!}
+                    {!! Form::password('new_password', array('placeholder' => $_label,'class' => 'form-control required','data-required'=>$_label)) !!}
                     {!! $errors->first('new_password', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
 
             <div class="form-group {{ $errors->has('new_password_confirmation') ? 'has-error' : ''}}">
-                {!! Form::label('new_password_confirmation', 'Confirm Password'.getRequireStar(), ['class' => 'control-label'],false) !!}
+                @php $_label = _t('Confirm New Password'); @endphp
+                {!! Form::label('new_password_confirmation', $_label.getRequireStar(), ['class' => 'control-label'],false) !!}
                 <div>
-                    {!! Form::password('new_password_confirmation', array('placeholder' => 'Confirm New Password','class' => 'form-control required','data-required'=>'confirm new password')) !!}
+                    {!! Form::password('new_password_confirmation', array('placeholder' => $_label,'class' => 'form-control required','data-required'=>$_label)) !!}
                     {!! $errors->first('new_password_confirmation', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
         
             <div class="form-group">
-                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ _t('Save') }}</button>
             </div>
 
 
