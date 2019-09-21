@@ -288,18 +288,22 @@ if(! function_exists('getCategories')){
 }
 
 if(! function_exists('getQueryString')){
-    function getQueryString($p_except = ''){
+    function getQueryString($p_except = []){
         $_n = '&';
+        $_e = '=';
         $_qs = \Request::getQueryString();
         $_data = explode($_n, $_qs);
         $_str = '';
         foreach($_data as $_item){
-            $_tmp = explode($p_except, $_item);
-            if(count($_tmp) == 1){
-                if($_str){
-                    $_str .= $_n;
+            $_tmp = explode($_e, $_item);    
+            if(count($_tmp) > 1){
+                $_key = $_tmp[0];
+                if(!in_array($_key,$p_except)){
+                    if($_str){
+                        $_str .= $_n;
+                    }
+                    $_str .= $_item;
                 }
-                $_str .= $_item;
             }
         }
         return $_str;

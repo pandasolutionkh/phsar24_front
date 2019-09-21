@@ -154,7 +154,6 @@ h1.title{
 }
 
 .top-search{
-    .input-group-text,
     .form-control{
         border-radius: 25rem;
 
@@ -163,7 +162,10 @@ h1.title{
             box-shadow: none;
         }
     }
-    
+    .input-group-text{
+        border-top-right-radius: 25rem !important;
+        border-bottom-right-radius: 25rem !important;
+    }
 }
 
 .welcome{

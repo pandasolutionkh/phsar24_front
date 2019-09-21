@@ -49,7 +49,7 @@
 <script src="/js/jquery.nivo.slider.js"></script>
 @endif
 <script>
-    var _query_string = '<?php echo getQueryString('p='); ?>';
+    var _query_string = '<?php echo getQueryString(['p']); ?>';
     console.log(_query_string);
     var _slider = parseInt('<?php echo count($sliders); ?>');
     $(document).ready(function(){

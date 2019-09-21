@@ -77,7 +77,7 @@ class HomeController extends Controller
             $sliders = Banner::where('enabled',true)->where('is_activated',true)->get();
             $products = $products->paginate($product_per_page);
 
-            return view('home',compact('sliders','products','page','category_name','search'));
+            return view('home',compact('sliders','products','page','c_id','category_name','search'));
         }
     }
 
