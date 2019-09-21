@@ -20,6 +20,7 @@
             @include ('products.item',$data)
         @endforeach
         </div>
+        {!! $products->appends($_GET)->links(); !!}
    </div>
 </div>
 @endsection
