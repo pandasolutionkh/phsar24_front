@@ -1,7 +1,7 @@
 @php
     $_id = $data->id;
     $_time = getNumberOfDays($data->updated_at,date('Y-m-d H:i:s'));
-    $_countLiked = count($data->post_likes);
+    $_countLiked = 0;//count($data->post_likes);
 @endphp
 <div class="cols">
     <div class="card" data-id="p{{ $_id }}">

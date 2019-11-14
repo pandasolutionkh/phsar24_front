@@ -83,6 +83,9 @@ h1.title{
         }
     }
     .menu-category{
+        height: 315px;
+        overflow: auto;
+
         li{
             width: 20%;
             float: left;
@@ -110,6 +113,11 @@ h1.title{
             clear: both;
             display: table;
             content: "";
+        }
+
+        + div{
+            border-top: 1px solid #ddd;
+            padding-top: 3px;
         }
     }
 

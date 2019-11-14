@@ -590,6 +590,11 @@ h1.title:after {
   padding: .5rem;
 }
 
+.navbar-custom .menu-category {
+  height: 315px;
+  overflow: auto;
+}
+
 .navbar-custom .menu-category li {
   width: 20%;
   float: left;
@@ -618,6 +623,11 @@ h1.title:after {
   clear: both;
   display: table;
   content: "";
+}
+
+.navbar-custom .menu-category + div {
+  border-top: 1px solid #ddd;
+  padding-top: 3px;
 }
 
 .navbar-custom .container {

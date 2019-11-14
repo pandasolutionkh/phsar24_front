@@ -90,14 +90,16 @@ class HomeController extends Controller
     public function product(Request $request,$id)
     {
         $data = Product::find($id);
-        if(empty($data)){
+        if($request->ajax()){
+          if(empty($data)){
             $res['form'] = "Your data is not correct!";
             return response()->json($res);
+          }
+          $form = view('products.detail',compact('data'))->render();
+          $res['form'] = $form;
+          return response()->json($res);
         }
-
-        $res['form'] = view('products.detail',compact('data'))->render();
-        
-        return response()->json($res);
+        return view('products.share',compact('data'));
         
     }
 

@@ -50,7 +50,6 @@
 @endif
 <script>
     var _query_string = '<?php echo getQueryString(['p']); ?>';
-    console.log(_query_string);
     var _slider = parseInt('<?php echo count($sliders); ?>');
     $(document).ready(function(){
         if(_slider > 0){
@@ -101,13 +100,13 @@
                     }
                     if(_html){
                         var _el = $('#products').append(_html);
-                        var _history_url = _base_url;
-                        _history_url += '?' + _query_string;
-                        if(_query_string){
-                            _history_url += '&';
-                        }
-                        _history_url += 'p=' + _page;
-                        window.history.pushState("", "", _history_url);
+                        // var _history_url = _base_url;
+                        // _history_url += '?' + _query_string;
+                        // if(_query_string){
+                        //     _history_url += '&';
+                        // }
+                        //_history_url += 'p=' + _page;
+                        //window.history.pushState("", "", _history_url);
                     }else{
                         removeLoadMoreBtn();
                     }
