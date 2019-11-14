@@ -2,11 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class ProductLike extends Base
+class Master extends Base
 {
-    protected $table = 'product_likes';
+    protected $table = 'masters';
 
     /**
      * The attributes that are mass assignable.
@@ -14,15 +12,15 @@ class ProductLike extends Base
      * @var array
 
      */
-    // protected $table ='post_media';
+    
+    // protected $table ='masters';
     protected $fillable = [
-        'user_id',
-        'product_id'
+        'title',
+        'description',
+        'photo',
+        'is_activated',
+        'enabled'
     ];
-
-    function product(){
-        return $this->belongsTo(Product::class,'product_id');
-    }
 
     /**
      * The attributes that should be hidden for arrays.
@@ -30,6 +28,9 @@ class ProductLike extends Base
      * @var array
      */
     protected $hidden = [
-    
+        'enabled'
     ];
 }
+
+
+
