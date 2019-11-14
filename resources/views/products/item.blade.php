@@ -84,28 +84,34 @@
             </div>
             @endif
 
-            @if(floatval($data->price) > 0 || intval($data->promotion) > 0)
+            
             <div class="product-like">
                 <div class="d-table w-100">
                     <div class="d-table-row">
                         <div class="d-table-cell">
-                            @if(floatval($data->price) > 0)
-                            <a class="btn btn-secondary btn-sm">
-                                ${{ $data->price }}
+                            <a data-href="{{ route('products.detail',$_id) }}" class="btn btn-share-fb btn-sm">
+                                <i class="fa fa-facebook"></i> Share
                             </a>
-                            @endif
                         </div>
                         <div class="d-table-cell text-right">
-                            @if(intval($data->promotion) > 0)
-                            <a class="btn btn-primary btn-sm">
-                                {{ $data->promotion }}% OFF
-                            </a>
+                            @if(floatval($data->price) > 0 || intval($data->promotion) > 0)
+                                @if(floatval($data->price) > 0)
+                                <a class="btn btn-secondary btn-sm">
+                                    ${{ $data->price }}
+                                </a>
+                                @endif
+
+                                @if(intval($data->promotion) > 0)
+                                <a class="btn btn-primary btn-sm">
+                                    {{ $data->promotion }}% OFF
+                                </a>
+                                @endif
                             @endif
                         </div>
                     </div>
                 </div>
             </div>
-            @endif
+            
         </div>
     </div>
 </div>

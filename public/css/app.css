@@ -1974,6 +1974,14 @@ footer a.created-by {
   border-color: #d94375 !important;
 }
 
+.btn-share-fb,
+.btn-share-fb:hover,
+.btn-share-fb:active,
+.btn-share-fb:visited {
+  background-color: #193a68;
+  border-color: #193a68;
+}
+
 a.btn {
   color: #fff !important;
 }
