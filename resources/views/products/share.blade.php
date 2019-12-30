@@ -1,7 +1,37 @@
 @extends('layouts.app')
 
-@section('content')
+@section('meta_title')
+    <title>Product | {{ $data->name }}</title>
+@endsection
 
+@section('meta')
+	@php
+		$_meta_image = '';
+		$_share_link = route('products.detail',$data->id);
+	@endphp
+
+	@foreach($data->galleries as $item)
+        @php
+        if($item->is_cover){
+            $_name = $item->name;
+            $_meta_image = getUrlStorage('products/'.$_name);
+        }
+        @endphp
+    @endforeach
+    <meta property="fb:app_id"        content="{{ ENV('FACEBOOK_APP_ID') }}"/>
+    <meta property="og:site_name"     content="{{ ENV('APP_NAME') }}">
+    <meta property="og:url"           content="{{ $_share_link }}" />
+    <meta property="og:type"          content="article" />
+    <meta property="og:title"         content="{{ $data->name }}" />
+    <meta property="og:description"   content="{{ $data->description }}" />
+    @if($_meta_image)
+    <meta property="og:image"         content="{{ $_meta_image }}" />
+    <meta property="og:image:width"   content="1200"/>
+    <meta property="og:image:height"  content="628"/>
+    @endif
+@endsection
+
+@section('content')
 <div class="py-4">
     <div class="container">
     	<div class="row">

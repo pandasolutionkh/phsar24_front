@@ -7,8 +7,25 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @yield('meta')
+    
+    @section('meta_title')
     <title>{{ config('app.name') }}</title>
+    @endsection
+    @yield('meta_title')
+    
+    @section('meta')
+        <meta property="fb:app_id"        content="{{ ENV('FACEBOOK_APP_ID') }}"/>
+        <meta property="og:site_name"     content="{{ ENV('APP_NAME') }}">
+        <meta property="og:url"           content="http://www.phsar24.asia/" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="Phsar24" />
+        <meta property="og:description"   content="Phsar24" />
+        <meta property="og:image"         content="{{ asset('img/logo.png') }}" />
+        <meta property="og:image:width"   content="200"/>
+        <meta property="og:image:height"  content="200"/>
+    @endsection
+    
+    @yield('meta')
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -22,21 +39,11 @@
     <link rel="stylesheet" href="/css/animate.css"/>
     @yield('style')
     @php
-        $_v = '1.1.2';
+        $_v = '1.1.3';
     @endphp
     <link rel="stylesheet" href="/css/nprogress.css"/>
     <link rel="stylesheet" href="/css/app.css?v={!! $_v !!}"/>
     <link rel="shortcut icon" href="/favicon.ico"/>
-
-    <meta property="fb:app_id"        content="{{ ENV('FACEBOOK_APP_ID') }}"/>
-    <meta property="og:site_name"     content="{{ ENV('APP_NAME') }}">
-    <meta property="og:url"           content="http://www.phsar24.asia/" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Phsar24" />
-    <meta property="og:description"   content="Phsar24" />
-    <meta property="og:image"         content="{{ asset('img/logo.png') }}" />
-    <meta property="og:image:width"   content="200"/>
-    <meta property="og:image:height"  content="200"/>
 
     <!-- Scripts -->
     <script>

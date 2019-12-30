@@ -275,16 +275,8 @@ $(document).on('click','a.share',function(e){
   var $link   = $(this);
   var href    = $link.attr('href');
   var network = $link.data('network');
-  var title = $link.data('title');
-  var image = $link.data('image');
-  var descr = $link.data('descr');
-  //s=100&p[title]=' + title + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image
-  //href += '&display=popup&kid_directed_site=0&app_id='+fb_app_id;
-  var fb_url = "https://www.facebook.com/sharer/sharer.php?s=100&p[title]=" + title;
-  fb_url += "&p[url]=" + href;
-  fb_url += "&p[images][0]=" + image;
-  fb_url += "&p[summary]=" + descr;
-  console.log(fb_url);
+  
+  href += '&display=popup&kid_directed_site=0&app_id='+fb_app_id;
   var networks = {
       facebook : { width : 600, height : 300 },
       twitter  : { width : 600, height : 254 },
@@ -302,7 +294,7 @@ $(document).on('click','a.share',function(e){
       _options += ', left=' + ($(window).width() / 2 - ((_width/2)));
       _options += ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0';
 
-      window.open(fb_url, 'fbShareWindow', _options);
+      window.open(href, 'fbShareWindow', _options);
   }
 
   popup(network);

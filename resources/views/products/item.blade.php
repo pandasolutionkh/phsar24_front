@@ -65,17 +65,11 @@
             @endphp
 
             <div class="product-image imgs-grid imgs-grid-{{$_count}}" data-id="{{ $_id }}" data-toggle="modal" data-target="#modalPopup">
-                @php
-                    $_image = '';
-                @endphp
                 @foreach($_galleries as $item)
                     @php
                         if($_incr == $_count) break;
                         $_name = $item->name;
                         $_src = getUrlStorage('products/'.$_name);
-                        if($item->is_cover){
-                            $_image = $_src;
-                        }
                     @endphp
 
                     <div class="imgs-grid-image">
@@ -105,9 +99,9 @@
                             @php
                                 $_href = route('products.detail',$_id);
                                 $_title = $data->name;
-                                $_descr = $data->description;
+                                $_fb_share = "https://www.facebook.com/sharer/sharer.php?u=$_href&t=$_title";
                             @endphp
-                            <a href="{{ $_href }}" data-image="{{ $_image }}" data-descr="{{ $_descr }}" data-title="{{ $_title }}" data-network="facebook" class="btn btn-share-fb btn-sm share" data-layout="button_count">
+                            <a href="{{ $_fb_share }}" data-network="facebook" class="btn btn-share-fb btn-sm share" data-layout="button_count">
                                 <i class="fa fa-facebook"></i> Share
                             </a>
                         </div>
