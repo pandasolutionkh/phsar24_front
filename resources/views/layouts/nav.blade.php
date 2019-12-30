@@ -16,17 +16,58 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <div class="navbar-nav ml-auto">
-                <div class="w-400px">
+                <div class="w-45vw">
                     @php
                         $_query = getQueryString(['s','p']);
                         $_url = "/?$_query";
                         $_s = ((isset($search) && $search) ? $search : ''); 
                     @endphp
                     <form method="get" action="{{ $_url }}"> 
-                        <div class="input-group top-search">
+                        <div class="top-search input-group">
                             {!! Form::text('s', $_s, array('placeholder' => _t('Search'),'autocomplete'=>'off','class' => 'form-control form-control')) !!}
                             <div class="input-group-append">
-                                <button type="submit" class="input-group-text lighten-3">
+                                <span class="input-group-text">
+                                    <div class="dropdown dropdown-category">
+                                        <a id="categoriesDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                            {{ _t('All Categories') }}
+                                            @if(isset($category_name) and $category_name) 
+                                                <i class="fa fa-angle-right"></i>
+                                                {{ $category_name }}
+                                            @endif <span class="caret"></span>
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                                            <ul class="menu-category">
+                                                @foreach(getCategories() as $_entity)
+                                                <li>
+                                                    <span>{{ $_entity->name }}</span>
+                                                    <ul class="sub-category">
+                                                        @php
+                                                            $_query = getQueryString(['c','p']);
+                                                        @endphp
+                                                        @foreach($_entity->sub_categories as $_item)
+                                                        <li>
+                                                            @php
+                                                                $_id = $_item->id;
+                                                                $_url = "/?$_query";
+                                                                if($_query){
+                                                                    $_url .= '&';
+                                                                }
+                                                                $_url .= "c=$_id";
+                                                            @endphp
+                                                            <a href="{{ $_url }}">{{ $_item->name }}</a>
+                                                        </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </li>
+                                                @endforeach
+                                            </ul>
+                                            <div class="text-center">
+                                                <a href="{{ route('home') }}">View All</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </span>
+                                <button type="submit" class="btn input-group-text">
                                     <i class="fa fa-search text-grey" aria-hidden="true"></i>
                                 </button>
                             </div>
@@ -37,60 +78,20 @@
                     </form>
                 </div>
                 
-                <div class="dropdown dropdown-category">
-                    <a id="categoriesDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ _t('All Categories') }}
-                        @if(isset($category_name) and $category_name) 
-                            <i class="fa fa-angle-right"></i>
-                            {{ $category_name }}
-                        @endif <span class="caret"></span>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
-                        <ul class="menu-category">
-                            @foreach(getCategories() as $_entity)
-                            <li>
-                                <span>{{ $_entity->name }}</span>
-                                <ul class="sub-category">
-                                    @php
-                                        $_query = getQueryString(['c','p']);
-                                    @endphp
-                                    @foreach($_entity->sub_categories as $_item)
-                                    <li>
-                                        @php
-                                            $_id = $_item->id;
-                                            $_url = "/?$_query";
-                                            if($_query){
-                                                $_url .= '&';
-                                            }
-                                            $_url .= "c=$_id";
-                                        @endphp
-                                        <a href="{{ $_url }}">{{ $_item->name }}</a>
-                                    </li>
-                                    @endforeach
-                                </ul>
-                            </li>
-                            @endforeach
-                        </ul>
-                        <div class="text-center">
-                            <a href="{{ route('home') }}">View All</a>
-                        </div>
-                    </div>
-                </div>
-                
             </div>
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto menu-auth top-menu-right">
+                <li>
+                        <a class="nav-link" href="{{ route('favorites.index') }}">
+                            <i class="fa fa-heart"></i> {!! _t('Favorite') !!}
+                        </a>
+                    </li>
                 @guest
                 <li><a class="btn btn-primary btn-sm" href="{{ route('login') }}"><i class="fa fa-sign-in"></i> {!! _t('Login') !!}</a></li>
                 <li><a class="btn btn-primary btn-sm" href="{{ route('register') }}"><i class="fa fa-edit"></i> {!! _t('Register') !!}</a></li>
                 
                 @else
-                    <li>
-                        <a class="nav-link" href="{{ route('favorites.index') }}">
-                            <i class="fa fa-heart"></i> {!! _t('Favorite') !!}
-                        </a>
-                    </li>
                     <li class="nav-item dropdown">
                         <div class="d-table">
                             <div class="d-table-row">

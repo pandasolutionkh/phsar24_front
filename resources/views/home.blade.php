@@ -177,31 +177,7 @@
     $(document).on('click','#product-load-more',function(){
         loadNextPage();
     });
-
-    $(document).on('click','.btn-share-fb',function(e){
-        var _href = $(this).data('href');
-        console.log(_href);
-        FB.ui({
-          method: 'share',
-          href: _href,
-        }, function(response){});
-    });
-
-    window.fbAsyncInit = function() {     
-        FB.init({
-            appId      : '507431746746214',
-            status     : true,
-            xfbml      : true
-        });
-    };
-
-    (function(d, s, id){
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
-        js.src = "http://connect.facebook.net/en_US/all.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
     
 </script>
+
 @endsection

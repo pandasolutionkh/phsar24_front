@@ -270,4 +270,35 @@ $(document).on('click','.btn-product-favorite',function(e){
   });
 });
 
+$(document).on('click','a.share',function(e){
+  e.preventDefault();
+  var $link   = $(this);
+  var href    = $link.attr('href');
+  var network = $link.data('network');
+  
+  href += '&display=popup&kid_directed_site=0&app_id='+fb_app_id;
+  var networks = {
+      facebook : { width : 600, height : 300 },
+      twitter  : { width : 600, height : 254 },
+      google   : { width : 515, height : 490 },
+      linkedin : { width : 600, height : 473 }
+  };
+
+  var popup = function(network){
+    var _height = networks[network].height;
+    var _width = networks[network].width;
+      //var _options = 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height='+_height+',width='+_width;
+      var _options = 'height='+_height;
+      _options += ', width='+_width;
+      _options += ', top=' + ($(window).height() / 2 - (_height/2));
+      _options += ', left=' + ($(window).width() / 2 - ((_width/2)));
+      _options += ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0';
+
+      window.open(href, 'fbShareWindow', _options);
+  }
+
+  popup(network);
+});
+
 window.onload = function () { NProgress.done(); }
+

@@ -142,8 +142,11 @@ h1.title{
     padding-right: 5px;
 }
 
-.menu-auth li .btn-sm {
+.menu-auth .nav-link,
+.menu-auth li .btn-sm{
     padding: .25rem .8rem;
+}
+.menu-auth li .btn-sm {
     border-radius: 25rem;
 }
 
@@ -171,8 +174,13 @@ h1.title{
         }
     }
     .input-group-text{
-        border-top-right-radius: 25rem !important;
-        border-bottom-right-radius: 25rem !important;
+        &:last-child{
+            border-top-right-radius: 25rem !important;
+            border-bottom-right-radius: 25rem !important;
+        }
+    }
+    &.input-group{
+        position: initial;
     }
 }
 
@@ -309,12 +317,11 @@ h1.title{
     .card-header{
         padding-left: 15px;
         padding-right: 15px;
-        background-color: $light-blue;
 
         h3{
             margin: 0;
             font-size: 1.5rem;
-            color: $white;
+            color: $light-primary;
         }
     }
 
@@ -452,6 +459,51 @@ h1.title{
                 padding: 5px 5px;
                 font-size: 11px;
                 line-height: 12px;
+            }
+        }
+    }
+}
+
+.product-detail{
+    .product-title{
+        font-size: 18px;
+    }
+
+    .product-time{
+        font-size: 12px;
+    }
+
+    .dotted{
+        font-size: 10px;
+    }
+    .product-content{
+        p{
+            &.see-more{
+                display: inline-block;
+            }
+            
+            &:last-child{
+                margin-bottom: 0;
+            }
+        }
+
+        .text-exposed-hide{
+            display: inline;
+        }
+        .text-exposed-show{
+            display: none;
+        }
+
+        &.active{
+            .text-exposed-hide{
+                display: none;
+            }
+            .text-exposed-show{
+                display: inline;
+            }
+
+            .btn-product-see-more{
+                display: none;
             }
         }
     }
@@ -870,6 +922,10 @@ h1.title{
 
 .w-400px{
     width: 400px;
+}
+
+.w-45vw{
+    width: 45vw;
 }
 
 

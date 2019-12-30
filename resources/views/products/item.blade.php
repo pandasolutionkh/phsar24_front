@@ -12,11 +12,18 @@
                         <div class="d-table w-100">
                             <div class="d-table-row">
                                 <div class="d-table-cell">
-                                    <strong class="product-title">{{ $data->name }}</strong>
+                                    <a href="{{ route('products.detail',$_id) }}">
+                                        <strong class="product-title">{{ $data->name }}</strong>
+                                    </a>
                                 </div>
-                                @guest
-                                @else
                                 <div class="d-table-cell text-right w-15px">
+                                @guest
+                                
+                                    <a href="{{ route('favorites.index') }}">
+                                        <i class="fa fa-heart-o"></i>
+                                    </a>
+                                
+                                @else
                                     <a data-id="{{ $_id }}" href="" class="btn-product-favorite">
                                         @php
                                             if($data->favorited()){
@@ -27,8 +34,8 @@
                                         @endphp
                                         <i class="fa {{ $_fh }}"></i>
                                     </a>
-                                </div>
                                 @endguest
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -84,28 +91,39 @@
             </div>
             @endif
 
-            @if(floatval($data->price) > 0 || intval($data->promotion) > 0)
+            
             <div class="product-like">
                 <div class="d-table w-100">
                     <div class="d-table-row">
                         <div class="d-table-cell">
-                            @if(floatval($data->price) > 0)
-                            <a class="btn btn-secondary btn-sm">
-                                ${{ $data->price }}
+                            @php
+                                $_href = route('products.detail',$_id);
+                                $_title = $data->name;
+                                $_fb_share = "https://www.facebook.com/sharer/sharer.php?u=$_href&t=$_title";
+                            @endphp
+                            <a href="{{ $_fb_share }}" data-network="facebook" class="btn btn-share-fb btn-sm share" data-layout="button_count">
+                                <i class="fa fa-facebook"></i> Share
                             </a>
-                            @endif
                         </div>
                         <div class="d-table-cell text-right">
-                            @if(intval($data->promotion) > 0)
-                            <a class="btn btn-primary btn-sm">
-                                {{ $data->promotion }}% OFF
-                            </a>
+                            @if(floatval($data->price) > 0 || intval($data->promotion) > 0)
+                                @if(floatval($data->price) > 0)
+                                <a class="btn btn-secondary btn-sm">
+                                    ${{ $data->price }}
+                                </a>
+                                @endif
+
+                                @if(intval($data->promotion) > 0)
+                                <a class="btn btn-primary btn-sm">
+                                    {{ $data->promotion }}% OFF
+                                </a>
+                                @endif
                             @endif
                         </div>
                     </div>
                 </div>
             </div>
-            @endif
+            
         </div>
     </div>
 </div>

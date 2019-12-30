@@ -314,4 +314,112 @@ function setLike($txt){
     return "%$txt%";
 }
 
+function compress($source, $destination, $quality) {
+
+    $info = getimagesize($source);
+
+    if ($info['mime'] == 'image/jpeg') 
+        $image = imagecreatefromjpeg($source);
+
+    elseif ($info['mime'] == 'image/gif') 
+        $image = imagecreatefromgif($source);
+
+    elseif ($info['mime'] == 'image/png') 
+        $image = imagecreatefrompng($source);
+
+    
+    if(isset($image) && $image){
+        imagejpeg($image, $destination, $quality);
+    }
+
+    return $destination;
+}
+
+function resizeImage($sourceImage, $targetImage, $maxWidth, $maxHeight, $quality = 80)
+{
+    // Get dimensions of source image.
+    $info = getimagesize($sourceImage);
+    list($origWidth, $origHeight) = $info;
+
+    if ($info['mime'] == 'image/jpeg') 
+        $image = imagecreatefromjpeg($sourceImage);
+
+    elseif ($info['mime'] == 'image/gif') 
+        $image = imagecreatefromgif($sourceImage);
+
+    elseif ($info['mime'] == 'image/png') 
+        $image = imagecreatefrompng($sourceImage);
+
+    if($image){
+
+        if ($maxWidth == 0)
+        {
+            $maxWidth  = $origWidth;
+        }
+
+        if ($maxHeight == 0)
+        {
+            $maxHeight = $origHeight;
+        }
+
+        // Calculate ratio of desired maximum sizes and original sizes.
+        $widthRatio = $maxWidth / $origWidth;
+        $heightRatio = $maxHeight / $origHeight;
+
+        // Ratio used for calculating new image dimensions.
+        $ratio = min($widthRatio, $heightRatio);
+
+        // Calculate new image dimensions.
+        $newWidth  = (int)$origWidth  * $ratio;
+        $newHeight = (int)$origHeight * $ratio;
+
+        // Create final image with new dimensions.
+        $newImage = imagecreatetruecolor($newWidth, $newHeight);
+        if ($info['mime'] == 'image/gif'){
+            return true;
+        }elseif ($info['mime'] == 'image/png'){
+            imagealphablending($newImage, false);
+            imagesavealpha($newImage, true);
+            $transparent = imagecolorallocatealpha($newImage, 255, 255, 255, 127);
+            imagefilledrectangle($newImage, 0, 0, $newWidth, $newHeight, $transparent);
+            imagecopyresampled($newImage, $image, 0, 0, 0, 0, $newWidth, $newHeight, $origWidth, $origHeight);
+            imagepng($newImage, $targetImage);
+        }else{
+            imagecopyresampled($newImage, $image, 0, 0, 0, 0, $newWidth, $newHeight, $origWidth, $origHeight);
+            imagejpeg($newImage, $targetImage, $quality);
+        }
+
+        // Free up the memory.
+        imagedestroy($image);
+        imagedestroy($newImage);
+
+        return true;
+    }
+    return false;
+}
+
+
+if(! function_exists('getPublicDisk')){
+    function getPublicDisk(){
+        $_driver = 'public';
+        return \Storage::disk($_driver);
+    }
+}
+
+if(! function_exists('getPublicUrlStorage')){
+    function getPublicUrlStorage($path){
+        return getPublicDisk()->url($path);
+    }
+}
+
+if(! function_exists('getPublicPathStorage')){
+    function getPublicPathStorage($path){
+        return getPublicDisk()->path($path);
+    }
+}
+if(! function_exists('getExistsStorage')){
+    function getPublicExistsStorage($path){
+        return getPublicDisk()->exists($path);
+    }
+}
 

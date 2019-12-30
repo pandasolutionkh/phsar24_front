@@ -651,8 +651,12 @@ h1.title:after {
   padding-right: 5px;
 }
 
+.menu-auth .nav-link,
 .menu-auth li .btn-sm {
   padding: .25rem .8rem;
+}
+
+.menu-auth li .btn-sm {
   border-radius: 25rem;
 }
 
@@ -682,9 +686,13 @@ h1.title:after {
           box-shadow: none;
 }
 
-.top-search .input-group-text {
+.top-search .input-group-text:last-child {
   border-top-right-radius: 25rem !important;
   border-bottom-right-radius: 25rem !important;
+}
+
+.top-search.input-group {
+  position: initial;
 }
 
 .welcome {
@@ -826,13 +834,12 @@ h1.title:after {
 .card .card-header {
   padding-left: 15px;
   padding-right: 15px;
-  background-color: #0c4ca2 !important;
 }
 
 .card .card-header h3 {
   margin: 0;
   font-size: 1.5rem;
-  color: #fff;
+  color: #d94375 !important;
 }
 
 .card .account-profile {
@@ -967,6 +974,46 @@ h1.title:after {
   padding: 5px 5px;
   font-size: 11px;
   line-height: 12px;
+}
+
+.product-detail .product-title {
+  font-size: 18px;
+}
+
+.product-detail .product-time {
+  font-size: 12px;
+}
+
+.product-detail .dotted {
+  font-size: 10px;
+}
+
+.product-detail .product-content p.see-more {
+  display: inline-block;
+}
+
+.product-detail .product-content p:last-child {
+  margin-bottom: 0;
+}
+
+.product-detail .product-content .text-exposed-hide {
+  display: inline;
+}
+
+.product-detail .product-content .text-exposed-show {
+  display: none;
+}
+
+.product-detail .product-content.active .text-exposed-hide {
+  display: none;
+}
+
+.product-detail .product-content.active .text-exposed-show {
+  display: inline;
+}
+
+.product-detail .product-content.active .btn-product-see-more {
+  display: none;
 }
 
 .make-columns {
@@ -1414,6 +1461,10 @@ h1.title:after {
 
 .w-400px {
   width: 400px;
+}
+
+.w-45vw {
+  width: 45vw;
 }
 
 .h-100 {
