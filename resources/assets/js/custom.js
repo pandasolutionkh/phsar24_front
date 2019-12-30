@@ -281,9 +281,10 @@ $(document).on('click','a.share',function(e){
   //s=100&p[title]=' + title + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image
   //href += '&display=popup&kid_directed_site=0&app_id='+fb_app_id;
   var fb_url = "https://www.facebook.com/sharer/sharer.php?s=100&p[title]=" + title;
-  fb_url += "&p[summary]=" + descr;
   fb_url += "&p[url]=" + href;
   fb_url += "&p[images][0]=" + image;
+  fb_url += "&p[summary]=" + descr;
+  console.log(fb_url);
   var networks = {
       facebook : { width : 600, height : 300 },
       twitter  : { width : 600, height : 254 },
