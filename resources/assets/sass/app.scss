@@ -451,7 +451,6 @@ h1.title{
                 color: #000 !important;
                 background-color: transparent;
                 border-color: #ccc;
-                border: 0;
                 -webkit-box-shadow: 0 0 6px 1px #999;
                 box-shadow: 0 0 6px 1px #999;
             }
@@ -459,6 +458,10 @@ h1.title{
                 padding: 5px 5px;
                 font-size: 11px;
                 line-height: 12px;
+            }
+
+            .text-promotion{
+                color: $light-primary;
             }
         }
     }

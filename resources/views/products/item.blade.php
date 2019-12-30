@@ -107,15 +107,17 @@
                         </div>
                         <div class="d-table-cell text-right">
                             @if(floatval($data->price) > 0 || intval($data->promotion) > 0)
-                                @if(floatval($data->price) > 0)
+                                @if(intval($data->promotion) > 0)
+                                <a class="btn btn-secondary btn-sm">
+                                    ${{ $data->promotion }}
+                                </a>
+                                
+                                <a class="text-promotion">
+                                    <del>${{ $data->price }}</del>
+                                </a>
+                                @elseif(floatval($data->price) > 0)
                                 <a class="btn btn-secondary btn-sm">
                                     ${{ $data->price }}
-                                </a>
-                                @endif
-
-                                @if(intval($data->promotion) > 0)
-                                <a class="btn btn-primary btn-sm">
-                                    {{ $data->promotion }}% OFF
                                 </a>
                                 @endif
                             @endif

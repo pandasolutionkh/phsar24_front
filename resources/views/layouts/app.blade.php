@@ -13,6 +13,7 @@
     @endsection
     @yield('meta_title')
     
+    <meta property="fb:pages" content="103571147686160" />
     @section('meta')
         <meta property="fb:app_id"        content="{{ ENV('FACEBOOK_APP_ID') }}"/>
         <meta property="og:site_name"     content="{{ ENV('APP_NAME') }}">
@@ -39,7 +40,7 @@
     <link rel="stylesheet" href="/css/animate.css"/>
     @yield('style')
     @php
-        $_v = '1.1.3';
+        $_v = '1.1.4';
     @endphp
     <link rel="stylesheet" href="/css/nprogress.css"/>
     <link rel="stylesheet" href="/css/app.css?v={!! $_v !!}"/>

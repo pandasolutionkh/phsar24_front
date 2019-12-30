@@ -965,7 +965,6 @@ h1.title:after {
   color: #000 !important;
   background-color: transparent;
   border-color: #ccc;
-  border: 0;
   -webkit-box-shadow: 0 0 6px 1px #999;
   box-shadow: 0 0 6px 1px #999;
 }
@@ -974,6 +973,10 @@ h1.title:after {
   padding: 5px 5px;
   font-size: 11px;
   line-height: 12px;
+}
+
+.card-body.product .product-like .text-promotion {
+  color: #d94375 !important;
 }
 
 .product-detail .product-title {
