@@ -99,9 +99,9 @@
                             @php
                                 $_href = route('products.detail',$_id);
                                 $_title = $data->name;
-                                $_fb_share = "https://www.facebook.com/sharer/sharer.php?u=$_href&t=$_title";
+                                $_descr = $data->description;
                             @endphp
-                            <a href="{{ $_fb_share }}" data-network="facebook" class="btn btn-share-fb btn-sm share" data-layout="button_count">
+                            <a href="{{ $_href }}" data-descr="{{ $_descr }}" data-title="{{ $_title }}" data-network="facebook" class="btn btn-share-fb btn-sm share" data-layout="button_count">
                                 <i class="fa fa-facebook"></i> Share
                             </a>
                         </div>
