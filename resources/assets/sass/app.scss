@@ -135,11 +135,26 @@ h1.title{
     color: #d94375 !important;
 }
 
-.menu-auth li {
-    display: inline-block;
-    vertical-align: middle;
-    padding-left: 5px;
-    padding-right: 5px;
+.menu-auth {
+    li {
+        display: inline-block;
+        vertical-align: middle;
+        padding-left: 5px;
+        padding-right: 5px;
+
+        &.profile{
+            .nav-link{
+                padding: 0;
+
+                .img-profile{
+                    border-radius: 50%;
+                    width: 30px;
+                    height: 30px;
+                    border: 1px solid #999999; 
+                }
+            }
+        }
+    }
 }
 
 .menu-auth .nav-link,
@@ -322,6 +337,10 @@ h1.title{
             margin: 0;
             font-size: 1.5rem;
             color: $light-primary;
+
+            &.menu-profile-title{
+                font-size: 1rem;
+            }
         }
     }
 
@@ -350,6 +369,182 @@ h1.title{
             color: #fff !important;
         }
     }
+}
+
+.width-20px{
+    width: 20px;
+}
+
+.width-40px{
+    width: 40px;
+}
+
+.width-45px{
+    width: 45px;
+}
+
+.width-70px{
+    width: 70px;
+}
+
+.width-80px{
+    width: 80px;
+}
+
+.width-85px{
+    width: 85px;
+}
+
+.width-100px{
+    width: 100px;
+}
+
+.width-120px{
+    width: 120px;
+}
+
+.width-155px{
+    width: 155px;
+}
+
+.width-180px{
+    width: 180px;
+}
+
+/**
+* Fiel preview
+*/
+
+.drag-and-drop{
+    z-index:1;
+    min-height: 275px;
+    border: 1px solid #e2e2e2;
+    overflow: auto;
+    display: block;
+    position: relative;
+}
+
+.drag-and-drop:after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    top: 50%;
+    margin-top: -10px;
+    color: #ccc;
+}
+.drag-and-drop{
+    .dad-loading {
+        height: inherit;
+        width: auto;
+        background: #fff url(../images/loading.gif) no-repeat center;
+        z-index: 99;
+        cursor: wait;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+    }
+}
+
+.file-preview-frame {
+    position: relative;
+    display: block;
+    margin: 8px;
+    /*border: 1px solid #ddd;
+    box-shadow: 1px 1px 5px 0 #a2958a;
+    padding: 1px;*/
+    float: left;
+    text-align: center;
+    /*width: calc(25% - 16px);*/
+    width: 90px;
+    z-index: 2;
+    height: 110px;
+
+    .remove {
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        display: block;
+        z-index: 999;
+        padding: 5px;
+        background: url(../images/remove.png) no-repeat center;
+        cursor: pointer;
+    }
+
+    .loading {
+        height: inherit;
+        width: auto;
+        background: #fff url(../images/loading.gif) no-repeat center;
+        z-index: 99;
+        cursor: wait;
+    }
+
+    .browse{
+        height: 100%;
+        width: auto;
+        background-image: url('../images/bg.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+        background-color: #e6e6e6;
+    }
+
+    .img{
+        overflow: hidden;
+        height: inherit;
+        width: inherit;
+        border: 1px solid #ddd;
+
+        .img-preview{
+            height: inherit;
+            width: inherit;
+            overflow: hidden;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            background: #fff;
+        }
+
+        img{
+            max-width: 100%;
+        }
+    }
+}
+
+#browse-file{
+    position: relative;
+    display: block;
+    width: 130px;
+    height: 150px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    box-shadow: 1px 1px 5px 0 #a2958a;
+    padding: 3px;
+    text-align: center;
+    z-index: 2;
+
+    .preview-content{
+        height: 115px;
+        overflow: hidden;
+        margin-bottom: 5px;
+        background: transparent;
+    }
+}
+
+#browse-file:after{
+    content: 'Browser file...';
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    width: 100%;
+    text-align: center;
+    display: table;
 }
 
 /**

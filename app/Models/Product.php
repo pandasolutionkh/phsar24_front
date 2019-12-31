@@ -43,6 +43,11 @@ class Product extends Base
         return $this->belongsTo(SubCategory::class,'sub_category_id');
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
+
     public function galleries()
     {
         return $this->hasMany(Gallery::class,'product_id');

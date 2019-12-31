@@ -46,7 +46,7 @@
         var fb_app_id = "{{ env('FACEBOOK_APP_ID') }}";
     </script>
 </head>
-<body>
+<body style="background-color: #ededed;">
     @include('layouts.modal')
     <div id="app">
         @include('layouts.nav')
@@ -55,25 +55,63 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <h3 class="menu-profile-title">{{ __('Selling') }}</h3>
+                                </div>
+
+                                <div class="card-body account-profile">
+                                    <div class="menu">
+                                        <a href="{{ route('products.index') }}">
+                                            {!! __('Product') !!}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-3">
+                                <div class="card-header">
+                                    <h3 class="menu-profile-title">{{ __('Buying') }}</h3>
+                                </div>
+
+                                <div class="card-body account-profile">
+                                    <div class="menu">
+                                        <a href="{{ route('favorites.index') }}">
+                                            {!! __('Favorite') !!}
+                                        </a>
+                                        <a href="">
+                                            {!! __('Purchase History') !!}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="card">
                                 <div class="card-header">
-                                    <h3>{{ _t('Menu') }}</h3>
+                                    <h3 class="menu-profile-title">{{ __('My Account') }}</h3>
                                 </div>
 
                                 <div class="card-body account-profile">
                                     <div class="menu">
                                         <a href="{{ route('profile.index') }}">
-                                            {!! _t('Profile') !!}
+                                            {!! __('Profile') !!}
                                         </a>
-                                        <a href="{{ route('favorites.index') }}">
-                                            {!! _t('Favorite') !!}
+                                        <a href="{{ route('profile.change_password') }}">
+                                            {!! __('Change Password') !!}
+                                        </a>
+                                        <a href="{{ route('profile.contact') }}">
+                                            {!! __('Contact Detail') !!}
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-9">
-                            @yield('content')
+                            <div class="card">
+                                <div class="card-body p-3">
+                                    @yield('content')
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

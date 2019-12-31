@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\UserContact;
 use Auth;
 use Hash;
 
@@ -139,6 +140,70 @@ class ProfileController extends Controller
 
         return redirect()->route('profile.change_password')
                         ->with('message','Password has changed successfully');
+    }
+
+
+    //contact
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function contact(Request $request)
+    {
+        $id = getUserId();
+        $user = User::where('id',$id)->where('enabled',true)->first();
+
+        if(empty($user)){
+            return back()->with('message','This profile is not found');
+        }
+        $userContact = UserContact::find($id);
+        if(empty($userContact)){
+            $userContact = new UserContact();
+            $userContact->email = $user->email;
+            $userContact->phone = $user->phone;
+        }
+        return view('profile.contact',compact('userContact'));
+
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function createContact(Request $request)
+    {
+        $id = getUserId();
+        $user = User::where('id',$id)->where('enabled',true)->first();
+        if(empty($user)){
+            return back()->with('message','This profile is not found');
+        }
+
+        $request['user_id'] = $id;
+        $_messages = [
+            'province_id.required' => 'The location field is required.'
+        ];
+        $this->validate($request, [
+            'user_id' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|numeric|min:9',
+            'address' => 'required',
+            'province_id' => 'required',
+        ],$_messages);
+
+        $input = $request->all();
+        $data = UserContact::find($id);
+
+        if(empty($data)){
+            UserContact::create($input);
+        }else{
+            $data->update($input);
+        }
+
+        return redirect()->route('profile.contact')
+                        ->with('message','Contact has saved successfully');
     }
 
 }

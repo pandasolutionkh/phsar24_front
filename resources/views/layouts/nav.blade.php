@@ -83,23 +83,27 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto menu-auth top-menu-right">
                 <li>
-                        <a class="nav-link" href="{{ route('favorites.index') }}">
-                            <i class="fa fa-heart"></i> {!! _t('Favorite') !!}
-                        </a>
-                    </li>
+                    <a class="nav-link" href="{{ route('favorites.index') }}">
+                        <i class="fa fa-heart"></i> {!! _t('Favorite') !!}
+                    </a>
+                </li>
                 @guest
                 <li><a class="btn btn-primary btn-sm" href="{{ route('login') }}"><i class="fa fa-sign-in"></i> {!! _t('Login') !!}</a></li>
                 <li><a class="btn btn-primary btn-sm" href="{{ route('register') }}"><i class="fa fa-edit"></i> {!! _t('Register') !!}</a></li>
                 
                 @else
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown profile">
                         <div class="d-table">
                             <div class="d-table-row">
                                 <div class="d-table-cell va-m">
-                                    <i class="fa fa-user-circle fa-2x"></i>
-                                </div>
-                                <div class="d-table-cell va-m">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        @php
+                                        $_src = asset('images/profile.jpg');
+                                        if($_photo = Auth::user()->photo){
+                                            $_src = getUrlStorage("profiles/$_photo");
+                                        }
+                                        @endphp
+                                        <img class="img-profile" src="{{ $_src }}" alt="" width="31" height="31" /> 
                                         {{ Auth::user()->name }} <i class="caret"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

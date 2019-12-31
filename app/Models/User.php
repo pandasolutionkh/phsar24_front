@@ -25,6 +25,7 @@ class User extends Authenticatable
         'password',
         'enabled',
         'is_activated',
+        'is_unlimited',
         'photo'
     ];
 

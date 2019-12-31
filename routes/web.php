@@ -92,7 +92,17 @@ Route::post('/medias/upload',[
 	'uses' => 'MediaController@upload'
 ]);
 
+Route::post('/medias/upload_video',[
+	'as'=>'medias.upload_video',
+	'uses' => 'MediaController@uploadVideo'
+]);
 
+Route::post('/medias/upload_photos',[
+	'as'=>'medias.upload_photos',
+	'uses' => 'MediaController@uploadPhotos'
+]);
+
+Route::resource('/products','ProductController');
 Route::get('/product/{id}',[
 	'as'=>'products.detail',
 	'uses' => 'HomeController@product'
@@ -110,6 +120,16 @@ Route::delete('/favorites/delete/{id}',[
 Route::post('/favorites/dofav/{id}',[
 	'as'=>'favorites.dofav',
 	'uses' => 'FavoriteController@doFavorite'
+]);
+
+Route::get('/profile/contact',[
+	'as'=>'profile.contact',
+	'uses' => 'ProfileController@contact'
+]);
+
+Route::post('/profile/contact',[
+	'as'=>'profile.create_contact',
+	'uses' => 'ProfileController@createContact'
 ]);
 
 

@@ -300,5 +300,123 @@ $(document).on('click','a.share',function(e){
   popup(network);
 });
 
+/*
+* Multiple uploads
+*/
+function getFileExtension(filename)
+{
+  var ext = /^.+\.([^.]+)$/.exec(filename);
+  return ext == null ? "" : ext[1];
+}
+
+//todo upload multip photo
+var file_index = 0;
+$(document).on('change','#do-upload-photos', prepareUploadPhotos);
+
+// Grab the files and set them to our variable
+function prepareUploadPhotos(event){
+    event.preventDefault();
+    var _th = $(this);
+    var _files = event.target.files;
+    var formData = new FormData();
+    var incr = 0;
+
+    if (_files) {
+        $.each(_files, function (key, value){
+          if( _is_extension(value) ){
+            incr++;
+            formData.append("photos["+key+"]", value);
+          }
+        });
+        
+        if(incr < _files.length){
+          alert("Some files is not supported!");
+          return;
+        }
+    }else{
+        alert("You don't select file.");
+        return;
+    }
+
+    var _type = _th.data('type');
+    if(typeof _type != 'undefined'){
+      formData.append("type", _type);
+    }else{
+      formData.append("type", 'product');
+    }
+    
+    $.ajax({
+        type: 'post',
+        url: base_url+'/medias/upload_photos',
+        data: formData,
+        dataType: 'json',
+        headers: {
+          'X-CSRF-TOKEN': window.Laravel.csrfToken
+        },
+        processData: false, // Don't process the files
+        contentType: false,
+        beforeSend: function () {
+            photoLoading();
+        },
+        success: function (res) {
+          var _browses = $('.file-preview-frame .loading');
+          if(typeof res.data != 'undefined'){
+            var _data = res.data;
+            for( var _ind = 0; _ind < _data.length; _ind++ ){
+              var _item = _data[_ind];
+
+              var _html = '<div class="file-preview-frame">';
+              _html += ' <div class="img-preview img">';
+              var _ext = getFileExtension(_item.name);
+              if(_ext == 'pdf'){
+                _html += '    <div class="fa fa-file-pdf-o fa-2x"></div>';
+              }else{
+                _html += '    <img src="'+ _item.path + '" alt=""/>';
+              }
+              _html += '    <input type="hidden" value="'+ _item.name +'" name="photos['+file_index+'][name]"/>';
+              _html += '    <input type="hidden" value="'+ _item.path +'" name="photos['+file_index+'][path]"/>';
+              _html += '    <div data-img="'+ _item.name +'" class="remove"></div>';
+              _html += '  </div>';
+              _html += '  <label><input type="radio" value="'+ _item.name +'" name="cover"/> Cover</label>';
+              _html += '</div>';
+              
+              $('#drag-and-drop').append(_html);
+              file_index++;
+
+            }
+            //todo reset value
+            $('#do-upload-photos').attr({ value: '' }); 
+          }
+
+          if(typeof res.errors != 'undefined'){
+            for( var _ind = 0; _ind < res.errors.length; _ind++ ){
+              console.log(res.errors[_ind]);
+            }
+          }
+        },
+        complete: function () {
+            photoRemoveLoading();
+        },
+        error: function(){
+            photoRemoveLoading();
+        }
+    });
+}
+
+function photoLoading() {
+    $('#drag-and-drop').append('<div class="dad-loading">&nbsp;</div>');
+}
+
+function photoRemoveLoading(){
+  $('#drag-and-drop .dad-loading').remove();
+}
+
+$(document).on('click','.file-preview-frame .remove',function(e){
+    var _th = $(this);
+    _th.closest('.file-preview-frame').remove();
+    file_index--;
+});
+
+
 window.onload = function () { NProgress.done(); }
 

@@ -20,9 +20,10 @@ mix.js('resources/assets/js/app.js', 'public/js')
    	.copy('resources/assets/js/zoom-meeting-1.3.0.min.js','public/js/zoom-meeting-1.3.0.min.js')
    	.copy('resources/assets/sass/bootstrap.css','public/css/bootstrap.css')
    	.copy('resources/assets/sass/react-select.css','public/css/react-select.css')
-   	.copy('resources/assets/js/lib','public/js/lib')
-   	.copy('resources/assets/fonts','public/fonts')
+   	.copyDirectory('resources/assets/js/lib','public/js/lib')
+   	.copyDirectory('resources/assets/fonts','public/fonts')
+      .copyDirectory('resources/assets/images','public/images')
       .copy('resources/assets/js/nprogress/nprogress.js', 'public/js/nprogress.js')
       .copy('resources/assets/js/nprogress/nprogress.css', 'public/css/nprogress.css')
       .copy('resources/assets/js/custom.js', 'public/js/custom.js')
-   	.copy('resources/assets/sass/themes','public/css/themes');
+   	.copyDirectory('resources/assets/sass/themes','public/css/themes');

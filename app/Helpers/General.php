@@ -423,3 +423,115 @@ if(! function_exists('getExistsStorage')){
     }
 }
 
+function getUsers() {
+    $_data = DB::table('users')->where('enabled',true)->where('is_activated',true)->orderBy('name','ASC')
+        ->select(DB::raw("CONCAT(name,' (',email,')') AS fullname"),'id')
+        ->pluck('fullname', 'id');
+    return $_data;
+}
+
+function getImageSizes($type = 'profile'){
+    $_width = 'width';
+    $_height = 'height';
+    $_res = [
+        $_width => 150,
+        $_height => 150,
+    ];
+    $_setting = getSetting();
+    $_field = "image_{$type}_{$_width}";
+    if( isset($_setting[$_field]) && $_setting[$_field] ){
+        $_res[$_width] = $_setting[$_field];
+    }
+
+    $_field = "image_{$type}_{$_height}";
+    if( isset($_setting[$_field]) && $_setting[$_field] ){
+        $_res[$_height] = $_setting[$_field];
+    }
+
+    return $_res;
+}
+
+function getSubCategories() {
+    $_data = DB::table('sub_categories')
+        ->join('categories', 'categories.id', '=', 'sub_categories.category_id')
+        ->where('sub_categories.enabled',true)
+        ->orderBy('sub_categories.name','ASC')
+        ->select(DB::raw("CONCAT(categories.name,' » ',sub_categories.name) AS name"),'sub_categories.id')
+        ->pluck('name', 'id');
+    return $_data;
+}
+
+function getSubCats() {
+    $_data = DB::table('sub_categories')->where('enabled',true)
+        ->pluck('name', 'id')->toArray();
+    return $_data;
+}
+
+function getSubCatAttributes() {
+    $_data = DB::table('sub_categories')->where('enabled',true)
+        ->pluck('category_id', 'id')->toArray();
+    foreach($_data as $_key=>$_val){
+        $_data[$_key] = array('data-category'=>$_val);
+    }
+
+    return $_data;
+}
+
+function getExtension($filename){
+    $pos=strrpos($filename, ".");
+    $len=strlen($filename);
+    if($pos >= 0){
+        return substr($filename,($pos+1),($len-$pos)) ;
+    }
+    return '';
+}
+
+if(! function_exists('getLimitPost')){
+    function getLimitPost(){
+        $setting = getSetting();
+        if(isset($setting['limit_post'])){
+            return (int)$setting['limit_post'];
+        }
+        return 5;
+    }
+}
+
+if(! function_exists('checkForPost')){
+    function checkForPost(){
+        $_limit = getLimitPost();
+        $_user_id = getUserId();
+        $_user = \App\Models\User::find($_user_id);
+
+        if($_user->is_unlimited){
+            return true;
+        }
+
+        $_count = \App\Models\Product::where('enabled',true)
+            ->where('user_id',$_user_id)
+            ->count('id');
+
+        if($_count < $_limit){
+            return true;
+        }
+
+        return false;
+
+    }
+}
+
+function getProvinces() {
+    $_data = DB::table('provinces')->where('enabled',true)->orderBy('name','ASC')
+        ->pluck('name', 'id');
+    return $_data;
+}
+
+function getProvinceAttributes() {
+    $_data = DB::table('provinces')->where('enabled',true)
+        ->pluck('country_id', 'id')->toArray();
+    foreach($_data as $_key=>$_item){
+        $_data[$_key] = array('data-country'=>$_item);
+    }
+
+    return $_data;
+}
+
