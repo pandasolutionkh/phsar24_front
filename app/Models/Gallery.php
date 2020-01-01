@@ -17,7 +17,8 @@ class Gallery extends Base
     protected $fillable = [
         'name',
         'is_cover',
-        'product_id'
+        'product_id',
+        'is_lock',
     ];
 
     /**

@@ -45,6 +45,7 @@
 						<div class="card">
 						    @foreach($data->galleries as $item)
 				                @php
+				                if($item->is_lock) continue;
 				                if($item->is_cover){
 				                    $_name = $item->name;
 				                    $_src = getUrlStorage('products/'.$_name);

@@ -67,7 +67,10 @@
             <div class="product-image imgs-grid imgs-grid-{{$_count}}" data-id="{{ $_id }}" data-toggle="modal" data-target="#modalPopup">
                 @foreach($_galleries as $item)
                     @php
+                        if($item->is_lock) continue; //when administrator block
+
                         if($_incr == $_count) break;
+
                         $_name = $item->name;
                         $_src = getUrlStorage('products/'.$_name);
                     @endphp
