@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="/css/animate.css"/>
     @yield('style')
     @php
-        $_v = '1.1.2';
+        $_v = '1.1.3';
     @endphp
     <link rel="stylesheet" href="/css/nprogress.css"/>
     <link rel="stylesheet" href="/css/app.css?v={!! $_v !!}"/>
@@ -78,9 +78,6 @@
                                     <div class="menu">
                                         <a href="{{ route('favorites.index') }}">
                                             {!! __('Favorite') !!}
-                                        </a>
-                                        <a href="">
-                                            {!! __('Purchase History') !!}
                                         </a>
                                     </div>
                                 </div>
