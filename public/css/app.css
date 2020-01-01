@@ -518,7 +518,7 @@ body {
   font-size: 14px;
   line-height: 1.6;
   color: #636b6f;
-  background-color: #fff;
+  background-color: #eee;
 }
 
 html,
@@ -660,6 +660,15 @@ h1.title:after {
   width: 30px;
   height: 30px;
   border: 1px solid #999999;
+  background-color: #fff;
+}
+
+.shop-owner-profile {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #999999;
+  background-color: #fff;
 }
 
 .menu-auth .nav-link,
@@ -883,6 +892,15 @@ h1.title:after {
 .card .account-profile .menu a.active {
   background-color: #0c4ca2 !important;
   color: #fff !important;
+}
+
+.related-product .card .card-cover-image {
+  max-height: 180px;
+  overflow: hidden;
+}
+
+.related-product .card .card-body {
+  height: 60px;
 }
 
 .width-20px {
@@ -2209,6 +2227,14 @@ footer a.created-by {
 .modal-leave-active .modal-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+
+.bg-primary {
+  background-color: #d94375 !important;
+}
+
+.text-white {
+  color: #fff !important;
 }
 
 .btn-primary,

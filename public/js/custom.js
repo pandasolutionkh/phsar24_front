@@ -366,16 +366,18 @@ function prepareUploadPhotos(event){
               var _item = _data[_ind];
 
               var _html = '<div class="file-preview-frame">';
-              _html += ' <div class="img-preview img">';
+              _html += ' <div class="img">';
+              _html += '  <div class="img-preview">';
               var _ext = getFileExtension(_item.name);
               if(_ext == 'pdf'){
                 _html += '    <div class="fa fa-file-pdf-o fa-2x"></div>';
               }else{
                 _html += '    <img src="'+ _item.path + '" alt=""/>';
               }
-              _html += '    <input type="hidden" value="'+ _item.name +'" name="photos['+file_index+'][name]"/>';
-              _html += '    <input type="hidden" value="'+ _item.path +'" name="photos['+file_index+'][path]"/>';
-              _html += '    <div data-img="'+ _item.name +'" class="remove"></div>';
+              _html += '      <input type="hidden" value="'+ _item.name +'" name="photos['+file_index+'][name]"/>';
+              _html += '      <input type="hidden" value="'+ _item.path +'" name="photos['+file_index+'][path]"/>';
+              _html += '      <div data-img="'+ _item.name +'" class="remove"></div>';
+              _html += '    </div>';
               _html += '  </div>';
               _html += '  <label><input type="radio" value="'+ _item.name +'" name="cover"/> Cover</label>';
               _html += '</div>';

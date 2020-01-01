@@ -19,6 +19,11 @@ function getAboutFooter(){
     $setting = getSetting();
     return (isset($setting['about_footer']) ? $setting['about_footer'] : '');
 }
+function getContactName(){
+    $setting = getSetting();
+    return (isset($setting['contact_name']) ? $setting['contact_name'] : '');
+}
+
 function getEmail(){
     $setting = getSetting();
     return (isset($setting['email']) ? $setting['email'] : '');
@@ -535,3 +540,12 @@ function getProvinceAttributes() {
     return $_data;
 }
 
+if(! function_exists('getNumRelated')){
+    function getNumRelated(){
+        $setting = getSetting();
+        if(isset($setting['num_related'])){
+            return (int)$setting['num_related'];
+        }
+        return 6;
+    }
+}

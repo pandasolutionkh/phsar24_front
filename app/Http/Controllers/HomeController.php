@@ -99,7 +99,14 @@ class HomeController extends Controller
           $res['form'] = $form;
           return response()->json($res);
         }
-        return view('products.share',compact('data'));
+
+        $_num_related = getNumRelated();
+        $related = Product::where('enabled',true)
+          ->where('sub_category_id',$data->sub_category_id)
+          ->take($_num_related)
+          ->get();
+
+        return view('products.share',compact('data','related'));
         
     }
 

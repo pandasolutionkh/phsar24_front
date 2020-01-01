@@ -32,6 +32,25 @@
 @endsection
 
 @section('content')
+@php
+$_id = $data->id;
+$_src = asset('images/profile.jpg');
+$_user_name = getContactName();
+$_phone = getPhone();
+$_address = getAddress();
+$_location = '';
+if($_user = $data->user){
+	$_photo = $_user->photo;
+	$_src = getUrlStorage("profiles/$_photo");
+
+	if($user_contact = $_user->userContact){
+        $_user_name = $_user->name;
+        $_phone = $user_contact->phone;
+        $_address = $user_contact->address;
+        $_location = $user_contact->province->name;
+    }
+}
+@endphp
 <div class="py-4">
     <div class="container">
     	<div class="row">
@@ -61,10 +80,19 @@
 						<div class="product-detail clearfix">
 			                <div class="d-inline-block">
 			                    <div class="product-title">
-			                        <strong>{{ $data->name }}</strong>
+			                        <h1>{{ $data->name }}</h1>
 			                    </div>
 			                    <div class="product-time">
-			                        <i class="fa fa-clock-o"></i> {{ $_time }}
+			                    	<div class="d-flex">
+			                        	<div class="pr-2">
+			                        		<i class="fa fa-clock-o"></i> {{ $_time }}
+			                        	</div>
+			                        	@if($_location)
+			                        	<div>
+			                        		<i class="fa fa-map-marker"></i> {{ $_location }}
+			                        	</div>
+			                        	@endif
+			                        </div>
 			                    </div>
 			                </div>
 			            </div>
@@ -74,18 +102,86 @@
 					</div>
     			</div> 
     			
+    			<h3 class="py-3">Related Product</h3>
+		    	<div class="row related-product">
+		    		
+					@foreach($related as $row)
+						@php
+							$__src = '';
+							foreach($row->galleries as $item){
+								if($item->is_cover){
+									$__src = getUrlStorage('products/'.$item->name);
+									break;
+								}
+							}
+						@endphp
+						<div class="col-sm-4 mb-4">
+							<div class="card">
+								<div class="card-cover-image">
+									<img class="card-img-top" src="{{ $__src }}" alt="">
+								</div>
+								<div class="card-body p-2 bg-white">
+									<div class="d-flex">
+										<div>
+											<a href="{{ route('products.detail',$_id) }}">{{ $row->name }}</a>
+										</div>
+										@if(floatval($data->price) > 0 || intval($data->promotion) > 0)
+										<div class="ml-auto">
+			                                @if(intval($data->promotion) > 0)
+			                                <div class="text-primary">
+			                                    ${{ $data->promotion }}
+			                                </div>
+			                                
+			                                <div class="text-primary">
+			                                    <del>${{ $data->price }}</del>
+			                                </div>
+			                                @elseif(floatval($data->price) > 0)
+			                                <div class="text-primary">
+			                                	${{ $data->price }}
+			                                </div>
+			                                @endif
+										</div>
+										@endif
+									</div>
+								</div>
+							</div>	
+						</div>
+					@endforeach
+		    		
+		    	</div>
     		</div>
     		<div class="col-sm-4">
     			<div class="card">
-    				<div class="card-header p-2">
-						Related Product
+    				<div class="card-header bg-primary">
+						<div class="d-inline-block">
+                        	<img class="shop-owner-profile" src="{{ $_src }}" alt="" width="61" height="61" />
+                    	</div>
+                    	<div class="d-inline-block">
+                        	<h4 class="text-white">{{ $_user_name }}</h4>
+                        </div>
 					</div>
-    				<div class="card-body p-2">
-						Related Product
+    				<div class="card-body">
+    					<div class="d-flex">
+							<div class="pr-1">
+	                        	<i class="fa fa-phone"></i> 
+	                    	</div>
+	                    	<div>
+	                        	{{ $_phone }}
+	                        </div>
+						</div>
+						<div class="d-flex">
+							<div class="pr-1">
+	                        	<i class="fa fa-map-marker"></i> 
+	                    	</div>
+	                    	<div>
+	                        	{{ $_address }}
+	                        </div>
+						</div>
 					</div>
     			</div>
     		</div>
     	</div>
+
     </div>
 </div>
 @endsection

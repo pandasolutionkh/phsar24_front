@@ -40,6 +40,11 @@ class User extends Authenticatable
         'enabled',
     ];
 
+    public function userContact()
+    {
+        return $this->hasOne(UserContact::class,'user_id');
+    }
+
     public function userActivate()
     {
         return $this->hasOne(UserActivate::class,'user_id');
