@@ -72,15 +72,29 @@ class ProfileController extends Controller
 
         $data->update($input);
 
-        if($input['photo_path']){
+        if(isset($input['photo'])){
             $_photo = $input['photo'];
-            $_src = "tmp/$_photo";
-            $_dest = "profiles/$_photo";
-            $_done = getDisk()->move($_src,$_dest);
-            if($_done){
-                if($_db_photo){
-                    getDisk()->delete("profiles/$_db_photo");
+            if($_photo){
+                if($_photo != $_db_photo){
+                    $_src = "tmp/$_photo";
+                    $_dest = "profiles/$_photo";
+
+                    $_image = file_get_contents(getPublicPathStorage($_src));
+                    $_done = getDisk()->put($_dest, $_image,'public');
+                    
+                    if($_done){
+                        if($_db_photo){
+                            getDisk()->delete("profiles/$_db_photo");
+                        }
+                        //todo delete from tmp
+                        getPublicDisk()->delete($_src);
+                    }
+
                 }
+            }
+        }else{
+            if($_db_photo){
+                getDisk()->delete("profiles/$_db_photo");
             }
         }
 
