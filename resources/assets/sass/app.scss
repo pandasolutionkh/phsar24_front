@@ -45,7 +45,8 @@ main.live{
     min-height: 100%;
     margin-top: auto;
 }
-h1.title{
+
+.title{
     margin: 0;
     font-weight: 100;
     line-height: 1.2;
@@ -349,6 +350,10 @@ h1.title{
 
             &.menu-profile-title{
                 font-size: 1rem;
+            }
+
+            &.text-black{
+                color: #636b6f !important;
             }
         }
     }
@@ -676,12 +681,12 @@ h1.title{
                 font-size: 11px;
                 line-height: 12px;
             }
-
-            .text-promotion{
-                color: $light-primary;
-            }
         }
     }
+}
+
+.text-promotion{
+    color: $light-primary;
 }
 
 .product-detail{
@@ -729,10 +734,12 @@ h1.title{
     }
 }
 
+$col-width: 17em;
 .make-columns{
-    -moz-column-width: 21em;
-    -webkit-column-width: 21em;
-    column-width: 21em;
+    -moz-column-width: $col-width;
+    -webkit-column-width: $col-width;
+    column-width: $col-width;
+
     /*space of column*/
     -moz-column-gap: .1em;
     -webkit-column-gap: .1em;
@@ -756,7 +763,7 @@ h1.title{
 
     &> div.cols{
         display: inline-block;
-        padding: .5rem;
+        padding: .2rem;
         width: 100%;
     }
 

@@ -555,7 +555,7 @@ main.live {
   margin-top: auto;
 }
 
-h1.title {
+.title {
   margin: 0;
   font-weight: 100;
   line-height: 1.2;
@@ -565,7 +565,7 @@ h1.title {
   position: relative;
 }
 
-h1.title:after {
+.title:after {
   content: " ";
   width: 52px;
   height: 3px;
@@ -864,6 +864,10 @@ h1.title:after {
 
 .card .card-header h3.menu-profile-title {
   font-size: 1rem;
+}
+
+.card .card-header h3.text-black {
+  color: #636b6f !important;
 }
 
 .card .account-profile {
@@ -1184,7 +1188,7 @@ h1.title:after {
   line-height: 12px;
 }
 
-.card-body.product .product-like .text-promotion {
+.text-promotion {
   color: #d94375 !important;
 }
 
@@ -1229,8 +1233,8 @@ h1.title:after {
 }
 
 .make-columns {
-  -webkit-column-width: 21em;
-  column-width: 21em;
+  -webkit-column-width: 17em;
+  column-width: 17em;
   /*space of column*/
   -webkit-column-gap: .1em;
   column-gap: .1em;
@@ -1253,7 +1257,7 @@ h1.title:after {
 
 .make-columns > div.cols {
   display: inline-block;
-  padding: .5rem;
+  padding: .2rem;
   width: 100%;
 }
 
