@@ -1256,8 +1256,13 @@ main.live {
 }
 
 .make-columns > div.cols {
-  display: inline-block;
+  display: block;
   padding: .2rem;
+  width: 100%;
+}
+
+.make-columns > div.cols .card {
+  display: inline-block;
   width: 100%;
 }
 
@@ -2523,6 +2528,18 @@ header,
   100% {
     -webkit-transform: translate(19px, 0);
             transform: translate(19px, 0);
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 90%;
+  }
+}
+
+@media (min-width: 922px) {
+  .container {
+    max-width: 95%;
   }
 }
 

@@ -762,9 +762,14 @@ $col-width: 17em;
     }
 
     &> div.cols{
-        display: inline-block;
+        display: block;
         padding: .2rem;
         width: 100%;
+
+        .card{
+            display: inline-block;
+            width: 100%;
+        }
     }
 
     &:after{
@@ -1930,6 +1935,18 @@ header,
   100% {
     transform: translate(19px, 0);
   }
+}
+
+@media (min-width: 1200px){
+    .container{
+        max-width: 90%;
+    }
+}
+
+@media (min-width: 922px){
+    .container{
+        max-width: 95%;
+    }
 }
 
 @media (max-width: 1200px){
