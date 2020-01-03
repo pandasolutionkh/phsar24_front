@@ -177,7 +177,7 @@ if($_user = $data->user){
 									<div class="card-body p-2 bg-white">
 										<div class="d-flex">
 											<div>
-												<a href="{{ route('products.detail',$_id) }}">{{ $row->name }}</a>
+												<a href="{{ route('products.detail',$row->id) }}">{{ $row->name }}</a>
 											</div>
 											@if(floatval($data->price) > 0 || intval($data->promotion) > 0)
 											<div class="ml-auto">
