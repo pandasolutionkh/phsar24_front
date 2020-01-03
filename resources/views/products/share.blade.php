@@ -55,13 +55,13 @@ if($_user = $data->user){
     <div class="container">
     	<div class="row">
     		<div class="col-sm-8">
-    			<div class="row">
-    				<div class="col-sm-12">
+    			<div class="card">
+    				<div class="card-body p-2 product"> 
     					@php
     					$_time = getNumberOfDays($data->updated_at,date('Y-m-d H:i:s'));
     					@endphp
     					<div class="product-detail clearfix mb-2">
-			                <div class="d-inline-block">
+			                <div class="d-block">
 			                    <div class="product-title">
 			                        <h1>{{ $data->name }}</h1>
 			                    </div>
@@ -76,6 +76,23 @@ if($_user = $data->user){
 			                        	</div>
 			                        	@endif
 			                        </div>
+			                    </div>
+			                    <div class="product-like">
+			                    	@if(floatval($data->price) > 0 || intval($data->promotion) > 0)
+		                                @if(intval($data->promotion) > 0)
+		                                <a class="btn btn-primary btn-lg">
+		                                    ${{ $data->promotion }}
+		                                </a>
+		                                
+		                                <a class="text-promotion">
+		                                    <del>${{ $data->price }}</del>
+		                                </a>
+		                                @elseif(floatval($data->price) > 0)
+		                                <a class="btn btn-primary btn-lg">
+		                                    ${{ $data->price }}
+		                                </a>
+		                                @endif
+		                            @endif
 			                    </div>
 			                </div>
 			            </div>
@@ -96,7 +113,7 @@ if($_user = $data->user){
 			                $_incr = 0;
 			            @endphp
 
-			            <div class="product-image imgs-grid imgs-grid-{{$_count}}" data-id="{{ $_id }}" data-toggle="modal" data-target="#modalPopup">
+			            <div class="product-image imgs-grid imgs-grid-{{$_count}} bg-white" data-id="{{ $_id }}" data-toggle="modal" data-target="#modalPopup">
 			                @foreach($_galleries as $item)
 			                    @php
 			                        if($item->is_lock) continue; //when administrator block

@@ -1937,15 +1937,16 @@ header,
   }
 }
 
-@media (min-width: 1200px){
-    .container{
-        max-width: 1210px;
-    }
-}
-
 @media (min-width: 922px){
     .container{
         max-width: 95%;
+    }
+
+    .sticky-top{
+        &.navbar{
+            padding-left: 0;
+            padding-right: 0;
+        }
     }
 }
 
