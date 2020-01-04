@@ -35,7 +35,6 @@ $(document).ready(function(){
 
   $(document).on('click', function (e){
     /* bootstrap collapse js adds "in" class to your collapsible element*/
-    alert('alert click');
     var menu_opened = $('#navbarSupportedContent').hasClass('show');
     if(!$(e.target).closest('#navbarSupportedContent').length &&
         !$(e.target).is('#navbarSupportedContent') &&
