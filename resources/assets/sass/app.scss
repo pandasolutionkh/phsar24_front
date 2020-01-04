@@ -2013,6 +2013,38 @@ header,
     }
 }
 
+@media (max-width: 766px){
+    #navbarSupportedContent{
+        .navbar-nav{
+            .w-45vw{
+                width: 100%;
+                margin-top: .25rem;
+                margin-bottom: .25rem;
+            }
+        }
+
+        .menu-auth{
+            li{
+                padding: 0;
+                a{
+                    background-color: initial !important;
+                    border-width: 0;
+                    color: #0c4ca2 !important;
+                    padding: .25rem 0;
+                    display: block;
+                    text-align: left;
+                }
+            }
+        }
+    }
+
+    #modalPopup {
+        .modal-dialog {
+            max-width: 100% !important;
+        }
+    }
+}
+
 
 @media (min-width: 576px){
     .modal-dialog {
