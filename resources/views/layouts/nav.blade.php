@@ -112,7 +112,7 @@
                                         }
                                         @endphp
                                         <img class="img-profile" src="{{ $_src }}" alt="" width="31" height="31" /> 
-                                        {{ Auth::user()->name }} <i class="caret"></i>
+                                        {{ Auth::user()->name }}
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right py-1" aria-labelledby="navbarDropdown">
                                         <div class="dropdown-item">{{ __('Selling') }}</div>
