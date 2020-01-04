@@ -2021,6 +2021,11 @@ header,
                 margin-top: .25rem;
                 margin-bottom: .25rem;
             }
+
+            .dropdown-menu{
+                position: absolute;
+                top: inherit;
+            }
         }
 
         .menu-auth{
@@ -2034,6 +2039,14 @@ header,
                     display: block;
                     text-align: left;
                 }
+            }
+        }
+    }
+
+    .navbar-custom {
+        .menu-category {
+            li{
+                width: 100%;
             }
         }
     }

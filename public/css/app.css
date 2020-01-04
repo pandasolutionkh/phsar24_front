@@ -2599,6 +2599,11 @@ header,
     margin-bottom: .25rem;
   }
 
+  #navbarSupportedContent .navbar-nav .dropdown-menu {
+    position: absolute;
+    top: inherit;
+  }
+
   #navbarSupportedContent .menu-auth li {
     padding: 0;
   }
@@ -2610,6 +2615,10 @@ header,
     padding: .25rem 0;
     display: block;
     text-align: left;
+  }
+
+  .navbar-custom .menu-category li {
+    width: 100%;
   }
 
   #modalPopup .modal-dialog {
