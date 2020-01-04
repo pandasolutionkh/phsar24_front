@@ -2047,6 +2047,18 @@ header,
         .menu-category {
             li{
                 width: 100%;
+
+                .sub-category{
+                    margin-top: 0;
+                    li{
+                        padding-bottom: .5rem;
+                        padding-top: .5rem;
+
+                        &:last-child{
+                            padding-bottom: .5rem;
+                        }
+                    }
+                }
             }
         }
     }

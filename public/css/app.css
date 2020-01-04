@@ -2621,6 +2621,19 @@ header,
     width: 100%;
   }
 
+  .navbar-custom .menu-category li .sub-category {
+    margin-top: 0;
+  }
+
+  .navbar-custom .menu-category li .sub-category li {
+    padding-bottom: .5rem;
+    padding-top: .5rem;
+  }
+
+  .navbar-custom .menu-category li .sub-category li:last-child {
+    padding-bottom: .5rem;
+  }
+
   #modalPopup .modal-dialog {
     max-width: 100% !important;
   }
