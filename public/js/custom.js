@@ -1,5 +1,11 @@
 NProgress.start();
 
+function is_touch_device() {
+ return (('ontouchstart' in window)
+      || (navigator.MaxTouchPoints > 0)
+      || (navigator.msMaxTouchPoints > 0));
+}
+
 $(document).ready(function(){
 	if($('select').length > 0){
 		$('select').select2({ width: '100%' });
@@ -33,7 +39,13 @@ $(document).ready(function(){
   $('[data-toggle="popover"]').popover()
   $('[data-toggle="collapse"]').collapse();
 
-  $(document).on('click', function (e){
+  var _click_or_touch = 'click';
+  if(is_touch_device()){
+    _click_or_touch = 'touchend'
+  }
+
+
+  $(document).on(_click_or_touch, function (e){
     /* bootstrap collapse js adds "in" class to your collapsible element*/
     var menu_opened = $('#navbarSupportedContent').hasClass('show');
     if(!$(e.target).closest('#navbarSupportedContent').length &&
