@@ -2041,6 +2041,19 @@ header,
                 }
             }
         }
+
+        .top-search{
+            &.input-group{
+                .input-group-append{
+                    .input-group-text{
+                        &:first-child{
+                            max-width: 165px;
+                            overflow-x: hidden;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     .navbar-custom {
