@@ -50,11 +50,11 @@
     <div id="app">
         @include('layouts.nav')
         <main>
-            <div class="py-4">
+            <div class="py-4 py-xs-4">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="card mb-3">
+                            <div class="card mb-3 mb-xs-3">
                                 <div class="card-header">
                                     <h3 class="menu-profile-title">{{ __('Selling') }}</h3>
                                 </div>
@@ -68,7 +68,7 @@
                                 </div>
                             </div>
 
-                            <div class="card mb-3">
+                            <div class="card mb-3 mb-xs-3">
                                 <div class="card-header">
                                     <h3 class="menu-profile-title">{{ __('Buying') }}</h3>
                                 </div>
@@ -82,7 +82,7 @@
                                 </div>
                             </div>
 
-                            <div class="card">
+                            <div class="card mb-3 mb-xs-3">
                                 <div class="card-header">
                                     <h3 class="menu-profile-title">{{ __('My Account') }}</h3>
                                 </div>

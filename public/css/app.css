@@ -2540,6 +2540,14 @@ header,
     padding-left: 0;
     padding-right: 0;
   }
+
+  #navbarSupportedContent .dropdown-menu-right {
+    min-width: 250px;
+  }
+
+  #navbarSupportedContent .dropdown-menu-right .dropdown-item {
+    padding: .25rem 1rem;
+  }
 }
 
 @media (max-width: 1200px) {

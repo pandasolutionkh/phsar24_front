@@ -82,14 +82,22 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto menu-auth top-menu-right">
+                @guest
                 <li>
                     <a class="nav-link" href="{{ route('favorites.index') }}">
                         <i class="fa fa-heart"></i> {!! _t('Favorite') !!}
                     </a>
                 </li>
-                @guest
-                <li><a class="btn btn-primary btn-sm" href="{{ route('login') }}"><i class="fa fa-sign-in"></i> {!! _t('Login') !!}</a></li>
-                <li><a class="btn btn-primary btn-sm" href="{{ route('register') }}"><i class="fa fa-edit"></i> {!! _t('Register') !!}</a></li>
+                <li>
+                    <a class="btn btn-primary btn-sm" href="{{ route('login') }}">
+                        <i class="fa fa-sign-in"></i> {!! _t('Login') !!}
+                    </a>
+                </li>
+                <li>
+                    <a class="btn btn-primary btn-sm" href="{{ route('register') }}">
+                        <i class="fa fa-edit"></i> {!! _t('Register') !!}
+                    </a>
+                </li>
                 
                 @else
                     <li class="nav-item dropdown profile">
@@ -106,10 +114,28 @@
                                         <img class="img-profile" src="{{ $_src }}" alt="" width="31" height="31" /> 
                                         {{ Auth::user()->name }} <i class="caret"></i>
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item">{{ _t('My Account') }}</a>
+                                    <div class="dropdown-menu dropdown-menu-right py-1" aria-labelledby="navbarDropdown">
+                                        <div class="dropdown-item">{{ __('Selling') }}</div>
                                         
-                                        <div class="dropdown-divider"></div>
+                                        <div class="dropdown-divider my-1"></div>
+
+                                        <a class="dropdown-item" href="{{ route('products.index') }}">
+                                            <i class="fa fa-fw fa-key"></i> {!! __('Product') !!}
+                                        </a>
+                                        <div class="dropdown-divider my-1"></div>
+                                        
+                                        <div class="dropdown-item">{{ __('Buying') }}</div>
+                                        
+                                        <div class="dropdown-divider my-1"></div>
+
+                                        <a class="dropdown-item" href="{{ route('favorites.index') }}">
+                                            <i class="fa fa-fw fa-heart-o"></i> {!! __('Favorite') !!}
+                                        </a>
+                                        <div class="dropdown-divider my-1"></div>
+
+                                        <div class="dropdown-item">{{ __('My Account') }}</div>
+                                        
+                                        <div class="dropdown-divider my-1"></div>
 
                                         <a class="dropdown-item" href="{{ route('profile.change_password') }}">
                                             <i class="fa fa-fw fa-key"></i> {!! _t('Change Password') !!}
@@ -118,8 +144,12 @@
                                         <a class="dropdown-item" href="{{ route('profile.index') }}">
                                             <i class="fa fa-fw fa-user"></i> {!! _t('Profile') !!}
                                         </a>
-                                        
-                                        <div class="dropdown-divider"></div>
+
+                                        <a class="dropdown-item" href="{{ route('profile.contact') }}">
+                                            <i class="fa fa-fw fa-phone"></i> {!! __('Contact Detail') !!}
+                                        </a>
+
+                                        <div class="dropdown-divider my-1"></div>
                                         
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
