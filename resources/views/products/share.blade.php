@@ -174,7 +174,7 @@ if($_user = $data->user){
 									<div class="card-cover-image">
 										<img class="card-img-top" src="{{ $__src }}" alt="">
 									</div>
-									<div class="card-body p-2 bg-white">
+									<div class="card-body p-2">
 										<div class="d-flex">
 											<div>
 												<a href="{{ route('products.detail',$row->id) }}">{{ $row->name }}</a>
