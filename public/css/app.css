@@ -2641,6 +2641,10 @@ header,
     margin-bottom: 0.2rem !important;
   }
 
+  .title {
+    font-size: 1.5rem;
+  }
+
   #navbarSupportedContent .navbar-nav .w-45vw {
     width: 100%;
     margin-top: .25rem;
@@ -2718,6 +2722,10 @@ header,
     padding-bottom: .5rem;
   }
 
+  .navbar-custom .dropdown-category .dropdown-menu.show {
+    position: absolute;
+  }
+
   #modalPopup .modal-dialog {
     max-width: 100% !important;
   }
@@ -2732,11 +2740,19 @@ header,
     border-top: 10px solid white;
   }
 
-  .text-copyright {
+  .footer .mb-xs-3 {
+    margin-bottom: .5rem !important;
+  }
+
+  .footer h3 {
+    font-size: 1.3rem;
+  }
+
+  .footer .text-copyright {
     text-align: center !important;
   }
 
-  .text-copyright .text-right {
+  .footer .text-copyright .text-right {
     text-align: center !important;
   }
 }

@@ -3,13 +3,13 @@
         <div class="py-4">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-xs-3">
                         <h3>{{ _t('About US') }}</h3>
                         @if(getAboutFooter())
                         {!! nl2br(getAboutFooter()) !!}
                         @endif
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-xs-3">
                         <h3>{{ _t('Contact US') }}</h3>
                         <p>
                             <div><i class="fa fa-phone"></i> {{ getPhone() }}</div>
@@ -17,7 +17,7 @@
                             <div><i class="fa fa-map-marker"></i> {{ getAddress() }}</div>
                         </p>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 mb-xs-3">
                         <h3>{{ _t('Social Networks') }}</h3>
                         <ul class="no-list">
                             <li>
