@@ -2581,6 +2581,10 @@ header,
 }
 
 @media (max-width: 765px) {
+  .theme-default .nivo-controlNav {
+    padding: 0;
+  }
+
   .navbar {
     padding: .5rem .2rem;
   }
@@ -2594,6 +2598,35 @@ header,
   [class*="col-"] {
     padding-left: .2rem;
     padding-right: .2rem;
+  }
+
+  .pb-xs-4,
+  .py-xs-4 {
+    padding-bottom: 0.2rem !important;
+  }
+
+  .pt-xs-4,
+  .py-xs-4 {
+    padding-top: 0.2rem !important;
+  }
+
+  .mt-3,
+  .my-3 {
+    margin-top: 1rem !important;
+  }
+
+  .mt-xs-3,
+  .my-xs-3,
+  .mt-xs-4,
+  .my-xs-4 {
+    margin-top: 0.2rem !important;
+  }
+
+  .mb-xs-3,
+  .my-xs-3,
+  .mb-xs-4,
+  .my-xs-4 {
+    margin-bottom: 0.2rem !important;
   }
 
   #navbarSupportedContent .navbar-nav .w-45vw {

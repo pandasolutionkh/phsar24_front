@@ -25,7 +25,7 @@
 </header>
 @endif
 
-<div class="py-4">
+<div class="py-4 py-xs-4">
     <div class="container">
         
         <div id="products" class="make-columns"> 

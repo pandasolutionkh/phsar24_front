@@ -51,7 +51,7 @@ if($_user = $data->user){
     }
 }
 @endphp
-<div class="py-4">
+<div class="py-4 py-xs-4">
     <div class="container">
     	<div class="row">
     		<div class="col-sm-8">
@@ -145,7 +145,7 @@ if($_user = $data->user){
 
 					</div>
     			</div> 
-    			<div class="mt-3">
+    			<div class="mt-3 mt-xs-3">
     				<div class="card">
     					<div class="card-header p-2">
     						<h3 class="mb-0 text-black">{{ __('Description') }}</h3>
@@ -155,7 +155,7 @@ if($_user = $data->user){
     					</div>
     				</div>
     			</div>
-    			<div class="mt-3">
+    			<div class="mt-3 mt-xs-3">
 	    			<h3 class="title">Related Product</h3>
 			    	<div class="row related-product">
 			    		
@@ -169,7 +169,7 @@ if($_user = $data->user){
 									}
 								}
 							@endphp
-							<div class="col-sm-4 mb-4">
+							<div class="col-sm-4 mb-4 mb-xs-4">
 								<div class="card">
 									<div class="card-cover-image">
 										<img class="card-img-top" src="{{ $__src }}" alt="">
