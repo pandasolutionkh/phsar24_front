@@ -1238,8 +1238,8 @@ main.live {
   /*space of column*/
   -webkit-column-gap: .1em;
   column-gap: .1em;
-  margin-right: -.5rem;
-  margin-left: -.5rem;
+  margin-right: -.1rem;
+  margin-left: -.1rem;
 }
 
 .make-columns:before,
@@ -1251,8 +1251,8 @@ main.live {
 .make-columns .cols {
   position: relative;
   min-height: 1px;
-  padding-right: 1px;
-  padding-left: 1px;
+  padding-right: .1rem;
+  padding-left: .1rem;
 }
 
 .make-columns > div.cols {

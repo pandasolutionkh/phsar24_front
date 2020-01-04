@@ -745,8 +745,8 @@ $col-width: 17em;
     -webkit-column-gap: .1em;
     column-gap: .1em;
 
-    margin-right: -.5rem;
-    margin-left: -.5rem;
+    margin-right: -.1rem;
+    margin-left: -.1rem;
 
     &:before,
     &:after{
@@ -757,8 +757,8 @@ $col-width: 17em;
     .cols{
         position: relative;
         min-height: 1px;
-        padding-right: 1px;
-        padding-left: 1px;
+        padding-right: .1rem;
+        padding-left: .1rem;
     }
 
     &> div.cols{
