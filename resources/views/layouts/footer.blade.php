@@ -42,7 +42,7 @@
             </div>
         </div>
         
-        <div class="py-4">
+        <div class="py-4 text-copyright">
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">

@@ -2731,6 +2731,14 @@ header,
     border-right: 75px solid transparent;
     border-top: 10px solid white;
   }
+
+  .text-copyright {
+    text-align: center !important;
+  }
+
+  .text-copyright .text-right {
+    text-align: center !important;
+  }
 }
 
 @media (min-width: 576px) {
