@@ -1236,10 +1236,10 @@ main.live {
   -webkit-column-width: 17em;
   column-width: 17em;
   /*space of column*/
-  -webkit-column-gap: .1em;
-  column-gap: .1em;
-  margin-right: -.1rem;
-  margin-left: -.1rem;
+  -webkit-column-gap: .2em;
+  column-gap: .2em;
+  margin-right: -.2rem;
+  margin-left: -.2rem;
 }
 
 .make-columns:before,
@@ -1251,8 +1251,8 @@ main.live {
 .make-columns .cols {
   position: relative;
   min-height: 1px;
-  padding-right: .1rem;
-  padding-left: .1rem;
+  padding-right: .2rem;
+  padding-left: .2rem;
 }
 
 .make-columns > div.cols {
@@ -2581,18 +2581,21 @@ header,
 }
 
 @media (max-width: 765px) {
-  #features .feature-box .card-content:before {
-    border-left: 75px solid transparent;
-    border-top: 10px solid white;
+  .navbar {
+    padding: .5rem .2rem;
   }
 
-  #features .feature-box .card-content:after {
-    border-right: 75px solid transparent;
-    border-top: 10px solid white;
+  .row {
+    margin-left: -.2rem;
+    margin-right: -.2rem;
   }
-}
 
-@media (max-width: 766px) {
+  .container,
+  [class*="col-"] {
+    padding-left: .2rem;
+    padding-right: .2rem;
+  }
+
   #navbarSupportedContent .navbar-nav .w-45vw {
     width: 100%;
     margin-top: .25rem;
@@ -2641,6 +2644,16 @@ header,
 
   #modalPopup .modal-dialog {
     max-width: 100% !important;
+  }
+
+  #features .feature-box .card-content:before {
+    border-left: 75px solid transparent;
+    border-top: 10px solid white;
+  }
+
+  #features .feature-box .card-content:after {
+    border-right: 75px solid transparent;
+    border-top: 10px solid white;
   }
 }
 
