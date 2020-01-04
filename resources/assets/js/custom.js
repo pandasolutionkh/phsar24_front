@@ -31,6 +31,18 @@ $(document).ready(function(){
 
 	$('[data-toggle="tooltip"]').tooltip();
   $('[data-toggle="popover"]').popover()
+  $('[data-toggle="collapse"]').collapse();
+
+  $(document).on('click', function (e){
+    /* bootstrap collapse js adds "in" class to your collapsible element*/
+    var menu_opened = $('#navbarSupportedContent').hasClass('show');
+    if(!$(e.target).closest('#navbarSupportedContent').length &&
+        !$(e.target).is('#navbarSupportedContent') &&
+        menu_opened === true){
+            $('#navbarSupportedContent').collapse('toggle');
+    }
+
+  });
 
   var location = window.location;
   var current_url = location.href;

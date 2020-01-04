@@ -2600,6 +2600,10 @@ header,
     padding-right: .2rem;
   }
 
+  main {
+    margin-top: 59px;
+  }
+
   .pb-xs-4,
   .py-xs-4 {
     padding-bottom: 0.2rem !important;
