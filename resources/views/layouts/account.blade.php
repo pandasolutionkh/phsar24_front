@@ -53,7 +53,7 @@
             <div class="py-4 py-xs-4">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-3 d-none d-md-block">
                             <div class="card mb-3 mb-xs-3">
                                 <div class="card-header">
                                     <h3 class="menu-profile-title">{{ __('Selling') }}</h3>
