@@ -212,6 +212,7 @@ class ProductController extends Controller
         
         $product = $data->update($input);
         if($product){
+          $obj_cover = null;
             $_photos = [];
             if(isset($input['photos'])){
               $_photos = $input['photos'];
@@ -252,12 +253,19 @@ class ProductController extends Controller
                 }
 
                 foreach($files as $entity){
+                  if($entity->is_cover){
+                    $obj_cover = $entity;
+                  }
                   if(!in_array($entity->name,$_tmp_photos)){
                     $_name = $entity->name;
                     getDisk()->delete("products/$_name");
                     $entity->delete();
                   }
                 }
+            }
+
+            if($obj_cover){
+              $obj_cover->update(['is_cover'=>false]);
             }
 
             $_gallery = Gallery::where('product_id',$id)->where('name',$cover)->first();
