@@ -3537,3 +3537,26 @@
 #58 /Users/givangel/Downloads/phsar24_front/server.php(21): require_once('/Users/givangel...')
 #59 {main}
 "} 
+[2020-01-09 13:47:55] local.ERROR: Command "config:clar" is not defined.
+
+Did you mean one of these?
+    cache:clear
+    config:cache
+    config:clear
+    route:clear
+    view:clear {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"config:clar\" is not defined.
+
+Did you mean one of these?
+    cache:clear
+    config:cache
+    config:clear
+    route:clear
+    view:clear at /Users/givangel/Downloads/phsar24_front/vendor/symfony/console/Application.php:646)
+[stacktrace]
+#0 /Users/givangel/Downloads/phsar24_front/vendor/symfony/console/Application.php(236): Symfony\\Component\\Console\\Application->find('config:clar')
+#1 /Users/givangel/Downloads/phsar24_front/vendor/symfony/console/Application.php(148): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 /Users/givangel/Downloads/phsar24_front/vendor/laravel/framework/src/Illuminate/Console/Application.php(89): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 /Users/givangel/Downloads/phsar24_front/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(122): Illuminate\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 /Users/givangel/Downloads/phsar24_front/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#5 {main}
+"} 
