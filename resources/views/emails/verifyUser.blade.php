@@ -9,7 +9,7 @@
 <br/>
 Your registered email-id is {{$user->email}} , Please click on the below link to verify your email account
 <br/>
-<a href="{{ route('verifyUser', $user->userActivate->token) }}">Verify Email</a>
+<a href="{{ route('verifyUser', $user->userActivate->token) }}">{{ route('verifyUser', $user->userActivate->token) }}</a>
 </body>
  
 </html>
