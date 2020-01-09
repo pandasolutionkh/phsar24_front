@@ -114,7 +114,7 @@
                                         <img class="img-profile" src="{{ $_src }}" alt="" width="31" height="31" /> 
                                         {{ Auth::user()->name }}
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-right py-1" aria-labelledby="navbarDropdown">
+                                    <div class="dropdown-menu dropdown-menu-right py-1 animate slideIn" aria-labelledby="navbarDropdown">
                                         <div class="dropdown-item">{{ __('Selling') }}</div>
                                         
                                         <div class="dropdown-divider my-1"></div>
