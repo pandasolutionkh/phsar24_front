@@ -169,7 +169,7 @@ if(! function_exists('showContentMore')){
         $res_more = '';
         foreach($content as $p){
             $_str = trim($p);
-            $_str = addslashes($_str);
+            //$_str = addslashes($_str);
             $len = strlen($_str);
             $tmp_len = $num_display;
             $num_display = $num_display - $len;
