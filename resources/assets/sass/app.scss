@@ -609,6 +609,9 @@ main.live{
             font-size: 10px;
         }
         .product-content{
+            max-width: 100%;
+            overflow: hidden;
+            
             p{
                 &.see-more{
                     display: inline-block;

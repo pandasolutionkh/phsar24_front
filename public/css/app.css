@@ -1118,6 +1118,11 @@ main.live {
   font-size: 10px;
 }
 
+.card-body.product .product-content {
+  max-width: 100%;
+  overflow: hidden;
+}
+
 .card-body.product .product-content p.see-more {
   display: inline-block;
 }
