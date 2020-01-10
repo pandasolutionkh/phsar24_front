@@ -137,14 +137,14 @@
                                         
                                         <div class="dropdown-divider my-1"></div>
 
+                                        <a class="dropdown-item" href="{{ route('profile.index') }}">
+                                            <i class="fa fa-fw fa-user"></i> {!! __('Profile') !!}
+                                        </a>
+                                        
                                         <a class="dropdown-item" href="{{ route('profile.change_password') }}">
                                             <i class="fa fa-fw fa-key"></i> {!! __('Change Password') !!}
                                         </a>
                                         
-                                        <a class="dropdown-item" href="{{ route('profile.index') }}">
-                                            <i class="fa fa-fw fa-user"></i> {!! __('Profile') !!}
-                                        </a>
-
                                         <a class="dropdown-item" href="{{ route('profile.contact') }}">
                                             <i class="fa fa-fw fa-phone"></i> {!! __('Contact Detail') !!}
                                         </a>
