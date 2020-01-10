@@ -1,11 +1,18 @@
 <!-- Load Facebook SDK for JavaScript -->
-<div id="fb-root"></div>
+<div class="fb-customerchat"
+ page_id="{{ ENV('FACEBOOK_PAGE_ID') }}"
+ theme_color="#459645"
+ logged_in_greeting="Hi! How can we help you?"
+ logged_out_greeting="GoodBye!... Hope to see you soon."
+ minimized="false">
+</div>
 <script>
 window.fbAsyncInit = function() {
     FB.init({
-            xfbml            : true,
-            version          : 'v4.0'
-            });
+		appId            : "{{ ENV('FACEBOOK_APP_ID') }}",
+        xfbml            : true,
+        version          : 'v4.0'
+    });
 };
 
 (function(d, s, id) {
@@ -14,10 +21,6 @@ window.fbAsyncInit = function() {
  js = d.createElement(s); js.id = id;
  js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
  fjs.parentNode.insertBefore(js, fjs);
- }(document, 'script', 'facebook-jssdk'));</script>
+ }(document, 'script', 'facebook-jssdk'));
+</script>
 
-<!-- Your customer chat code -->
-<div class="fb-customerchat"
-attribution=setup_tool
-page_id="{{ ENV('FACEBOOK_PAGE_ID') }}">
-</div>
