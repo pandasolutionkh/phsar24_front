@@ -161,7 +161,7 @@ function createSlug($str, $delimiter = '-'){
 } 
 
 if(! function_exists('showContentMore')){
-    function showContentMore($str,$num_display = 15){
+    function showContentMore($str,$num_display = 15,$num_line=5){
         $str = str_replace(array("\r\n","\r","\n"),"<br>", $str);
         $content = explode("<br><br>", $str);
         $res = '';
@@ -175,7 +175,7 @@ if(! function_exists('showContentMore')){
             $num_display = $num_display - $len;
 
             if($num_display <= 0 && !$is_more){
-                $_substr = substrViaLineBreak($_str,5,$tmp_len);
+                $_substr = substrViaLineBreak($_str,$num_line,$tmp_len);
                 $_end = $_substr['end'];
                 $res .= "<p class='see-more'>".$_substr['start'];
                 if(trim($_end)){

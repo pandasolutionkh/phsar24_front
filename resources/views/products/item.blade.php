@@ -45,7 +45,7 @@
                 </div>
             </div>
             <div class="product-content"> 
-                {!! showContentMore($data->description) !!}
+                {!! showContentMore($data->description,10,1) !!}
             </div>
             
             @php
