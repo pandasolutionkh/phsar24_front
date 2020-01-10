@@ -1125,6 +1125,7 @@ main.live {
 
 .card-body.product .product-content p.see-more {
   display: inline-block;
+  margin-bottom: .3rem;
 }
 
 .card-body.product .product-content p:last-child {
