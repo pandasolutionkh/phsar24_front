@@ -40,7 +40,7 @@ class User extends Authenticatable
         'enabled',
     ];
 
-    public function userContact()
+    public function user_contact()
     {
         return $this->hasOne(UserContact::class,'user_id');
     }

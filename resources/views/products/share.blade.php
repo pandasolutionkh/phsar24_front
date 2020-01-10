@@ -34,17 +34,21 @@
 @section('content')
 @php
 $_id = $data->id;
-$_user_src = asset('images/profile.jpg');
+$_user_src = asset('images/bg.png');
 $_user_name = getContactName();
 $_phone = getPhone();
 $_address = getAddress();
 $_location = '';
-if($_user = $data->user){
+$_user_id = '';
+$_user = $data->user;
+if($_user){
+	$_user_id = $_user->id;
 	$_photo = $_user->photo;
-	$_user_src = getUrlStorage("profiles/$_photo");
-
+	if($_photo){
+		$_user_src = getUrlStorage("profiles/$_photo");
+	}
 	if($user_contact = $_user->userContact){
-        $_user_name = $_user->name;
+		$_user_name = $_user->name;
         $_phone = $user_contact->phone;
         $_address = $user_contact->address;
         $_location = $user_contact->province->name;
@@ -212,26 +216,43 @@ if($_user = $data->user){
                         	<img class="shop-owner-profile" src="{{ $_user_src }}" alt="" width="61" height="61" />
                     	</div>
                     	<div class="d-inline-block">
-                        	<h4 class="text-white">{{ $_user_name }}</h4>
+                        	<h4>
+                        		@if($_user_id)
+                        		<a class="text-white" href="{{ route('shop.index',$_user_id) }}">{{ $_user_name }}</a>
+                        		@else
+                        		<span class="text-white">{{ $_user_name }}</span>
+                        		@endif
+                        	</h4>
                         </div>
 					</div>
-    				<div class="card-body">
-    					<div class="d-flex">
-							<div class="pr-1">
-	                        	<i class="fa fa-phone"></i> 
-	                    	</div>
-	                    	<div>
-	                        	{{ $_phone }}
-	                        </div>
+    				<div class="card-body account-profile">
+    					<div class="menu">
+    						<a><i class="fa fa-phone"></i> {{ $_phone }}</a>
+							<a><i class="fa fa-map-marker"></i> {{ $_address }}</a>
 						</div>
-						<div class="d-flex">
-							<div class="pr-1">
-	                        	<i class="fa fa-map-marker"></i> 
-	                    	</div>
-	                    	<div>
-	                        	{{ $_address }}
-	                        </div>
-						</div>
+						@if($_user->user_contact && $_user->user_contact->lat && $_user->user_contact->lng)
+					    <div>
+					        @php
+					            $_lat = $_user->user_contact->lat;
+					            $_lng = $_user->user_contact->lng;
+					        @endphp
+					        <div class="map">
+					            <img class="img-fluid" src="{{ asset('images/map.png') }}">
+					            <div class="map-overlay no-bg">
+					                <div class="d-table">
+					                    <div class="d-table-row">
+					                        <div class="d-table-cell text-center">
+					                            <a target="_blank" class="btn btn-primary" href="https://maps.google.com/maps?q={{ $_lat }},{{ $_lng }}&15">
+					                            	<img width="24" class="img-fluid" src="{{ asset('images/google_map.png') }}">
+					                            	{{ __('Show on map') }}
+					                            </a>
+					                        </div>
+					                    </div>
+					                </div>
+					            </div>
+					        </div>
+					    </div>
+					    @endif
 					</div>
     			</div>
     		</div>

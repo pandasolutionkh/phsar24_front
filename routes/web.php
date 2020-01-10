@@ -132,4 +132,13 @@ Route::post('/profile/contact',[
 	'uses' => 'ProfileController@createContact'
 ]);
 
+Route::get('/shop/{id}',[
+	'as'=>'shop.index',
+	'uses' => 'UserController@index'
+]);
+
+Route::get('/shop/{id}/contact',[
+	'as'=>'shop.contact',
+	'uses' => 'UserController@contact'
+]);
 

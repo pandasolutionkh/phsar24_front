@@ -2149,6 +2149,34 @@ footer a.created-by {
   overflow: scroll;
 }
 
+.map {
+  position: relative;
+}
+
+.map .map-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #333333a0;
+}
+
+.map .map-overlay .d-table {
+  height: inherit;
+  width: inherit;
+}
+
+.map .map-overlay .d-table .d-table-cell {
+  vertical-align: middle;
+}
+
+.map .map-overlay.no-bg {
+  background-color: initial;
+}
+
 /*select2*/
 
 .select2-container .select2-selection--single {

@@ -1617,6 +1617,30 @@ footer{
     }
 }
 
+.map{
+  position: relative;
+  .map-overlay{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #333333a0;
+    .d-table{
+        height: inherit;
+        width: inherit;
+        .d-table-cell{
+            vertical-align: middle;
+        }
+    }
+    &.no-bg{
+        background-color: initial;
+    } 
+  }
+}
+
 /*select2*/
 .select2-container{
     .select2-selection--single{

@@ -28,6 +28,8 @@ class UserContact extends Model
         'email',
         'phone',
         'address',
+        'lat',
+        'lng',
         'province_id',
     ];
     
