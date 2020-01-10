@@ -2,7 +2,7 @@
 <div class="form-group  {{ $errors->has('name') ? 'has-error' : ''}}">
     <?php
         $_field = 'name';
-        $_name = 'Name';
+        $_name = __('Name');
     ?>
     {!! Form::label($_field, $_name.getRequireStar(), ['class' => 'control-label'],false) !!}
     <div>
@@ -12,7 +12,7 @@
 <div class="form-group {{ $errors->has('sub_category_id') ? 'has-error' : ''}}">
     <?php
         $_field = 'sub_category_id';
-        $_name = 'Category';
+        $_name = __('Category');
     ?>
     {!! Form::label($_field, $_name.getRequireStar(), ['class' => 'control-label'], false) !!}
     <div>
@@ -24,7 +24,7 @@
 <div class="form-group">
     <?php
         $_field = 'price';
-        $_name = 'Price';
+        $_name = __('Price');
     ?>
     {!! Form::label($_field, $_name .' ($)', ['class' => 'control-label'],false) !!}
     <div>
@@ -35,7 +35,7 @@
 <div class="form-group">
     <?php
         $_field = 'promotion';
-        $_name = 'Promotion';
+        $_name = __('Promotion');
     ?>
     {!! Form::label($_field, $_name.' ($)', ['class' => 'control-label'],false) !!}
     <div>
@@ -46,7 +46,7 @@
 <div class="form-group  {{ $errors->has('description') ? 'has-error' : ''}}">
     <?php
         $_field = 'description';
-        $_name = 'Description';
+        $_name = __('Description');
     ?>
     {!! Form::label($_field, $_name.getRequireStar(), ['class' => 'control-label'],false) !!}
     <div>
@@ -56,7 +56,7 @@
 
 <div class="form-group">
   <label>
-    <button id="browse-your-file" class="btn btn-info" type="button">Browse your image(s)...</button>
+    <button id="browse-your-file" class="btn btn-info" type="button">Browse your {{ getLimitUpload() }} image(s)...</button>
   </label>
   <div id="drag-and-drop" class="drag-and-drop">
     @if(old('photos'))
@@ -128,9 +128,9 @@
 </div>
 
 <div class="form-group">
-    <button type="submit" class="btn btn-info"><i class="fa fa-save"></i> {{ _t('Save') }}</button>
+    <button type="submit" class="btn btn-info"><i class="fa fa-save"></i> {{ __('Save') }}</button>
     <?php
-        $_back = _t('Back');
+        $_back = __('Back');
     ?>
     @if (isset($page))
     <a class="btn btn-danger" href="{{ route('products.index',['page'=>$page]) }}"><i class="fa fa-angle-left"></i> {{ $_back }}</a>
@@ -138,10 +138,11 @@
     <a class="btn btn-danger" href="{{ route('products.index') }}"><i class="fa fa-angle-left"></i> {{ $_back }}</a>
     @endif
 </div>
-    
+
 
 @section('script')
 <script type="text/javascript">
+  var limit_upload = parseInt("{!! getLimitUpload() !!}");
   file_index = parseInt('<?php echo (isset($_incr) ? $_incr : 0); ?>');
   var _ele = '#browse-your-file';
   $(document).on('click',_ele,function(){

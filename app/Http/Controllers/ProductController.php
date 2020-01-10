@@ -120,8 +120,15 @@ class ProductController extends Controller
             }
 
             if($_photos){
+              $_excepts = [];
+              $_limit_upload = getLimitUpload();
                 $_id = $product->id;
+                $_incr = 0;
                 foreach($_photos as $_photo){
+                  if($_incr >= $_limit_upload){
+                    $_excepts[] = $_photo['name'];
+                    continue;
+                  }
                   $_photo['product_id'] = $_id;
                   $_suc = Gallery::create($_photo);
                   if($_suc){
@@ -140,17 +147,23 @@ class ProductController extends Controller
                     DB::rollBack();
                     return redirect()->route('products.index')->with('error','Your data cannot save!');
                   }
+                  $_incr++;
+                }
 
+                foreach($_excepts as $_name){
+                  getPublicDisk()->delete("tmp/$_name");
+                }
+
+                if(empty($cover) || in_array($cover, $_excepts)){
+                  $cover = $_photos[0]['name'];
+                }
+
+                $_gallery = Gallery::where('product_id',$product->id)->where('name',$cover)->first();
+                if(!empty($_gallery)){
+                  $_gallery->update(['is_cover'=>true]);
                 }
             }
-            if(empty($cover)){
-              $cover = $_photos[0]['name'];
-            }
-
-            $_gallery = Gallery::where('product_id',$product->id)->where('name',$cover)->first();
-            if(!empty($_gallery)){
-              $_gallery->update(['is_cover'=>true]);
-            }
+            
             DB::commit();
         }
 
@@ -212,16 +225,24 @@ class ProductController extends Controller
         
         $product = $data->update($input);
         if($product){
-          $obj_cover = null;
+            $obj_cover = null;
             $_photos = [];
             if(isset($input['photos'])){
               $_photos = $input['photos'];
             }
 
             if($_photos){
+              $_excepts = [];
+              $_limit_upload = getLimitUpload();
                 $_tmp_photos = [];
+                $_incr = 0;
                 foreach($_photos as $_photo){
                   $_name = $_photo['name'];
+                  if($_incr >= $_limit_upload){
+                    $_excepts[] = $_name;
+                    continue;
+                  }
+
                   $_tmp_photos[] = $_name;
                   $_is_new = true;
                   //todo check the name is new
@@ -262,15 +283,19 @@ class ProductController extends Controller
                     $entity->delete();
                   }
                 }
-            }
 
-            if($obj_cover){
-              $obj_cover->update(['is_cover'=>false]);
-            }
+                if($obj_cover){
+                  $obj_cover->update(['is_cover'=>false]);
+                }
 
-            $_gallery = Gallery::where('product_id',$id)->where('name',$cover)->first();
-            if(!empty($_gallery)){
-              $_gallery->update(['is_cover'=>true]);
+                if( in_array($cover, $_excepts) ){
+                  $cover = $_photos[0]['name'];
+                }
+
+                $_gallery = Gallery::where('product_id',$id)->where('name',$cover)->first();
+                if(!empty($_gallery)){
+                  $_gallery->update(['is_cover'=>true]);
+                }
             }
 
             DB::commit();

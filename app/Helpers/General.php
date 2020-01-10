@@ -90,7 +90,7 @@ function getRequireStar($is_hidden = false){
 }
 
 function getPleaseSelect($msg = 'one') {
-	return "Please select $msg";
+	return __("Please select $msg");
 }
 
 if (! function_exists('words')) {
@@ -292,6 +292,15 @@ if(! function_exists('getCategories')){
     }
 }
 
+function getDropdownCategories($is_all = false) {
+    $_data = DB::table('categories')->where('enabled',true)->orderBy('name','ASC')
+        ->pluck('name', 'id');
+    if($is_all){
+        $_data->prepend(' All ','');
+    }
+    return $_data;
+}
+
 if(! function_exists('getQueryString')){
     function getQueryString($p_except = []){
         $_n = '&';
@@ -340,7 +349,7 @@ function compress($source, $destination, $quality) {
     return $destination;
 }
 
-function resizeImage($sourceImage, $targetImage, $maxWidth, $maxHeight, $quality = 80)
+function resizeImage($sourceImage, $targetImage, $maxWidth, $maxHeight, $quality = 91)
 {
     // Get dimensions of source image.
     $info = getimagesize($sourceImage);
@@ -547,5 +556,15 @@ if(! function_exists('getNumRelated')){
             return (int)$setting['num_related'];
         }
         return 6;
+    }
+}
+
+if(! function_exists('getLimitUpload')){
+    function getLimitUpload(){
+        $setting = getSetting();
+        if(isset($setting['limit_upload'])){
+            return (int)$setting['limit_upload'];
+        }
+        return 5;
     }
 }

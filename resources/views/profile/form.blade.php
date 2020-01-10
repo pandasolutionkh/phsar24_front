@@ -1,7 +1,7 @@
 
 <div class="form-group">
     @php
-    $_label = _t('Photo');
+    $_label = __('Photo');
     @endphp
     {!! Form::label('photo', $_label, ['class' => 'control-label']) !!}
     <div class="photo-cover">
@@ -28,7 +28,7 @@
 
 <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
     @php
-    $_label = _t('Name');
+    $_label = __('Name');
     @endphp
     {!! Form::label('name', $_label.getRequireStar(), ['class' => 'control-label'],false) !!}
     <div>
@@ -39,7 +39,7 @@
 
 <div class="form-group">
     @php
-    $_label = _t('Gender');
+    $_label = __('Gender');
     @endphp
     {!! Form::label('gender', $_label, ['class' => 'control-label']) !!}
     <div>
@@ -49,7 +49,7 @@
 
 <div class="form-group {{ $errors->has('phone') ? 'has-error' : ''}}">
     @php
-    $_label = _t('Phone');
+    $_label = __('Phone');
     @endphp
     {!! Form::label('phone', $_label.getRequireStar(), ['class' => 'control-label'],false) !!}
     <div>
@@ -60,7 +60,7 @@
         
  <div class="form-group {{ $errors->has('email') ? 'has-error' : ''}}">
     @php
-    $_label = _t('Email');
+    $_label = __('Email');
     @endphp
     {!! Form::label('email', $_label.getRequireStar(), ['class' => 'control-label'],false) !!}
     <div>
@@ -70,6 +70,6 @@
 </div>
 
 <div class="form-group">
-    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ _t('Save') }}</button>
+    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ __('Save') }}</button>
 </div>
 

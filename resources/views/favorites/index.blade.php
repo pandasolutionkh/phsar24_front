@@ -3,7 +3,7 @@
 
 @section('content')
     
-<h1 class="title">{{ _t('Favorite') }}</h1>
+<h1 class="title">{{ __('Favorite') }}</h1>
 @if ($message = Session::get('message'))
 <div class="alert alert-success">
 	<button type="button" class="close" data-dismiss="alert" aria-label="Close">

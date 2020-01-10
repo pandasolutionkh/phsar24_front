@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="/css/animate.css"/>
     @yield('style')
     @php
-        $_v = '1.3.7';
+        $_v = '1.3.9';
     @endphp
     <link rel="stylesheet" href="/css/nprogress.css"/>
     <link rel="stylesheet" href="/css/app.css?v={!! $_v !!}"/>

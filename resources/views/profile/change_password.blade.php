@@ -2,7 +2,7 @@
 @extends('layouts.account')
 
 @section('content')
-    <h1 class="title">{{ _t('Change Password') }}</h1>
+    <h1 class="title">{{ __('Change Password') }}</h1>
     
     @if ($message = Session::get('message'))
         <div class="alert alert-success">
@@ -29,7 +29,7 @@
 
     
         <div class="form-group {{ $errors->has('current_password') ? 'has-error' : ''}}">
-            @php $_label = _t('Current Password'); @endphp
+            @php $_label = __('Current Password'); @endphp
             {!! Form::label('current_password', $_label.getRequireStar(), ['class' => 'control-label'],false) !!}
             <div>
                 {!! Form::password('current_password', array('placeholder' => $_label,'class' => 'form-control required','data-required'=>$_label)) !!}
@@ -38,7 +38,7 @@
         </div>
 
         <div class="form-group {{ $errors->has('new_password') ? 'has-error' : ''}}">
-            @php $_label = _t('New Password'); @endphp
+            @php $_label = __('New Password'); @endphp
             {!! Form::label('new_password', $_label.getRequireStar(), ['class' => 'control-label'],false) !!}
             <div>
                 {!! Form::password('new_password', array('placeholder' => $_label,'class' => 'form-control required','data-required'=>$_label)) !!}
@@ -47,7 +47,7 @@
         </div>
 
         <div class="form-group {{ $errors->has('new_password_confirmation') ? 'has-error' : ''}}">
-            @php $_label = _t('Confirm New Password'); @endphp
+            @php $_label = __('Confirm New Password'); @endphp
             {!! Form::label('new_password_confirmation', $_label.getRequireStar(), ['class' => 'control-label'],false) !!}
             <div>
                 {!! Form::password('new_password_confirmation', array('placeholder' => $_label,'class' => 'form-control required','data-required'=>$_label)) !!}
@@ -56,7 +56,7 @@
         </div>
     
         <div class="form-group">
-            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ _t('Save') }}</button>
+            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> {{ __('Save') }}</button>
         </div>
 
 

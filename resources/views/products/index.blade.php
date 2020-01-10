@@ -4,12 +4,12 @@
 <div class="mb-3">
 	<div class="row">
 		<div class="col-md-6">
-			<h1 class="title">Products</h1>
+			<h1 class="title">{{ __('Products') }}</h1>
 		</div>
 		<div class="col-md-6 pull-right">
 			@if(checkForPost())
 			<a href="{{ route('products.create') }}" class="btn btn-md btn-primary pull-right btn-sm">
-				<i class="fa fa-plus"></i> Create
+				<i class="fa fa-plus"></i> {{ __('Create') }}
 			</a>
 			@endif
 		</div>
@@ -40,27 +40,27 @@
 		<div class="row">
 			<!-- Search username -->
 			<div class="col-lg-3 form-group">
-				{{ Form::label('name', 'Name') }}
-			 	{!! Form::text('search_name', $search_name, ['class' => 'form-control','placeholder' => 'Enter your text ...']) !!}
+				{{ Form::label('name', __('Name')) }}
+			 	{!! Form::text('search_name', $search_name, ['class' => 'form-control','placeholder' => __('Enter your text ...')]) !!}
 			</div><!-- /.col-lg-3 -->
 			<div class="col-lg-3 form-group">
 				{{ Form::label('cat', __('Category')) }}
 			 	<div>
-			        {!! Form::select('cat',getCategories(),$cat,['class' => 'form-control','placeholder'=>' All ']) !!}
+			        {!! Form::select('cat',getDropdownCategories(),$cat,['class' => 'form-control','placeholder'=>__('All')]) !!}
 			    </div>
 			</div><!-- /.col-lg-3 -->
 
 			<div class="col-lg-3 form-group">
 				{{ Form::label('sub', __('Sub Category')) }}
 			 	<div>
-			        {!! Form::select('sub',getSubCats(),$sub,['class' => 'form-control','placeholder'=>' All '],getSubCatAttributes()) !!}
+			        {!! Form::select('sub',getSubCats(),$sub,['class' => 'form-control','placeholder'=>__('All')],getSubCatAttributes()) !!}
 			    </div>
 			</div><!-- /.col-lg-3 -->
 
 			<div class="col-lg-3">
 				<label>&nbsp;</label>
 				<button class="btn btn-primary btn-block" type="submit">
-		        	<i class="glyphicon glyphicon-search"></i> {{ _t('Search') }}
+		        	<i class="glyphicon glyphicon-search"></i> {{ __('Search') }}
 		        </button>
 			</div>
 
@@ -77,11 +77,11 @@
 							<th class="width-45px">{{ __('No') }}</th>
 							<th class="width-55px">{{ __('Photo') }}</th>
 							<th>{{ __('Name') }}</th>
-							<th class="width-70px">Price</th>
-							<th class="width-85px">Promotion</th>
-							<th>Category</th>
-							<th>Sub Category</th>
-							<th class="width-100px">Created At</th>
+							<th class="width-70px">{{ __('Price') }}</th>
+							<th class="width-85px">{{ __('Promotion') }}</th>
+							<th>{{ __('Category') }}</th>
+							<th>{{ __('Sub Category') }}</th>
+							<th class="width-100px">{{ __('Created At') }}</th>
 							<th class="text-right width-85px">{{ __('Action') }}</th>
 						</tr>
 					</thead>

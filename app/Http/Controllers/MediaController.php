@@ -54,7 +54,7 @@ class MediaController extends Controller
                     try{
                         if($_width || $_height){
                             $_pathImage = getPublicPathStorage($_dest);
-                            resizeImage($_pathImage,$_pathImage,$_width,$_height,80);
+                            resizeImage($_pathImage,$_pathImage,$_width,$_height,91);
                         }
                     }catch(\Exception $err){
                         //var_dump($err->getMessage());exit;

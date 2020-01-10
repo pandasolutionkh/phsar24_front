@@ -24,18 +24,18 @@
                     @endphp
                     <form method="get" action="{{ $_url }}"> 
                         <div class="top-search input-group">
-                            {!! Form::text('s', $_s, array('placeholder' => _t('Search'),'autocomplete'=>'off','class' => 'form-control form-control')) !!}
+                            {!! Form::text('s', $_s, array('placeholder' => __('Search'),'autocomplete'=>'off','class' => 'form-control form-control')) !!}
                             <div class="input-group-append">
                                 <span class="input-group-text">
                                     <div class="dropdown dropdown-category">
                                         <a id="categoriesDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            {{ _t('All Categories') }}
+                                            {{ __('All Categories') }}
                                             @if(isset($category_name) and $category_name) 
                                                 <i class="fa fa-angle-right"></i>
                                                 {{ $category_name }}
                                             @endif <span class="caret"></span>
                                         </a>
-                                        <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
+                                        <div class="dropdown-menu animate slideIn" aria-labelledby="categoriesDropdown">
                                             <ul class="menu-category">
                                                 @foreach(getCategories() as $_entity)
                                                 <li>
@@ -85,17 +85,17 @@
                 @guest
                 <li>
                     <a class="nav-link" href="{{ route('favorites.index') }}">
-                        <i class="fa fa-heart"></i> {!! _t('Favorite') !!}
+                        <i class="fa fa-heart"></i> {!! __('Favorite') !!}
                     </a>
                 </li>
                 <li>
                     <a class="btn btn-primary btn-sm" href="{{ route('login') }}">
-                        <i class="fa fa-sign-in"></i> {!! _t('Login') !!}
+                        <i class="fa fa-sign-in"></i> {!! __('Login') !!}
                     </a>
                 </li>
                 <li>
                     <a class="btn btn-primary btn-sm" href="{{ route('register') }}">
-                        <i class="fa fa-edit"></i> {!! _t('Register') !!}
+                        <i class="fa fa-edit"></i> {!! __('Register') !!}
                     </a>
                 </li>
                 
@@ -138,11 +138,11 @@
                                         <div class="dropdown-divider my-1"></div>
 
                                         <a class="dropdown-item" href="{{ route('profile.change_password') }}">
-                                            <i class="fa fa-fw fa-key"></i> {!! _t('Change Password') !!}
+                                            <i class="fa fa-fw fa-key"></i> {!! __('Change Password') !!}
                                         </a>
                                         
                                         <a class="dropdown-item" href="{{ route('profile.index') }}">
-                                            <i class="fa fa-fw fa-user"></i> {!! _t('Profile') !!}
+                                            <i class="fa fa-fw fa-user"></i> {!! __('Profile') !!}
                                         </a>
 
                                         <a class="dropdown-item" href="{{ route('profile.contact') }}">
@@ -153,7 +153,7 @@
                                         
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            <i class="fa fa-fw fa-sign-out"></i> {{ _t('Logout') }}
+                                            <i class="fa fa-fw fa-sign-out"></i> {{ __('Logout') }}
                                         </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             @csrf

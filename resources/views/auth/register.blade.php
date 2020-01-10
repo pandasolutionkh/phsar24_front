@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header"><h3>{{ _t('Register') }}</h3></div>
+                    <div class="card-header"><h3>{{ __('Register') }}</h3></div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
@@ -14,7 +14,7 @@
 
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">
-                                    {{ _t('Name') }} {!! getRequireStar() !!}
+                                    {{ __('Name') }} {!! getRequireStar() !!}
                                 </label>
 
                                 <div class="col-md-6">
@@ -30,7 +30,7 @@
 
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right">
-                                    {{ _t('Gender') }}
+                                    {{ __('Gender') }}
                                 </label>
                                 <div class="col-md-6">
                                     {!! Form::select('gender',getGenders(),null,['class' => 'form-control']) !!}
@@ -39,7 +39,7 @@
 
                             <div class="form-group row">
                                     <label for="phone" class="col-md-4 col-form-label text-md-right">
-                                        {{ _t('Phone') }}  {!! getRequireStar() !!}
+                                        {{ __('Phone') }}  {!! getRequireStar() !!}
                                     </label>
 
                                     <div class="col-md-6">
@@ -55,7 +55,7 @@
 
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">
-                                    {{ _t('E-Mail Address') }} {!! getRequireStar() !!}
+                                    {{ __('E-Mail Address') }} {!! getRequireStar() !!}
                                 </label>
 
                                 <div class="col-md-6">
@@ -71,7 +71,7 @@
 
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">
-                                    {{ _t('Password') }} {!! getRequireStar() !!}
+                                    {{ __('Password') }} {!! getRequireStar() !!}
                                 </label>
 
                                 <div class="col-md-6">
@@ -87,7 +87,7 @@
 
                             <div class="form-group row">
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-right">
-                                    {{ _t('Confirm Password') }} {!! getRequireStar() !!}
+                                    {{ __('Confirm Password') }} {!! getRequireStar() !!}
                                 </label>
 
                                 <div class="col-md-6">
@@ -98,7 +98,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ _t('Register') }}
+                                        {{ __('Register') }}
                                     </button>
                                 </div>
                             </div>

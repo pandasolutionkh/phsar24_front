@@ -1,0 +1,93 @@
+{
+	"Save" : "រក្សាទុក",
+	"Back" : "ត្រឡប់",
+	"Next" : "បន្ទាប់",
+	"Print" : "Print",
+	"Download" : "ទាញយក",
+	"Search" : "ស្វែងរក",
+	"Create": "បង្កើត",
+
+	"Please select one": "សូមជ្រើសរើសមួយ",
+	"Enter your text ...": "បញ្ចូលពាក្យរបស់អ្នក",
+	"All": "ទាំងអស់",
+
+	"Selling": "ការលក់",
+	"Buying": "ការទិញ",
+	"Favorite" : "ចូលចិត្ត",
+	
+	"Home" : "Home",
+	"About US" : "អំពី​ពួក​យើង",
+	"Contact US" : "ទំនាក់ទំនង",
+	"Terms & Conditions" : "ល័ក្ខខ័ណ្ឌ",
+	"Register" : "ចុះឈ្មោះ",
+	"Login" : "ចូល",
+	"Logout" : "ចាកចេញ",
+
+	"please_select" : "សូមជ្រើសរើស:msg",
+
+	"My Account" : "គណនី​របស់ខ្ញុំ",
+
+	"Product": "ផលិតផល",
+	"Products": "ផលិតផល",
+	"No" : "ល.រ",
+	"Photo" : "រូបថត",
+	"Name" : "ឈ្មោះ",
+	"Price": "តម្លៃ",
+	"Promotion": "បញ្ចុះតម្លៃ",
+	"Category": "ប្រភេទ",
+	"Sub Category": "ប្រភេទរង",
+	"Description": "ការពិពណ៌នា",
+	"Created At": "បង្កើតនៅ",
+	"Action": "សកម្មភាព",
+	"Create Product": "បង្កើតផលិតផល",
+	"Edit Product": "កែសម្រួលផលិតផល",
+	
+	"Profile": "ប្រវត្តិរូប",
+	"Your Profile": "ប្រវត្តិរូបរបស់អ្នក",
+	"Gender" : "ភេទ",
+	"Phone" : "ទូរស័ព្ទ",
+	"Email" : "អ៊ីមែល",
+	"Male" : "ប្រុស",
+	"Female" : "ស្រី",
+
+	"Change Password" : "ប្តូរលេខសម្ងាត់",
+	"Current Password" : "លេខសម្ងាត់​បច្ចុប្បន្ន",
+	"New Password" : "លេខសម្ងាត់​ថ្មី",
+	"Confirm New Password" : "បញ្ចាក់លេខសម្ងាត់​ថ្មី",
+
+	"Contact Detail": "ពត៌មានទំនាក់ទំនង",
+	"Address" : "អាសយដ្ឋាន",
+	"Location": "ទីតាំង",
+
+
+	"Account" : "គណនី",
+	
+
+	"Setting": "Setting",
+	"Info": "Info",
+	"Activate":	"Activate",
+
+	"Password": "លេខសម្ងាត់",
+	"E-Mail Address": "​អ៊ី​ម៉េ​ល",
+	"Remember Me": "ចងចាំ",
+
+	"Forgot Your Password?": "ភ្លេចលេខសំងាត់?",
+	"Reset Password": "កំណត់ពាក្យសម្ងាត់ឡើងវិញ",
+	"Send Password Reset Link": "ផ្ញើលេខសម្ងាត់ឡើងវិញ",
+	"Confirm Password": "បញ្ជាក់លេខសម្ងាត់",
+	"Date": "Date",
+	"please_select_one": "សូមជ្រើសរើសមួយ",
+
+	"Social Networks": "បណ្ដាញ​សង្គម",
+	"Phsar24": "ផ្សារ២៤។", 
+	"copy_right": "រក្សា​សិទ្ធិ​គ្រប់​យ៉ាង​ដោយ​ <strong>ផ្សារ២៤</strong> ឆ្នាំ",
+	"Useful Links": "Useful Links",
+
+	"Subject" : "កម្មវត្ថុ",
+	"Message" : "សារ",
+	"Send" : "ផ្ញើ",
+	
+	"All Categories" : "ប្រភេទ",
+	"Created By:" : "បង្កើតដោយ:"
+
+}

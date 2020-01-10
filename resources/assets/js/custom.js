@@ -335,6 +335,15 @@ function getFileExtension(filename)
 
 //todo upload multip photo
 var file_index = 0;
+
+function getLimitUpload(){
+  return (typeof limit_upload != 'undefined' ? limit_upload : 1);
+}
+
+function getCountFile(){
+  return file_index;
+}
+
 $(document).on('change','#do-upload-photos', prepareUploadPhotos);
 
 // Grab the files and set them to our variable
@@ -343,20 +352,18 @@ function prepareUploadPhotos(event){
     var _th = $(this);
     var _files = event.target.files;
     var formData = new FormData();
-    var incr = 0;
-
+    
     if (_files) {
+        var _count_file = getCountFile();
         $.each(_files, function (key, value){
           if( _is_extension(value) ){
-            incr++;
+            if(_count_file >= getLimitUpload()){
+              return false;
+            }
             formData.append("photos["+key+"]", value);
+            _count_file++;
           }
         });
-        
-        if(incr < _files.length){
-          alert("Some files is not supported!");
-          return;
-        }
     }else{
         alert("You don't select file.");
         return;
@@ -442,6 +449,10 @@ $(document).on('click','.file-preview-frame .remove',function(e){
     _th.closest('.file-preview-frame').remove();
     file_index--;
 });
+
+function updateSelect2(obj){
+  obj.select2({ width: '100%' });
+}
 
 
 window.onload = function () { NProgress.done(); }
