@@ -119,7 +119,7 @@ class CategoryController extends Controller
       $category_id = $id;
       $sub_category_id = $sid;
 
-      return view('categories.index',compact('products','page','sub_categories','category_id','category','sub_category_id'));
+      return view('categories.sub',compact('products','page','sub_categories','category_id','category','sub_category_id'));
     }
 
 }
