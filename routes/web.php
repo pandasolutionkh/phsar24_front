@@ -142,3 +142,13 @@ Route::get('/shop/{id}/contact',[
 	'uses' => 'UserController@contact'
 ]);
 
+Route::get('/category/{id}',[
+	'as'=>'categories.index',
+	'uses' => 'CategoryController@index'
+]);
+
+Route::get('/category/{id}/{sid}',[
+	'as'=>'categories.sub',
+	'uses' => 'CategoryController@sub'
+]);
+

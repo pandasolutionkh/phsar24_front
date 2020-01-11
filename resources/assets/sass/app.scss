@@ -73,8 +73,6 @@ main.live{
 
     .dropdown{
         &.dropdown-category{
-            position: initial;
-
             .dropdown-menu{
                 &.show{
                     width: 100%;
@@ -89,7 +87,6 @@ main.live{
 
         li{
             width: 20%;
-            float: left;
             display: block; 
 
             span{

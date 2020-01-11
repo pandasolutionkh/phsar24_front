@@ -581,10 +581,6 @@ main.live {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-.navbar-custom .dropdown.dropdown-category {
-  position: initial;
-}
-
 .navbar-custom .dropdown.dropdown-category .dropdown-menu.show {
   width: 100%;
   padding: .5rem;
@@ -597,7 +593,6 @@ main.live {
 
 .navbar-custom .menu-category li {
   width: 20%;
-  float: left;
   display: block;
 }
 

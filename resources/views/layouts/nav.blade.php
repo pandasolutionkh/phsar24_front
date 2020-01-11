@@ -35,29 +35,11 @@
                                                 {{ $category_name }}
                                             @endif <span class="caret"></span>
                                         </a>
-                                        <div class="dropdown-menu animate slideIn" aria-labelledby="categoriesDropdown">
+                                        <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="categoriesDropdown">
                                             <ul class="menu-category">
-                                                @foreach(getCategories() as $_entity)
+                                                @foreach(getDropdownCategories() as $_key=>$_val)
                                                 <li>
-                                                    <span>{{ $_entity->name }}</span>
-                                                    <ul class="sub-category">
-                                                        @php
-                                                            $_query = getQueryString(['c','p']);
-                                                        @endphp
-                                                        @foreach($_entity->sub_categories as $_item)
-                                                        <li>
-                                                            @php
-                                                                $_id = $_item->id;
-                                                                $_url = "/?$_query";
-                                                                if($_query){
-                                                                    $_url .= '&';
-                                                                }
-                                                                $_url .= "c=$_id";
-                                                            @endphp
-                                                            <a href="{{ $_url }}">{{ $_item->name }}</a>
-                                                        </li>
-                                                        @endforeach
-                                                    </ul>
+                                                    <a href="{{ route('categories.index',$_key) }}">{{ $_val }}</a>
                                                 </li>
                                                 @endforeach
                                             </ul>
