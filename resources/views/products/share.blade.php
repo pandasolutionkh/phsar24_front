@@ -42,6 +42,7 @@ $_location = '';
 $_user_id = '';
 $_user = $data->user;
 if($_user){
+	$_user_name = $_user->name;
 	$_user_id = $_user->id;
 	$_photo = $_user->photo;
 	if($_photo){
