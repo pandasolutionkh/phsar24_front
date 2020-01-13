@@ -1259,6 +1259,7 @@ main.live {
 .make-columns > div.cols {
   display: block;
   margin-bottom: .6rem;
+  width: 100%;
 }
 
 .make-columns > div.cols .card {

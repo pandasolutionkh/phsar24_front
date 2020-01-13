@@ -765,6 +765,8 @@ $col-width: 17em;
     &> div.cols{
         display: block;
         margin-bottom: .6rem;
+        width: 100%;
+
         .card{
             display: inline-block;
             width: 100%;

@@ -84,7 +84,7 @@ class RegisterController extends Controller
         try{
             Mail::to($user->email)->send(new VerifyMail($user));
         }catch(\Swift_TransportException $e){
-            dd($e->getMessage());
+            //dd($e->getMessage());
         }
         
         return $user;
