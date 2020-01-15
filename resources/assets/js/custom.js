@@ -65,6 +65,30 @@ $(document).ready(function(){
   if($('.menu').length > 0){
     $('.menu a[href=\'' + current_url + '\']').addClass('active');
   }
+
+  $('#confirmDelete').on('show.bs.modal', function (e) {
+    var _target = e.relatedTarget;
+    var _message = $(_target).attr('data-message');
+    $(this).find('.modal-body p').text(_message);
+    var _title = $(_target).attr('data-title');
+    $(this).find('.modal-title').text(_title);
+
+    setTimeout(function(){
+      // Pass form reference to modal for submission on yes/ok
+      var _formId = $(_target).attr('data-formid');
+      var form = $(e.relatedTarget).closest('form');
+      if(typeof _formId != 'undefined'){
+        form = $('#' + _formId);
+      }
+      $('#confirmDelete .modal-footer #confirm').data('form', form);
+
+    },200);
+  });
+
+  $('#confirmDelete .modal-footer #confirm').on('click', function(){
+    var _form = $(this).data('form');
+    $(_form).submit();
+  });
 });
 
 
@@ -248,8 +272,8 @@ $(document).on('show.bs.modal','#modalPopup',function(e){
   _body.html('<p>Please wait for a minute ...</p>');
 
   setTimeout(function(){
-    var _id = _this.data('id');
-    axios.get('/product/'+_id).then(response => {
+    var _url = _this.data('url');
+    axios.get(_url).then(response => {
       var _data = response.data;
       var _form = _data.form;
       _body.html(_form);
@@ -271,7 +295,7 @@ $(document).on('click','.btn-product-favorite',function(e){
   var _cls_h = 'fa-heart';
 
   var _th = $(this);
-  var _id = _th.attr('data-id');
+  var _url = _th.attr('data-url');
   var _fa = _th.find('i.fa');
   var _is_fav = 0;
   if(_fa.hasClass(_cls_ho)){
@@ -281,7 +305,7 @@ $(document).on('click','.btn-product-favorite',function(e){
   var _params = {
     is_fav : _is_fav
   };
-  axios.post('/favorites/dofav/'+_id,_params).then(response => {
+  axios.post(_url,_params).then(response => {
     //var _data = response.data;
     if(_is_fav == 1){
       _fa.removeClass(_cls_ho).addClass(_cls_h);
@@ -355,6 +379,9 @@ function prepareUploadPhotos(event){
     
     if (_files) {
         var _count_file = getCountFile();
+        if(_count_file == getLimitUpload()){
+          return false;
+        }
         $.each(_files, function (key, value){
           if( _is_extension(value) ){
             if(_count_file >= getLimitUpload()){

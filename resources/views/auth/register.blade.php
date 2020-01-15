@@ -9,7 +9,7 @@
                     <div class="card-header"><h3>{{ __('Register') }}</h3></div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('register',getLang()) }}">
                             @csrf
 
                             <div class="form-group row">

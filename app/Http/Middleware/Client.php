@@ -18,6 +18,7 @@ class Client
      */
     public function handle($request, Closure $next)
     {
+        app()->setLocale($request->segment(1));
         if(Auth::check()){
             $user = Auth::user();
             $user_id = $user->id;

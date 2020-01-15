@@ -9,7 +9,7 @@
                     <div class="card-header"><h3>{{ __('Reset Password') }}</h3></div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('password.request') }}">
+                        <form method="POST" action="{{ route('password.request',getLang()) }}">
                             @csrf
 
                             <input type="hidden" name="token" value="{{ $token }}">

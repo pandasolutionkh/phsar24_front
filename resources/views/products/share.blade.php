@@ -7,7 +7,7 @@
 @section('meta')
 	@php
 		$_meta_image = '';
-		$_share_link = route('products.detail',$data->id);
+		$_share_link = route('products.detail',['locale'=>getLang(),'id'=>$data->id]);
 	@endphp
 
 	@foreach($data->galleries as $item)
@@ -116,9 +116,10 @@ if($_user){
 			                    $_count = 5;
 			                }    
 			                $_incr = 0;
+			                $_url_detail = route('products.detail',['id'=>$_id,'locale'=>getLang()]);
 			            @endphp
 
-			            <div class="product-image imgs-grid imgs-grid-{{$_count}} bg-white" data-id="{{ $_id }}" data-toggle="modal" data-target="#modalPopup">
+			            <div class="product-image imgs-grid imgs-grid-{{$_count}} bg-white" data-url="{{ $_url_detail }}" data-toggle="modal" data-target="#modalPopup">
 			                @foreach($_galleries as $item)
 			                    @php
 			                        if($item->is_lock) continue; //when administrator block
@@ -161,7 +162,7 @@ if($_user){
     				</div>
     			</div>
     			<div class="mt-3 mt-xs-3">
-	    			<h3 class="title">Related Product</h3>
+	    			<h3 class="title">{{ __('Related Product') }}</h3>
 			    	<div class="row related-product">
 			    		
 						@foreach($related as $row)
@@ -173,16 +174,19 @@ if($_user){
 										break;
 									}
 								}
+								$__url = route('products.detail',['locale'=>getLang(),'id'=>$row->id]);
 							@endphp
 							<div class="col-sm-4 mb-4 mb-xs-4">
 								<div class="card">
 									<div class="card-cover-image">
-										<img class="card-img-top" src="{{ $__src }}" alt="">
+										<a href="{{ $__url }}">
+											<img class="card-img-top" src="{{ $__src }}" alt="">
+										</a>
 									</div>
 									<div class="card-body p-2">
 										<div class="d-flex">
 											<div>
-												<a href="{{ route('products.detail',$row->id) }}">{{ $row->name }}</a>
+												<a href="{{ $__url }}">{{ $row->name }}</a>
 											</div>
 											@if(floatval($data->price) > 0 || intval($data->promotion) > 0)
 											<div class="ml-auto">
@@ -219,7 +223,7 @@ if($_user){
                     	<div class="d-inline-block">
                         	<h4>
                         		@if($_user_id)
-                        		<a class="text-white" href="{{ route('shop.index',$_user_id) }}">{{ $_user_name }}</a>
+                        		<a class="text-white" href="{{ route('shop.index',['locale'=>getLang(),'id'=>$_user_id]) }}">{{ $_user_name }}</a>
                         		@else
                         		<span class="text-white">{{ $_user_name }}</span>
                         		@endif

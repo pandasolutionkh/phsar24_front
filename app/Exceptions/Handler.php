@@ -50,14 +50,15 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        if ($exception instanceof AuthorizationException) {
-            return redirect('login')->with('warning', '419 Sorry, your session has expired.');
+        if ($exception instanceof AuthenticationException) {
+            return redirect()->route('login',getLang());//->with('warning', '419 Sorry, your session has expired.');
         }
 
         if ($exception instanceof TokenMismatchException)
         {
-            return redirect('login')->with('warning', 'Your session expired');
+            return redirect()->route('login',getLang())->with('warning', 'Your session expired');
         }
+        
         return parent::render($request, $exception);
     }
 }

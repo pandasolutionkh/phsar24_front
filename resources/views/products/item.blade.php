@@ -2,6 +2,8 @@
     $_id = $data->id;
     $_time = getNumberOfDays($data->updated_at,date('Y-m-d H:i:s'));
     $_countLiked = 0;//count($data->post_likes);
+    $_url_detail = route('products.detail',['id'=>$_id,'locale'=>getLang()]);
+    $_url_fav = route('favorites.dofav',['id'=>$_id,'locale'=>getLang()]);
 @endphp
 <div class="cols">
     <div class="card" data-id="p{{ $_id }}">
@@ -12,19 +14,19 @@
                         <div class="d-table w-100">
                             <div class="d-table-row">
                                 <div class="d-table-cell">
-                                    <a href="{{ route('products.detail',$_id) }}">
+                                    <a href="{{ $_url_detail }}">
                                         <strong class="product-title">{{ $data->name }}</strong>
                                     </a>
                                 </div>
                                 <div class="d-table-cell text-right w-15px">
                                 @guest
                                 
-                                    <a href="{{ route('favorites.index') }}">
+                                    <a href="{{ route('favorites.index',getLang()) }}">
                                         <i class="fa fa-heart-o"></i>
                                     </a>
                                 
                                 @else
-                                    <a data-id="{{ $_id }}" href="" class="btn-product-favorite">
+                                    <a data-url="{{ $_url_fav }}" href="" class="btn-product-favorite">
                                         @php
                                             if($data->favorited()){
                                                 $_fh = 'fa-heart';
@@ -64,7 +66,7 @@
                 $_incr = 0;
             @endphp
 
-            <div class="product-image imgs-grid imgs-grid-{{$_count}}" data-id="{{ $_id }}" data-toggle="modal" data-target="#modalPopup">
+            <div class="product-image imgs-grid imgs-grid-{{$_count}}" data-url="{{ $_url_detail }}" data-toggle="modal" data-target="#modalPopup">
                 @foreach($_galleries as $item)
                     @php
                         if($item->is_lock) continue; //when administrator block
@@ -100,12 +102,12 @@
                     <div class="d-table-row">
                         <div class="d-table-cell">
                             @php
-                                $_href = route('products.detail',$_id);
+                                $_href = route('products.detail',['id'=>$_id,'locale'=>getLang()]);
                                 $_title = $data->name;
                                 $_fb_share = "https://www.facebook.com/sharer/sharer.php?u=$_href&t=$_title";
                             @endphp
                             <a href="{{ $_fb_share }}" data-network="facebook" class="btn btn-share-fb btn-sm share" data-layout="button_count">
-                                <i class="fa fa-facebook"></i> Share
+                                <i class="fa fa-facebook"></i> {{ __('Share') }}
                             </a>
                         </div>
                         <div class="d-table-cell text-right">

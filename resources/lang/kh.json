@@ -80,7 +80,7 @@
 
 	"Social Networks": "បណ្ដាញ​សង្គម",
 	"Phsar24": "ផ្សារ២៤។", 
-	"copy_right": "រក្សា​សិទ្ធិ​គ្រប់​យ៉ាង​ដោយ​ <strong>ផ្សារ២៤</strong> ឆ្នាំ",
+	":year Phsar24. All rights reserved.": "រក្សា​សិទ្ធិ​គ្រប់​យ៉ាង​ដោយ​ <strong>ផ្សារ២៤</strong> ឆ្នាំ :year",
 	"Useful Links": "Useful Links",
 
 	"Subject" : "កម្មវត្ថុ",
@@ -88,6 +88,9 @@
 	"Send" : "ផ្ញើ",
 	
 	"All Categories" : "ប្រភេទ",
-	"Created By:" : "បង្កើតដោយ:"
+	"Created By:" : "បង្កើតដោយ:",
+	"Load More": "បន្ថែមទៀត",
+	"Related Product": "ផលិតផលដែលទាក់ទង",
+	"Share": "ចែករំលែក"
 
 }

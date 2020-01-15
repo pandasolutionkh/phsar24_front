@@ -11,11 +11,14 @@
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                                 {{ session('status') }}
                             </div>
                         @endif
 
-                        <form method="POST" action="{{ route('password.email') }}">
+                        <form method="POST" action="{{ route('password.email',getLang()) }}">
                             @csrf
 
                             <div class="form-group row">

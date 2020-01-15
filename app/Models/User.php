@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Uuid;
+use App\Notifications\ResetPassword;
 
 class User extends Authenticatable
 {
@@ -86,5 +87,10 @@ class User extends Authenticatable
     public static function generateUuid()
     {
          return Uuid::generate();
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPassword($token));
     }
 }

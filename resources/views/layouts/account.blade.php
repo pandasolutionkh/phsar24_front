@@ -41,7 +41,7 @@
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
-        var base_url = "{{ url('/') }}";
+        var base_url = "{{ url(getLang()) }}";
         var fb_app_id = "{{ env('FACEBOOK_APP_ID') }}";
     </script>
 </head>
@@ -61,7 +61,7 @@
 
                                 <div class="card-body account-profile">
                                     <div class="menu">
-                                        <a href="{{ route('products.index') }}">
+                                        <a href="{{ route('products.index',getLang()) }}">
                                             {!! __('Product') !!}
                                         </a>
                                     </div>
@@ -75,7 +75,7 @@
 
                                 <div class="card-body account-profile">
                                     <div class="menu">
-                                        <a href="{{ route('favorites.index') }}">
+                                        <a href="{{ route('favorites.index',getLang()) }}">
                                             {!! __('Favorite') !!}
                                         </a>
                                     </div>
@@ -89,13 +89,13 @@
 
                                 <div class="card-body account-profile">
                                     <div class="menu">
-                                        <a href="{{ route('profile.index') }}">
+                                        <a href="{{ route('profile.index',getLang()) }}">
                                             {!! __('Profile') !!}
                                         </a>
-                                        <a href="{{ route('profile.change_password') }}">
+                                        <a href="{{ route('profile.change_password',getLang()) }}">
                                             {!! __('Change Password') !!}
                                         </a>
-                                        <a href="{{ route('profile.contact') }}">
+                                        <a href="{{ route('profile.contact',getLang()) }}">
                                             {!! __('Contact Detail') !!}
                                         </a>
                                     </div>
@@ -117,6 +117,7 @@
     </div>
 
     @include('layouts.popup')
+    @include('layouts.confirm')
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>

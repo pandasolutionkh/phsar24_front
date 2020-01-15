@@ -24,7 +24,7 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request,$id)
+    public function index(Request $request,$locale,$id)
     {
       $product_per_page = 15;
       
@@ -66,7 +66,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function contact(Request $request,$id)
+    public function contact(Request $request,$locale,$id)
     {
       $user = User::find($id);
       return view('users.contact',compact('user'));

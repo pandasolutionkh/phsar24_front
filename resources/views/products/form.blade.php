@@ -1,23 +1,26 @@
  
-<div class="form-group  {{ $errors->has('name') ? 'has-error' : ''}}">
+<div class="form-group">
     <?php
         $_field = 'name';
         $_name = __('Name');
+        $_invalid = ($errors->has($_field) ? ' is-invalid' : '');
     ?>
     {!! Form::label($_field, $_name.getRequireStar(), ['class' => 'control-label'],false) !!}
     <div>
-        {!! Form::text($_field, null, array('placeholder' => $_name,'class' => 'form-control required','data-required'=>$_name)) !!}
+        {!! Form::text($_field, null, array('placeholder' => $_name,'class' => "form-control required $_invalid",'data-required'=>$_name)) !!}
+        {!! $errors->first($_field, '<p class="invalid-feedback">:message</p>') !!}
     </div>
 </div>
 <div class="form-group {{ $errors->has('sub_category_id') ? 'has-error' : ''}}">
     <?php
         $_field = 'sub_category_id';
         $_name = __('Category');
+        $_invalid = ($errors->has($_field) ? ' is-invalid' : '');
     ?>
     {!! Form::label($_field, $_name.getRequireStar(), ['class' => 'control-label'], false) !!}
     <div>
-        {!! Form::select($_field,getSubCategories(),null,['class' => 'form-control required','data-required'=>$_name,'placeholder'=>getPleaseSelect()]) !!}
-        {!! $errors->first($_field, '<p class="help-block">:message</p>') !!}
+        {!! Form::select($_field,getSubCategories(),null,['class' => "form-control required $_invalid",'data-required'=>$_name,'placeholder'=>getPleaseSelect()]) !!}
+        {!! $errors->first($_field, '<p class="invalid-feedback">:message</p>') !!}
     </div>
 </div>
 
@@ -43,14 +46,16 @@
     </div>
 </div>
 
-<div class="form-group  {{ $errors->has('description') ? 'has-error' : ''}}">
+<div class="form-group">
     <?php
         $_field = 'description';
         $_name = __('Description');
+        $_invalid = ($errors->has($_field) ? ' is-invalid' : '');
     ?>
     {!! Form::label($_field, $_name.getRequireStar(), ['class' => 'control-label'],false) !!}
     <div>
-        {!! Form::textarea($_field, null, array('placeholder' => $_name,'class' => 'form-control required','data-required'=>$_name)) !!}
+        {!! Form::textarea($_field, null, array('placeholder' => $_name,'class' => "form-control required $_invalid",'data-required'=>$_name)) !!}
+        {!! $errors->first($_field, '<p class="invalid-feedback">:message</p>') !!}
     </div>
 </div>
 
@@ -62,11 +67,13 @@
     @if(old('photos'))
       @php
         $_incr = 0;
+        $_cover = old('cover');
       @endphp
       @foreach(old('photos') as $item)
       @php
         $_name = $item['name'];
         $_path = $item['path'];
+        $_checked = ($_cover == $_name ? 'checked="checked"' : '');
       @endphp
       <div class="file-preview-frame">
         <div class="img">
@@ -81,7 +88,7 @@
             <div data-img="{{ $_name }}" class="remove"></div>
           </div>
         </div>
-        <label><input type="radio" name="cover" value="{{ $_name }}"> Cover</label>
+        <label><input type="radio" name="cover" value="{{ $_name }}" {{ $_checked }}> Cover</label>
       </div>
       @php
         $_incr++;
@@ -133,9 +140,9 @@
         $_back = __('Back');
     ?>
     @if (isset($page))
-    <a class="btn btn-danger" href="{{ route('products.index',['page'=>$page]) }}"><i class="fa fa-angle-left"></i> {{ $_back }}</a>
+    <a class="btn btn-danger" href="{{ route('products.index',['page'=>$page,'locale'=>getLang()]) }}"><i class="fa fa-angle-left"></i> {{ $_back }}</a>
     @else
-    <a class="btn btn-danger" href="{{ route('products.index') }}"><i class="fa fa-angle-left"></i> {{ $_back }}</a>
+    <a class="btn btn-danger" href="{{ route('products.index',getLang()) }}"><i class="fa fa-angle-left"></i> {{ $_back }}</a>
     @endif
 </div>
 

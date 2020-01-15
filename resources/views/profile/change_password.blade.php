@@ -25,7 +25,7 @@
     @endif
     
 
-    {!! Form::model($user, ['method' => 'POST','enctype' => 'multipart/form-data','url' => route('profile.resetPassword')]) !!}
+    {!! Form::model($user, ['method' => 'POST','enctype' => 'multipart/form-data','url' => route('profile.resetPassword',getLang())]) !!}
 
     
         <div class="form-group {{ $errors->has('current_password') ? 'has-error' : ''}}">

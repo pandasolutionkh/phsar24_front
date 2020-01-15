@@ -25,7 +25,7 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request,$slug)
+    public function index(Request $request,$locale,$slug)
     {
       $search = $request->input('s');
       $product_per_page = 15;
@@ -87,7 +87,7 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function sub(Request $request,$category_slug,$sub_category_slug)
+    public function sub(Request $request,$locale,$category_slug,$sub_category_slug)
     {
       $search = $request->input('s');
       $product_per_page = 15;

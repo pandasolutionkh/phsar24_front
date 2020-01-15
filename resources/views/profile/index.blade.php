@@ -14,7 +14,7 @@
 </div>
 @endif
 
-{!! Form::model($user, ['method' => 'POST','enctype' => 'multipart/form-data','url' => route('profile.update')]) !!}
+{!! Form::model($user, ['method' => 'POST','enctype' => 'multipart/form-data','url' => route('profile.update',getLang())]) !!}
 
 @include ('profile.form')
 

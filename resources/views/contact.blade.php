@@ -38,7 +38,7 @@
 			<div class="col-md-8">
 				<div class="card">
 					<div class="card-body">
-					{!! Form::open(array('route' => 'contact.store','method'=>'POST','id'=>'frmContact')) !!}
+					{!! Form::open(array('url' => route('contact.store',getLang()),'method'=>'POST','id'=>'frmContact')) !!}
 						<div class="form-group">
 				            {!! Form::label('subject', __('Subject').getRequireStar(), ['class' => 'control-label'],false) !!}
 				            <div>

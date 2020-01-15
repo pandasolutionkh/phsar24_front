@@ -25,7 +25,7 @@
     @endif
     
 
-    {!! Form::model($userContact, ['method' => 'POST','enctype' => 'multipart/form-data','url' => route('profile.create_contact')]) !!}
+    {!! Form::model($userContact, ['method' => 'POST','enctype' => 'multipart/form-data','url' => route('profile.create_contact',getLang())]) !!}
         @php
             $_is_invalid = 'is_invalid';
         @endphp

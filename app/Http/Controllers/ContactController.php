@@ -48,15 +48,15 @@ class ContactController extends Controller
             if(getMailTo()){
                 Mail::to(getMailTo())->send(new ContactMail($data));
             }else{
-                return redirect()->route('contact')
-                         ->with('message','Please contact the administrator. it is problem with email setting.');       
+                return redirect()->route('contact',getLang())
+                         ->with('message',__('Please contact the administrator. it is problem with email setting.'));       
             }
         }catch(\Swift_TransportException $e){
-            dd($e, app('mailer'));
+            //dd($e, app('mailer'));
         }
         
-        return redirect()->route('contact')
-                         ->with('message','Your data has sent successfully to administrator');
+        return redirect()->route('contact',getLang())
+                         ->with('message',__('Your data has sent successfully to administrator'));
     }
 
 }

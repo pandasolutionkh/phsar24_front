@@ -87,7 +87,7 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function product(Request $request,$id)
+    public function product(Request $request,$locale,$id)
     {
         $data = Product::find($id);
         if($request->ajax()){
@@ -103,6 +103,7 @@ class HomeController extends Controller
         $_num_related = getNumRelated();
         $related = Product::where('enabled',true)
           ->where('sub_category_id',$data->sub_category_id)
+          ->where('id','<>',$id)
           ->take($_num_related)
           ->get();
 

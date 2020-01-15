@@ -9,12 +9,12 @@
                     <div class="card-header"><h3>{{ __('Login') }}</h3></div>
 
                     <div class="card-body">
-                        @if (session('status'))
+                        @if (session('success'))
                             <div class="alert alert-success">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                                {{ session('status') }}
+                                {{ session('success') }}
                             </div>
                         @endif
                         @if (session('warning'))
@@ -26,7 +26,7 @@
                             </div>
                         @endif
 
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('login',getLang()) }}">
                         @csrf
 
                         <div class="form-group row">
@@ -75,11 +75,10 @@
                                     {{ __('Login') }}
                                 </button>
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
+                                
+                                <a class="btn btn-link" href="{{ route('password.request',getLang()) }}">
+                                    {{ __('Forgot Your Password?') }}
+                                </a>
                             </div>
                         </div>
                     </form>

@@ -36,7 +36,7 @@
     
     $('#products').after('<div class="infinite-scroll-trigger"></div>');
 
-    var _base_url = '<?php echo route("categories.sub",['category_slug'=>$category_slug,'sub_category_slug'=>$sub_category_slug]); ?>'; 
+    var _base_url = '<?php echo route("categories.sub",['locale'=>getLang(),'category_slug'=>$category_slug,'sub_category_slug'=>$sub_category_slug]); ?>'; 
     var _ajaxurl = _base_url;
     _ajaxurl += '?';
     _ajaxurl += _query_string;

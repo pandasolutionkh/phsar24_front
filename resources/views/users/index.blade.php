@@ -36,7 +36,7 @@
     
     $('#products').after('<div class="infinite-scroll-trigger"></div>');
 
-    var _base_url = '<?php echo route("shop.index",$user->id); ?>'; 
+    var _base_url = '<?php echo route("shop.index",['locale'=>getLang(),'id'=>$user->id]); ?>'; 
     var _ajaxurl = _base_url;
     _ajaxurl += '?';
     _ajaxurl += _query_string;

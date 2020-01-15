@@ -67,13 +67,14 @@ class FavoriteController extends Controller
      * @param  Request $request
      * @return Response
      */
-    public function doFavorite(Request $request, $id)
+    public function doFavorite(Request $request,$locale, $id)
     {
         $faverited = $request->is_fav;
+        $user = Auth::user();
         if($faverited){
-            Auth::user()->favorites()->attach($id,["id" => Uuid::generate()]);
+            $user->favorites()->attach($id,["id" => Uuid::generate()]);
         }else{
-            Auth::user()->favorites()->detach($id);
+            $user->favorites()->detach($id);
         }
 
         return response()->json([]);

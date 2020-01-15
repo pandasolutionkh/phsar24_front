@@ -568,3 +568,55 @@ if(! function_exists('getLimitUpload')){
         return 5;
     }
 }
+
+if(! function_exists('getLang')){
+    function getLang(){
+        return app()->getLocale();
+    }
+}
+
+function getCurrentRouteName(){
+    return \Illuminate\Support\Facades\Route::currentRouteName();
+}
+
+function switchLanguage(){
+    $_lang = getLang();
+    if($_lang == 'en'){
+        return 'kh';
+    }else{
+        return 'en';
+    }
+}
+
+function changeLanguage(){
+    $_base_url = url(getLang());
+    $_replace_url = url(switchLanguage());
+    $_current_url = url()->current();
+    $_url = str_replace($_base_url,$_replace_url,$_current_url);
+    return $_url;
+}
+
+function getFullLanguage(){
+    $_lang = switchLanguage();
+    $_locales = config('app.locales');
+    if(isset($_locales[$_lang])){
+        return $_locales[$_lang];
+    }
+    return '';
+}
+
+if(! function_exists('getMailTo')){
+    function getMailTo(){
+        $setting = getSetting();
+        if(isset($setting['mail_to'])){
+            return $setting['mail_to'];
+        }
+        //the default of post name card
+        return 'phsar24.asia@gmail.com';
+    }
+}
+
+function custom_slug($string,$separate='-') {
+    return preg_replace('/\s+/i', $separate, strtolower($string));
+}
+

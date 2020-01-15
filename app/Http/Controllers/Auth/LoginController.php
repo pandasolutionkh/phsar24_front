@@ -41,6 +41,11 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function redirectTo()
+    {
+        return getLang();
+    }
+
     
     /**
      * Get the needed authorization credentials from the request.
@@ -109,8 +114,10 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
-        Cache::forget('user-is-online-'.Auth::user()->id);
-        $this->guard()->logout();
-        return redirect('/');
+        if(Auth::check()){
+            Cache::forget('user-is-online-'.Auth::user()->id);
+            $this->guard()->logout();
+        }
+        return redirect()->route('home',getLang());
     }
 }

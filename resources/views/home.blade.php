@@ -38,7 +38,7 @@
         </div>
         <div class="infinite-loading invisible"></div>
         <div class="text-center">
-            <a id="product-load-more" class="btn btn-primary">Load More</a>
+            <a id="product-load-more" class="btn btn-primary">{{ __('Load More') }}</a>
         </div>
     </div>
 </div>
@@ -70,7 +70,7 @@
     
     $('#products').after('<div class="infinite-scroll-trigger"></div>');
 
-    var _base_url = '<?php echo route("home"); ?>'; 
+    var _base_url = '<?php echo route("home",getLang()); ?>'; 
     var _ajaxurl = _base_url;
     _ajaxurl += '?';
     _ajaxurl += _query_string;

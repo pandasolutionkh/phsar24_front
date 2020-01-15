@@ -3,7 +3,7 @@
 @section('content')
 
 <h1 class="title">{{ __('Create Product') }}</h1>
-{!! Form::open(array('route' => 'products.store','method'=>'POST','enctype' => 'multipart/form-data')) !!}
+{!! Form::open(array('url' => route('products.store',getLang()),'method'=>'POST','enctype' => 'multipart/form-data')) !!}
 
  @include ('products.form')
 

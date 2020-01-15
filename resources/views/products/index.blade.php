@@ -8,7 +8,7 @@
 		</div>
 		<div class="col-md-6 pull-right">
 			@if(checkForPost())
-			<a href="{{ route('products.create') }}" class="btn btn-md btn-primary pull-right btn-sm">
+			<a href="{{ route('products.create',getLang()) }}" class="btn btn-md btn-primary pull-right btn-sm">
 				<i class="fa fa-plus"></i> {{ __('Create') }}
 			</a>
 			@endif
@@ -116,12 +116,12 @@
 							<td>{{ $item->created_at }}</td>
 							
 							<td class="text-right">
-								<a title="{{ __('Delete') }}" class="btn btn-info btn-sm" href="{{ route('products.edit',['id'=>$item->id,'page'=>$page]) }}">
+								<a title="{{ __('Delete') }}" class="btn btn-info btn-sm" href="{{ route('products.edit',['id'=>$item->id,'page'=>$page,'locale'=>getLang()]) }}">
 									<i class="fa fa-edit"></i>
 								</a>
 								
-								{!! Form::open(['method' => 'DELETE','url' => route('products.destroy',['id'=>$item->id,'page'=>$page]),'style'=>'display:inline','class'=>'delete',]) !!}
-								<button title="{{ __('Delete') }}" type="button" class="btn btn-danger btn-sm some-class deletet" type='submit' data-toggle="modal" data-target="#confirmDelete" data-title="Delete Expends" data-message='Are you sure you want to delete this Item ?'>
+								{!! Form::open(['method' => 'DELETE','url' => route('products.destroy',['id'=>$item->id,'page'=>$page,'locale'=>getLang()]),'style'=>'display:inline','class'=>'delete',]) !!}
+								<button title="{{ __('Delete') }}" type="button" class="btn btn-danger btn-sm some-class deletet" type='submit' data-toggle="modal" data-target="#confirmDelete" data-title="Delete Product" data-message='Are you sure you want to delete this Item ?'>
 									<i class="fa fa-remove"></i>
 								</button>
 								{!! Form::close() !!}

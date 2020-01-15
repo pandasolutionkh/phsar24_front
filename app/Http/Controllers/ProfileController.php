@@ -98,7 +98,7 @@ class ProfileController extends Controller
             }
         }
 
-        return redirect()->route('profile.index')
+        return redirect()->route('profile.index',getLang())
                         ->with('message','Profile has updated successfully');
     }
 
@@ -152,7 +152,7 @@ class ProfileController extends Controller
         $new_password = Hash::make($input['new_password']);
         $data->update(['password'=>$new_password]);
 
-        return redirect()->route('profile.change_password')
+        return redirect()->route('profile.change_password',getLang())
                         ->with('message','Password has changed successfully');
     }
 
@@ -216,7 +216,7 @@ class ProfileController extends Controller
             $data->update($input);
         }
 
-        return redirect()->route('profile.contact')
+        return redirect()->route('profile.contact',getLang())
                         ->with('message','Contact has saved successfully');
     }
 

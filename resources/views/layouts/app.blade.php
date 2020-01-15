@@ -50,7 +50,7 @@
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
-        var base_url = "{{ url('/') }}";
+        var base_url = "{{ url(getLang()) }}";
         var fb_app_id = "{{ env('FACEBOOK_APP_ID') }}";
     </script>
 </head>

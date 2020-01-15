@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-light navbar-custom sticky-top">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
+        <a class="navbar-brand" href="{{ url(getLang()) }}">
             <span class="logo-table">
                 <span class="logo-row">
                     <span class="logo-cell text-center">
@@ -21,12 +21,12 @@
                         $_query = getQueryString(['s','p']);
                         $_url = "/";
                         
-                        if(isset($category_id)){
-                            $_url = route('categories.index',$category_id);
+                        if(isset($category_slug)){
+                            $_url = route('categories.index',['locale'=>getLang(),'slug'=>$category_slug]);
                         }
                         
-                        if(isset($sub_category_id)){
-                            $_url = route('categories.sub',['id'=>$category_id,'sid'=>$sub_category_id]);
+                        if(isset($sub_category_slug)){
+                            $_url = route('categories.sub',['locale'=>getLang(),'category_slug'=>$category_slug,'sub_category_slug'=>$sub_category_slug]);
                         }
 
                         $_url .= "?$_query";
@@ -49,12 +49,12 @@
                                             <ul class="menu-category">
                                                 @foreach(getCategories() as $_entity)
                                                 <li>
-                                                    <a href="{{ route('categories.index',['slug'=>$_entity->slug]) }}">{{ $_entity->name }}</a>
+                                                    <a href="{{ route('categories.index',['locale'=>getLang(),'slug'=>$_entity->slug]) }}">{{ $_entity->name }}</a>
                                                 </li>
                                                 @endforeach
                                             </ul>
                                             <div class="text-center">
-                                                <a href="{{ route('home') }}">View All</a>
+                                                <a href="{{ route('home',getLang()) }}">View All</a>
                                             </div>
                                         </div>
                                     </div>
@@ -74,19 +74,24 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto menu-auth top-menu-right">
+                <li>
+                    <a class="btn btn-secondary btn-sm" href="{{ changeLanguage() }}">
+                        {{ __(getFullLanguage()) }}
+                    </a>
+                </li>
                 @guest
                 <li>
-                    <a class="nav-link" href="{{ route('favorites.index') }}">
+                    <a class="nav-link" href="{{ route('favorites.index',getLang()) }}">
                         <i class="fa fa-heart"></i> {!! __('Favorite') !!}
                     </a>
                 </li>
                 <li>
-                    <a class="btn btn-primary btn-sm" href="{{ route('login') }}">
+                    <a class="btn btn-primary btn-sm" href="{{ route('login',getLang()) }}">
                         <i class="fa fa-sign-in"></i> {!! __('Login') !!}
                     </a>
                 </li>
                 <li>
-                    <a class="btn btn-primary btn-sm" href="{{ route('register') }}">
+                    <a class="btn btn-primary btn-sm" href="{{ route('register',getLang()) }}">
                         <i class="fa fa-edit"></i> {!! __('Register') !!}
                     </a>
                 </li>
@@ -111,7 +116,7 @@
                                         
                                         <div class="dropdown-divider my-1"></div>
 
-                                        <a class="dropdown-item" href="{{ route('products.index') }}">
+                                        <a class="dropdown-item" href="{{ route('products.index',getLang()) }}">
                                             <i class="fa fa-fw fa-key"></i> {!! __('Product') !!}
                                         </a>
                                         <div class="dropdown-divider my-1"></div>
@@ -120,7 +125,7 @@
                                         
                                         <div class="dropdown-divider my-1"></div>
 
-                                        <a class="dropdown-item" href="{{ route('favorites.index') }}">
+                                        <a class="dropdown-item" href="{{ route('favorites.index',getLang()) }}">
                                             <i class="fa fa-fw fa-heart-o"></i> {!! __('Favorite') !!}
                                         </a>
                                         <div class="dropdown-divider my-1"></div>
@@ -129,25 +134,25 @@
                                         
                                         <div class="dropdown-divider my-1"></div>
 
-                                        <a class="dropdown-item" href="{{ route('profile.index') }}">
+                                        <a class="dropdown-item" href="{{ route('profile.index',getLang()) }}">
                                             <i class="fa fa-fw fa-user"></i> {!! __('Profile') !!}
                                         </a>
                                         
-                                        <a class="dropdown-item" href="{{ route('profile.change_password') }}">
+                                        <a class="dropdown-item" href="{{ route('profile.change_password',getLang()) }}">
                                             <i class="fa fa-fw fa-key"></i> {!! __('Change Password') !!}
                                         </a>
                                         
-                                        <a class="dropdown-item" href="{{ route('profile.contact') }}">
+                                        <a class="dropdown-item" href="{{ route('profile.contact',getLang()) }}">
                                             <i class="fa fa-fw fa-phone"></i> {!! __('Contact Detail') !!}
                                         </a>
 
                                         <div class="dropdown-divider my-1"></div>
                                         
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                        <a class="dropdown-item" href="{{ route('logout',getLang()) }}"
                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                             <i class="fa fa-fw fa-sign-out"></i> {{ __('Logout') }}
                                         </a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        <form id="logout-form" action="{{ route('logout',getLang()) }}" method="POST" style="display: none;">
                                             @csrf
                                         </form>
                                     </div>

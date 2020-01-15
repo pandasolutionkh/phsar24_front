@@ -73,11 +73,11 @@ class ProductController extends Controller
     {
       $userContact = UserContact::find(getUserId());
       if(empty($userContact)){
-        return redirect()->route('profile.contact')
+        return redirect()->route('profile.contact',getLang())
                          ->with('warning','Please to complete your profile!');
       }
         if(!checkForPost()){
-          return redirect()->route('products.index')
+          return redirect()->route('products.index',getLang())
                          ->with('warning','You cannot post more product!');
         }
         return view('products.create');
@@ -92,25 +92,34 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         if(!checkForPost()){
-          return redirect()->route('products.index')
-                         ->with('warning','You cannot post more product!');
+          return redirect()->route('products.index',getLang())
+                         ->with('warning',__('You cannot post more product!'));
         }
 
-        $request['user_id'] = getUserId();
+        $user_id = getUserId();
+        $request['user_id'] = $user_id;
         $input = $request->all();
+        $_rules = [
+          'sub_category_id.required' => 'The category field is required.'
+        ];
+        $_name_unique = [
+          'required',
+          'unique:products,name,null,id,enabled,1,user_id,'.$user_id
+        ];
         $this->validate($request, [
-            'name'  => 'required',
+            'name'  => $_name_unique,
             'sub_category_id' => 'required',
             'cover' => 'required',
             'photos' => 'required',
-        ]);
+            'description' => 'required',
+        ],$_rules);
 
         DB::beginTransaction();
         $cover = '';
         if(isset($input['cover'])){
           $cover = $input['cover'];
         }
-        
+        $input['slug'] = custom_slug($input['name']) .'-'. $user_id;
         $product = Product::create($input);                   
         if($product){
             
@@ -141,11 +150,11 @@ class ProductController extends Controller
                       getDisk()->put($_dest, $_image,'public');
                     }catch(Exception $err){
                       DB::rollBack();
-                      return redirect()->route('products.index')->with('error','Your data cannot save!');  
+                      return redirect()->route('products.index',getLang())->with('error','Your data cannot save!');  
                     }
                   }else{
                     DB::rollBack();
-                    return redirect()->route('products.index')->with('error','Your data cannot save!');
+                    return redirect()->route('products.index',getLang())->with('error','Your data cannot save!');
                   }
                   $_incr++;
                 }
@@ -167,7 +176,7 @@ class ProductController extends Controller
             DB::commit();
         }
 
-        return redirect()->route('products.index')
+        return redirect()->route('products.index',getLang())
                          ->with('message','Product has created successfully');
     }
 
@@ -178,7 +187,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request,$id)
+    public function edit(Request $request,$locale,$id)
     {
         $page = $request->input('page',1);
         $user_id = getUserId();
@@ -202,17 +211,27 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$locale, $id)
     {
         $user_id = getUserId();
         $request['user_id'] = $user_id;
         $input = $request->all();
+
+        $_name_unique = [
+          'required',
+          "unique:products,name,$id,id,enabled,1,user_id,$user_id"
+        ];
+        $_rules = [
+          'sub_category_id.required' => 'The category field is required.'
+        ];
+
         $this->validate($request, [
-            'name'  => 'required',
+            'name'  => $_name_unique,
             'sub_category_id' => 'required',
             'cover' => 'required',
             'photos' => 'required',
-        ]);
+            'description' => 'required',
+        ],$_rules);
         
         DB::beginTransaction();
         $cover = $input['cover'];
@@ -220,9 +239,12 @@ class ProductController extends Controller
             ->where('user_id',$user_id)
             ->where('enabled',true)
             ->first();
-
+        $db_name = $data->name;
         $files = $data->galleries;
-        
+
+        if($db_name != $input['name']){
+          $input['slug'] = custom_slug($input['name']) .'-'. $user_id;
+        }
         $product = $data->update($input);
         if($product){
             $obj_cover = null;
@@ -264,11 +286,11 @@ class ProductController extends Controller
                         getDisk()->put($_dest, $_image,'public');
                       }catch(Exception $err){
                         DB::rollBack();
-                        return redirect()->route('products.index')->with('error','Your data cannot save!');  
+                        return redirect()->route('products.index',getLang())->with('error','Your data cannot save!');  
                       }
                     }else{
                       DB::rollBack();
-                      return redirect()->route('products.index')->with('error','Your data cannot save!');
+                      return redirect()->route('products.index',getLang())->with('error','Your data cannot save!');
                     }
                   }
                 }
@@ -301,16 +323,16 @@ class ProductController extends Controller
             DB::commit();
         }
         $page = $request->input('page',1);
-        return redirect()->route('products.index',['page'=>$page])
+        return redirect()->route('products.index',['page'=>$page,'locale'=>getLang()])
                         ->with('message','Product has updated successfully');
     }
 
-    public function destroy(Request $request, $id)
+    public function destroy(Request $request,$locale, $id)
     {
         $page = $request->input('page',1);
         Product::find($id)->update(['enabled'=>0]);
 
-        return redirect()->route('products.index',['page'=>$page])
+        return redirect()->route('products.index',['page'=>$page,'locale'=>getLang()])
                 ->with('message','Product has deleted successfully');
     }
   

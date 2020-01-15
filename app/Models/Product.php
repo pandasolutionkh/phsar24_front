@@ -22,6 +22,7 @@ class Product extends Base
         'price',
         'promotion',
         'sub_category_id',
+        'slug',
         'enabled'
     ];
 

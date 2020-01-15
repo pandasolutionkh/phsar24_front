@@ -39,3 +39,6 @@ Follow the instructions to enter the App Password. The App Password is the 16-ch
 Choose Done.
 Most of the time, you’ll only have to enter an App Password once per app or device, so don’t worry about memorizing it.
 
+
+php artisan make:notification ResetPassword
+

@@ -45,6 +45,11 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function redirectTo()
+    {
+        return getLang();
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -94,26 +99,28 @@ class RegisterController extends Controller
     {
         $this->guard()->logout();
         $translator = app('translator');
-        $_msg = 'Please check your email, we have sent link to activate on your email.';
-        return redirect('/login')->with('status', $_msg);
+        $_msg = __('Please check your email, we have sent link to activate on your email.');
+        return redirect()->route('login',getLang())->with('success', $_msg);
     }
 
-    public function verifyUser($token)
+    public function verifyUser($locale,$token)
     {
         $userActivate = UserActivate::where('token', $token)->first();
+        $status = 'success';
         if(!empty($userActivate) ){
             $user = $userActivate->user;
             if(!$user->is_activated) {
                 $userActivate->user->is_activated = 1;
                 $userActivate->user->save();
-                $status = "Your e-mail is verified. You can now login.";
+                $msg = __("Your e-mail is verified. You can now login.");
             }else{
-                $status = "Your e-mail is already verified. You can now login.";
+                $msg = __("Your e-mail is already verified. You can now login.");
             }
         }else{
-            return redirect('/login')->with('warning', "Sorry your email cannot be identified.");
+            $status = 'warning';
+            $msg = __("Sorry your email cannot be identified."));
         }
  
-        return redirect('/login')->with('status', $status);
+        return redirect()->route('login',getLang())->with($status, $msg);
     }
 }

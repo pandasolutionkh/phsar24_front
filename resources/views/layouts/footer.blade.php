@@ -33,9 +33,9 @@
                     <div class="col-md-3">
                         <h3>{{ __('Useful Links') }}</h3>
                         <ul class="no-list">
-                            <li><a href="{{ route('about') }}">{{ __('About US') }}</a></li>
-                            <li><a href="{{ route('contact') }}">{{ __('Contact US') }}</a></li>
-                            <li><a href="{{ route('term_condition') }}">{{ __('Terms & Conditions') }}</a></li>
+                            <li><a href="{{ route('about',getLang()) }}">{{ __('About US') }}</a></li>
+                            <li><a href="{{ route('contact',getLang()) }}">{{ __('Contact US') }}</a></li>
+                            <li><a href="{{ route('term_condition',getLang()) }}">{{ __('Terms & Conditions') }}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
-                        &copy; {!! __('copy_right') !!} {{ date('Y') }}
+                        &copy; {!! __(':year Phsar24. All rights reserved.',['year'=>date('Y')]) !!}
                     </div>
                     <div class="col-md-5 text-right">
                         {{ __('Created By:') }} <a target="_blank" title="Panda Solution" class="created-by" href="http://www.panda-solution.net">Panda Solution</a>
