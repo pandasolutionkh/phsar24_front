@@ -7,7 +7,7 @@
     <div class="card-body account-profile">
         <div class="menu">
             @foreach($sub_categories as $entity)
-            <a href="{{ route('categories.sub',['id'=>$entity->category_id,'sid'=>$entity->id]) }}">
+            <a href="{{ route('categories.sub',['category_slug'=>$category_slug,'sub_category_slug'=>$entity->slug]) }}">
                 {{ $entity->name }}
             </a>
             @endforeach

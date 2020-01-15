@@ -142,12 +142,12 @@ Route::get('/shop/{id}/contact',[
 	'uses' => 'UserController@contact'
 ]);
 
-Route::get('/category/{id}',[
+Route::get('/category/{slug}',[
 	'as'=>'categories.index',
 	'uses' => 'CategoryController@index'
 ]);
 
-Route::get('/category/{id}/{sid}',[
+Route::get('/category/{category_slug}/{sub_category_slug}',[
 	'as'=>'categories.sub',
 	'uses' => 'CategoryController@sub'
 ]);

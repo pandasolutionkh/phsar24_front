@@ -48,7 +48,7 @@ if($_user){
 	if($_photo){
 		$_user_src = getUrlStorage("profiles/$_photo");
 	}
-	if($user_contact = $_user->userContact){
+	if($user_contact = $_user->user_contact){
 		$_user_name = $_user->name;
         $_phone = $user_contact->phone;
         $_address = $user_contact->address;
@@ -231,7 +231,7 @@ if($_user){
     						<a><i class="fa fa-phone"></i> {{ $_phone }}</a>
 							<a><i class="fa fa-map-marker"></i> {{ $_address }}</a>
 						</div>
-						@if($_user->user_contact && $_user->user_contact->lat && $_user->user_contact->lng)
+						@if(isset($_user->user_contact) && $_user->user_contact && $_user->user_contact->lat && $_user->user_contact->lng)
 					    <div>
 					        @php
 					            $_lat = $_user->user_contact->lat;

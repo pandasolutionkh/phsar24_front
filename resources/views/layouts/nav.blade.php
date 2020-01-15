@@ -19,7 +19,17 @@
                 <div class="w-45vw">
                     @php
                         $_query = getQueryString(['s','p']);
-                        $_url = "/?$_query";
+                        $_url = "/";
+                        
+                        if(isset($category_id)){
+                            $_url = route('categories.index',$category_id);
+                        }
+                        
+                        if(isset($sub_category_id)){
+                            $_url = route('categories.sub',['id'=>$category_id,'sid'=>$sub_category_id]);
+                        }
+
+                        $_url .= "?$_query";
                         $_s = ((isset($search) && $search) ? $search : ''); 
                     @endphp
                     <form method="get" action="{{ $_url }}"> 
@@ -37,9 +47,9 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="categoriesDropdown">
                                             <ul class="menu-category">
-                                                @foreach(getDropdownCategories() as $_key=>$_val)
+                                                @foreach(getCategories() as $_entity)
                                                 <li>
-                                                    <a href="{{ route('categories.index',$_key) }}">{{ $_val }}</a>
+                                                    <a href="{{ route('categories.index',['slug'=>$_entity->slug]) }}">{{ $_entity->name }}</a>
                                                 </li>
                                                 @endforeach
                                             </ul>

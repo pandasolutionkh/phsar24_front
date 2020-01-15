@@ -1,7 +1,7 @@
 @extends('layouts.user')
 
 @section('user_menu')
-    @include('categories.menu',$sub_categories)
+    @include('categories.menu')
 @endsection
 
 @section('content')
@@ -36,7 +36,7 @@
     
     $('#products').after('<div class="infinite-scroll-trigger"></div>');
 
-    var _base_url = '<?php echo route("categories.sub",['id'=>$category_id,'sid'=>$sub_category_id]); ?>'; 
+    var _base_url = '<?php echo route("categories.sub",['category_slug'=>$category_slug,'sub_category_slug'=>$sub_category_slug]); ?>'; 
     var _ajaxurl = _base_url;
     _ajaxurl += '?';
     _ajaxurl += _query_string;

@@ -16,6 +16,7 @@ class Category extends Base
     protected $fillable = [
         'name',
        	'description',
+        'slug',
         'enabled'
     ];
 

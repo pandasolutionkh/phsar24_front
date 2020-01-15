@@ -17,6 +17,7 @@ class SubCategory extends Base
         'name',
         'description',
         'category_id',
+        'slug',
         'enabled'
     ];
 
