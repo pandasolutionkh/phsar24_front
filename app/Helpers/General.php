@@ -618,7 +618,23 @@ if(! function_exists('getMailTo')){
     }
 }
 
-function custom_slug($string,$separate='-') {
+function custom_slug1($string,$separate='-') {
     return preg_replace('/\s+/i', $separate, strtolower($string));
+}
+
+//function sanitize_title_with_dashes taken from wordpress
+function custom_slug($title,$separate='-') {
+    $title = strtolower($title);
+    $title = preg_replace('/&.+?;/', '', $title); // kill entities
+    $title = str_replace('.', '', $title);
+    $title = str_replace('/', $separate, $title);
+    $title = str_replace('<', '', $title);
+    $title = str_replace('>', '', $title);
+    $title = str_replace("'", '', $title);
+    $title = preg_replace('/\s+/', $separate, $title);
+    $title = preg_replace('|-+|', $separate, $title);
+    $title = trim($title, $separate);
+
+    return $title;
 }
 
