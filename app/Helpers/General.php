@@ -197,7 +197,7 @@ if(! function_exists('showContentMore')){
 
         if($is_more){
             $res .= "<div class='text-exposed-show'>$res_more</div>";
-            $res .= "<a href='' class='btn-product-see-more'>See More</a>";
+            $res .= "<a href='' class='btn-product-see-more'>".__('See More')."</a>";
         }
         return $res;
     }
