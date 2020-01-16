@@ -639,6 +639,10 @@ main.live {
   color: #d94375 !important;
 }
 
+.navbar-light .navbar-nav .nav-link.disabled {
+  color: #6c757d !important;
+}
+
 .menu-auth li {
   display: inline-block;
   vertical-align: middle;

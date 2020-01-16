@@ -81,22 +81,29 @@
                 </li>
                 @guest
                 <li>
-                    <a class="nav-link" href="{{ route('favorites.index',getLang()) }}">
-                        <i class="fa fa-heart"></i> {!! __('Favorite') !!}
-                    </a>
-                </li>
-                <li>
-                    <a class="btn btn-primary btn-sm" href="{{ route('login',getLang()) }}">
+                    <a class="nav-link px-1" href="{{ route('login',getLang()) }}">
                         <i class="fa fa-sign-in"></i> {!! __('Login') !!}
                     </a>
                 </li>
+                <li><sapn class="nav-link disabled pl-0 pr-0">Or</sapn></li>
                 <li>
-                    <a class="btn btn-primary btn-sm" href="{{ route('register',getLang()) }}">
+                    <a class="nav-link px-1" href="{{ route('register',getLang()) }}">
                         <i class="fa fa-edit"></i> {!! __('Register') !!}
+                    </a>
+                </li>
+
+                <li>
+                    <a class="btn btn-primary btn-sm" href="{{ route('products.create',getLang()) }}">
+                        {!! __('Post Product') !!}
                     </a>
                 </li>
                 
                 @else
+                    <li>
+                        <a class="btn btn-primary btn-sm" href="{{ route('products.create',getLang()) }}">
+                            {!! __('Post Product') !!}
+                        </a>
+                    </li>
                     <li class="nav-item dropdown profile">
                         <div class="d-table">
                             <div class="d-table-row">

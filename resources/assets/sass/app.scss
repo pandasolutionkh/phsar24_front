@@ -128,9 +128,13 @@ main.live{
     color: $light-blue;
     font-size: 16px;
 }
+
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active{
     color: #d94375 !important;
+}
+.navbar-light .navbar-nav .nav-link.disabled {
+    color: #6c757d !important;
 }
 
 .menu-auth {

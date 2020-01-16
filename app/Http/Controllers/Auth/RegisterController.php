@@ -118,7 +118,7 @@ class RegisterController extends Controller
             }
         }else{
             $status = 'warning';
-            $msg = __("Sorry your email cannot be identified."));
+            $msg = __("Sorry your email cannot be identified.");
         }
  
         return redirect()->route('login',getLang())->with($status, $msg);
