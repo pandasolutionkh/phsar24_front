@@ -287,7 +287,9 @@ if(! function_exists('getPostPerPage')){
 
 if(! function_exists('getCategories')){
     function getCategories(){
-        $data = \App\Models\Category::where('enabled',true)->get();
+        $data = \App\Models\Category::where('enabled',true)
+            ->orderBy('name','ASC')
+            ->get();
         return $data;
     }
 }
