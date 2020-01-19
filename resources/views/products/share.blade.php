@@ -49,8 +49,7 @@ if($_user){
 		$_user_src = getUrlStorage("profiles/$_photo");
 	}
 	if($user_contact = $_user->user_contact){
-		$_user_name = $_user->name;
-        $_phone = $user_contact->phone;
+		$_phone = $user_contact->phone;
         $_address = $user_contact->address;
         $_location = $user_contact->province->name;
     }
