@@ -39,11 +39,11 @@ $_user_name = getContactName();
 $_phone = getPhone();
 $_address = getAddress();
 $_location = '';
-$_user_id = '';
+$_user_slug = '';
 $_user = $data->user;
 if($_user){
 	$_user_name = $_user->name;
-	$_user_id = $_user->id;
+	$_user_slug = $_user->slug;
 	$_photo = $_user->photo;
 	if($_photo){
 		$_user_src = getUrlStorage("profiles/$_photo");
@@ -221,8 +221,8 @@ if($_user){
                     	</div>
                     	<div class="d-inline-block">
                         	<h4>
-                        		@if($_user_id)
-                        		<a class="text-white" href="{{ route('shop.index',['locale'=>getLang(),'id'=>$_user_id]) }}">{{ $_user_name }}</a>
+                        		@if($_user_slug)
+                        		<a class="text-white" href="{{ route('shop.index',['locale'=>getLang(),'slug'=>$_user_slug]) }}">{{ $_user_name }}</a>
                         		@else
                         		<span class="text-white">{{ $_user_name }}</span>
                         		@endif

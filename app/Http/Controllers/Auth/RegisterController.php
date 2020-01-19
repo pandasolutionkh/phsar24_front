@@ -82,8 +82,12 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
+        $_id = $user->id;
+        $_slug = custom_slug($input['name']).'-'.$_id;
+        $user->update(['slug'=>$_slug]);
+
         $userActivate = UserActivate::create([
-            'user_id' => $user->id,
+            'user_id' => $_id,
             'token' => str_random(40)
         ]);
         try{

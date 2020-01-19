@@ -70,6 +70,13 @@ class ProfileController extends Controller
         $data = User::find($id);
         $_db_photo = $data->photo;
 
+        $_db_name = $data->name;
+        $_db_photo = $data->photo;
+        if($_db_name != $_name){
+            $_slug = custom_slug($_name).'-'.$id;
+            $input['slug'] = $_slug;
+        }
+
         $data->update($input);
 
         if(isset($input['photo'])){

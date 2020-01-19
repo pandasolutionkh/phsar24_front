@@ -16,10 +16,10 @@
     </div>
     <div class="card-body account-profile">
         <div class="menu">
-            <a href="{{ route('shop.index',['locale'=>getLang(),'id'=>$user->id]) }}">
+            <a href="{{ route('shop.index',['locale'=>getLang(),'slug'=>$user->slug]) }}">
                 {!! __('Product') !!}
             </a>
-            <a href="{{ route('shop.contact',['locale'=>getLang(),'id'=>$user->id]) }}">
+            <a href="{{ route('shop.contact',['locale'=>getLang(),'slug'=>$user->slug]) }}">
                 {!! __('Contact Detail') !!}
             </a>
         </div>

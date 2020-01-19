@@ -27,6 +27,7 @@ class User extends Authenticatable
         'enabled',
         'is_activated',
         'is_unlimited',
+        'slug',
         'photo'
     ];
 

@@ -24,13 +24,15 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request,$locale,$id)
+    public function index(Request $request,$locale,$slug)
     {
       $product_per_page = 15;
       
-      $products = Product::orderBy('updated_at','DESC')
-        ->where('enabled',true)
-        ->where('user_id',$id);
+      $products = Product::orderBy('products.updated_at','DESC')
+        ->select('products.*')
+        ->join('users','products.user_id','users.id')
+        ->where('products.enabled',true)
+        ->where('users.slug',$slug);
 
       if($request->ajax()){
             $page = $request->input('page', 1);
@@ -55,7 +57,7 @@ class UserController extends Controller
 
       $page = $request->input('p', 1);
       $products = $products->paginate($product_per_page);
-      $user = User::find($id);
+      $user = User::where('slug',$slug)->first();
 
       return view('users.index',compact('products','page','user'));
     }
@@ -66,9 +68,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function contact(Request $request,$locale,$id)
+    public function contact(Request $request,$locale,$slug)
     {
-      $user = User::find($id);
+      $user = User::where('slug',$slug)->first();
       return view('users.contact',compact('user'));
     }
 
