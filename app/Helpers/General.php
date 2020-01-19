@@ -554,8 +554,8 @@ function getProvinceAttributes() {
 if(! function_exists('getNumRelated')){
     function getNumRelated(){
         $setting = getSetting();
-        if(isset($setting['num_related'])){
-            return (int)$setting['num_related'];
+        if(isset($setting['num_related_product'])){
+            return (int)$setting['num_related_product'];
         }
         return 6;
     }
