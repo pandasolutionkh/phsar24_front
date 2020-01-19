@@ -15,7 +15,7 @@
     
     <div class="form-group">
         <label class="control-label">{{ __('Phone') }}</label>
-        <div class="form-control">{{ $user->user_contact->phone }}</div>
+        <div class="form-control">{!! $user->user_contact ? $user->user_contact->phone: '&nbsp;' !!}</div>
     </div>
 
     <div class="form-group">
