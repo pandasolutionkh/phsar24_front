@@ -89,7 +89,6 @@
 
       gtag('config', 'UA-148358363-1');
     </script>
-    @include('layouts.facebook')
     @endif
 </body>
 </html>
