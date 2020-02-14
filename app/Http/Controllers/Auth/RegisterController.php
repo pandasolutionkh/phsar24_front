@@ -83,7 +83,7 @@ class RegisterController extends Controller
         ]);
 
         $_id = $user->id;
-        $_slug = custom_slug($input['name']).'-'.$_id;
+        $_slug = custom_slug($data['name']).'-'.$_id;
         $user->update(['slug'=>$_slug]);
 
         $userActivate = UserActivate::create([
