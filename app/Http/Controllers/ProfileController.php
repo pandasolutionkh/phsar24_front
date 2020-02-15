@@ -66,6 +66,7 @@ class ProfileController extends Controller
         ]);
 
         $input = $request->all();
+        $_name = $input['name'];
         
         $data = User::find($id);
         $_db_photo = $data->photo;
