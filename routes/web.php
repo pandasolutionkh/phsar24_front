@@ -159,5 +159,16 @@ Route::group([
 		'as'=>'medias.upload_photos',
 		'uses' => 'MediaController@uploadPhotos'
 	]);
+
+
+	Route::get('/message',[
+		'as' => 'messages.index',
+		'uses' => 'MessageController@index'
+	]);
+	
+	Route::get('/contacts', 'MessageController@contacts');
+	Route::get('/conversation/{id}', 'MessageController@getMessagesFor');
+	Route::post('/conversation/send', 'MessageController@send');
+
 });
 

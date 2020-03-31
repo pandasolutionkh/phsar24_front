@@ -42,6 +42,22 @@ class User extends Authenticatable
         'enabled',
     ];
 
+    //Make it available in the json response
+    protected $appends = ['photo_url'];
+
+    /**
+     * Get photo_url attribute.
+     *
+     * @return string
+     */
+    public function getPhotoUrlAttribute()
+    {
+        if($_photo = $this->cphoto){
+            return getUrlStorage('profiles/'.$_photo);
+        }
+        return asset('images/profile.jpg');
+    }
+
     public function user_contact()
     {
         return $this->hasOne(UserContact::class,'user_id');

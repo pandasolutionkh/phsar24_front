@@ -42,3 +42,14 @@ Most of the time, you’ll only have to enter an App Password once per app or de
 
 php artisan make:notification ResetPassword
 
+#NewMessage
+php artisan make:event NewMessage
+
+
+#How to check 
+php artisan queue:listen
+
+
+1. node server.js
+2. QUEUE_DRIVER=sync => it will auto to process
+

@@ -465,6 +465,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 @media (min-width: 576px) {
   .card-columns {
     -webkit-column-count: 1;
+       -moz-column-count: 1;
             column-count: 1;
   }
 }
@@ -472,6 +473,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 @media (min-width: 768px) {
   .card-columns {
     -webkit-column-count: 2;
+       -moz-column-count: 2;
             column-count: 2;
   }
 }
@@ -479,6 +481,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 @media (min-width: 1200px) {
   .card-columns {
     -webkit-column-count: 2;
+       -moz-column-count: 2;
             column-count: 2;
   }
 }
@@ -974,7 +977,7 @@ main.live {
 .drag-and-drop .dad-loading {
   height: inherit;
   width: auto;
-  background: #fff url(/images/loading.gif?d0ff9ed1b005f16a4590e87ae5ca7454) no-repeat center;
+  background: #fff url(/images/loading.gif?dd6b7b0bf5c3af22499abc0a9ee1e1b2) no-repeat center;
   z-index: 99;
   cursor: wait;
   position: absolute;
@@ -1008,14 +1011,14 @@ main.live {
   display: block;
   z-index: 999;
   padding: 5px;
-  background: url(/images/remove.png?73ea1156007a3184aee85840654c661f) no-repeat center;
+  background: url(/images/remove.png?7358c1afcc9445e2ace710fb8d41a110) no-repeat center;
   cursor: pointer;
 }
 
 .file-preview-frame .loading {
   height: inherit;
   width: auto;
-  background: #fff url(/images/loading.gif?d0ff9ed1b005f16a4590e87ae5ca7454) no-repeat center;
+  background: #fff url(/images/loading.gif?dd6b7b0bf5c3af22499abc0a9ee1e1b2) no-repeat center;
   z-index: 99;
   cursor: wait;
 }
@@ -1023,7 +1026,7 @@ main.live {
 .file-preview-frame .browse {
   height: 100%;
   width: auto;
-  background-image: url(/images/bg.png?dcba70126d56abd4acdd4ae620b96083);
+  background-image: url(/images/bg.png?5d862b62ca5b8ec718ef03a2c6339694);
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
@@ -1238,9 +1241,11 @@ main.live {
 }
 
 .make-columns {
+  -moz-column-width: 17em;
   -webkit-column-width: 17em;
   column-width: 17em;
   /*space of column*/
+  -moz-column-gap: .2em;
   -webkit-column-gap: .2em;
   column-gap: .2em;
   margin-right: -.2rem;

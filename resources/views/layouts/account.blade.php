@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="/css/animate.css"/>
     @yield('style')
     @php
-        $_v = '1.4.6';
+        $_v = '1.5.5';
     @endphp
     <link rel="stylesheet" href="/css/nprogress.css"/>
     <link rel="stylesheet" href="/css/app.css?v={!! $_v !!}"/>
@@ -78,6 +78,10 @@
                                         <a href="{{ route('favorites.index',getLang()) }}">
                                             {!! __('Favorite') !!}
                                         </a>
+
+                                        <a href="{{ route('messages.index',getLang()) }}">
+                                            {!! __('Messages') !!}
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +126,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script src="/js/nprogress.js"></script>
+    <script src="//{{ Request::getHost() }}:6001/socket.io/socket.io.js"></script>
     <script src="/js/app.js?v={!! $_v !!}"></script>
+    
     <script src="/js/custom.js?v={!! $_v !!}"></script>
     @yield('script')
 
