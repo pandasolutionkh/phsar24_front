@@ -161,14 +161,14 @@ Route::group([
 	]);
 
 
-	Route::get('/message',[
-		'as' => 'messages.index',
-		'uses' => 'MessageController@index'
-	]);
+	// Route::get('/message',[
+	// 	'as' => 'messages.index',
+	// 	'uses' => 'MessageController@index'
+	// ]);
 	
-	Route::get('/contacts', 'MessageController@contacts');
-	Route::get('/conversation/{id}', 'MessageController@getMessagesFor');
-	Route::post('/conversation/send', 'MessageController@send');
+	// Route::get('/contacts', 'MessageController@contacts');
+	// Route::get('/conversation/{id}', 'MessageController@getMessagesFor');
+	// Route::post('/conversation/send', 'MessageController@send');
 
 });
 

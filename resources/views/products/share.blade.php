@@ -66,8 +66,13 @@ if($_user){
     					@endphp
     					<div class="product-detail clearfix mb-2">
 			                <div class="d-block">
-			                    <div class="product-title">
-			                        <h1>{{ $data->name }}</h1>
+			                    <div class="product-title clearfix">
+			                    	<div class="float-left">
+				                        <h1>{{ $data->name }}</h1>
+				                    </div>
+				                   	<div class="float-right">
+				                   		<a href=""><i class="fa fa-comments fa-3x"></i></a>
+				                   	</div>
 			                    </div>
 			                    <div class="product-time">
 			                    	<div class="d-flex">

@@ -78,10 +78,6 @@
                                         <a href="{{ route('favorites.index',getLang()) }}">
                                             {!! __('Favorite') !!}
                                         </a>
-
-                                        <a href="{{ route('messages.index',getLang()) }}">
-                                            {!! __('Messages') !!}
-                                        </a>
                                     </div>
                                 </div>
                             </div>
