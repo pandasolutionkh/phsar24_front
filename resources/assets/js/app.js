@@ -10,11 +10,11 @@ window.axios.defaults.headers.common = {
     'X-Requested-With': 'XMLHttpRequest'
 };
 
-import Echo from 'laravel-echo';
-window.Echo = new Echo({
-    broadcaster: 'socket.io',
-    host: window.location.hostname + ':6001'
-});
+// import Echo from 'laravel-echo';
+// window.Echo = new Echo({
+//     broadcaster: 'socket.io',
+//     host: window.location.hostname + ':6001'
+// });
 
 //Vue.component('favorite', require('./components/Favorite.vue'));
 //Vue.component('publish', require('./components/Publish.vue'));
