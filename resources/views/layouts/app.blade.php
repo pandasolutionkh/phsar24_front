@@ -74,7 +74,8 @@
     <script src="/js/app.js?v={!! $_v !!}"></script>
     <script src="/js/custom.js?v={!! $_v !!}"></script>
     @yield('script')
-    @if(ENV('APP_ENV') == 'production')
+
+    @if(config('app.env') == 'production')
     @include('layouts.facebook')
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148358363-1"></script>
