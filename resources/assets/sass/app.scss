@@ -1856,7 +1856,9 @@ header,
 /*
 * Home
 */
-#products{
+#products,
+.related-product
+{
     &.row{
         margin-right: -10px;
         margin-left: -10px;

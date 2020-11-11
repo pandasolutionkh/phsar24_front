@@ -2406,12 +2406,14 @@ header,
 * Home
 */
 
-#products.row {
+#products.row,
+.related-product.row {
   margin-right: -10px;
   margin-left: -10px;
 }
 
-#products.row [class*="col-"] {
+#products.row [class*="col-"],
+.related-product.row [class*="col-"] {
   padding-left: 5px;
   padding-right: 5px;
 }

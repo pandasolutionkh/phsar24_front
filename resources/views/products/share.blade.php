@@ -71,7 +71,21 @@ if($_user){
 				                        <h1>{{ $data->name }}</h1>
 				                    </div>
 				                   	<div class="float-right">
-				                   		<a href=""><i class="fa fa-comments fa-3x"></i></a>
+				                   		@if(floatval($data->price) > 0 || intval($data->promotion) > 0)
+			                                @if(intval($data->promotion) > 0)
+			                                <a class="btn btn-primary btn-lg">
+			                                    ${{ $data->promotion }}
+			                                </a>
+			                                
+			                                <a class="text-promotion">
+			                                    <del>${{ $data->price }}</del>
+			                                </a>
+			                                @elseif(floatval($data->price) > 0)
+			                                <a class="btn btn-primary btn-lg">
+			                                    ${{ $data->price }}
+			                                </a>
+			                                @endif
+			                            @endif
 				                   	</div>
 			                    </div>
 			                    <div class="product-time">
@@ -85,23 +99,6 @@ if($_user){
 			                        	</div>
 			                        	@endif
 			                        </div>
-			                    </div>
-			                    <div class="product-like">
-			                    	@if(floatval($data->price) > 0 || intval($data->promotion) > 0)
-		                                @if(intval($data->promotion) > 0)
-		                                <a class="btn btn-primary btn-lg">
-		                                    ${{ $data->promotion }}
-		                                </a>
-		                                
-		                                <a class="text-promotion">
-		                                    <del>${{ $data->price }}</del>
-		                                </a>
-		                                @elseif(floatval($data->price) > 0)
-		                                <a class="btn btn-primary btn-lg">
-		                                    ${{ $data->price }}
-		                                </a>
-		                                @endif
-		                            @endif
 			                    </div>
 			                </div>
 			            </div>
@@ -180,7 +177,7 @@ if($_user){
 								}
 								$__url = route('products.detail',['locale'=>getLang(),'id'=>$row->id]);
 							@endphp
-							<div class="col-sm-4 mb-4 mb-xs-4">
+							<div class="col-sm-4 mb-2 mb-xs-2">
 								<div class="card">
 									<div class="card-cover-image">
 										<a href="{{ $__url }}">
