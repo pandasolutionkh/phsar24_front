@@ -5,7 +5,7 @@
     $_url_detail = route('products.detail',['id'=>$_id,'locale'=>getLang()]);
     $_url_fav = route('favorites.dofav',['id'=>$_id,'locale'=>getLang()]);
 @endphp
-<div class="cols">
+<div class="col-md-3 mb-2">
     <div class="card" data-id="p{{ $_id }}">
         <div class="card-body product">
             <div class="clearfix">

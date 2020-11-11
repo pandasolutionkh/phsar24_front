@@ -28,7 +28,7 @@
 <div class="py-4 py-xs-4">
     <div class="container">
         
-        <div id="products" class="make-columns"> 
+        <div id="products" class="row"> 
         @foreach($products as $key => $_entity)
             @php
                 $data = $_entity;

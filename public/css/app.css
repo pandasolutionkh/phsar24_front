@@ -2396,6 +2396,20 @@ header,
   background-color: initial;
 }
 
+/*
+* Home
+*/
+
+#products.row {
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+#products.row [class*="col-"] {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 .special-card-outer {
   margin-top: 10px;
   margin-bottom: 10px;
