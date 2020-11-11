@@ -638,3 +638,7 @@ function custom_slug($title,$separate='-') {
     return $title;
 }
 
+function getLimitPostTitle(){
+    $setting = getSetting();
+    return (isset($setting['limit_post_title']) && $setting['limit_post_title'] ? intval($setting['limit_post_title']) : 32);
+}

@@ -1171,6 +1171,12 @@ main.live {
   margin: 0;
 }
 
+.card-body.product .product-image {
+  min-height: 180px;
+  max-height: 180px;
+  overflow: hidden;
+}
+
 .card-body.product .product-image img {
   max-width: 100%;
   width: 100%;

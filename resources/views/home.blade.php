@@ -28,12 +28,15 @@
 <div class="py-4 py-xs-4">
     <div class="container">
         
-        <div id="products" class="row"> 
+        <div id="products" class="row">
+        @php
+        $_limit_post_title = getLimitPostTitle();
+        @endphp 
         @foreach($products as $key => $_entity)
             @php
                 $data = $_entity;
             @endphp
-            @include ('products.item',$data)
+            @include ('products.item',['data'=>$data,'limit_post_title'=>$_limit_post_title])
         @endforeach
         </div>
         <div class="infinite-loading invisible"></div>

@@ -15,7 +15,7 @@
                             <div class="d-table-row">
                                 <div class="d-table-cell">
                                     <a href="{{ $_url_detail }}">
-                                        <strong class="product-title">{{ $data->name }}</strong>
+                                        <strong class="product-title">{{ chars($data->name,$limit_post_title) }}</strong>
                                     </a>
                                 </div>
                                 <div class="d-table-cell text-right w-15px">
@@ -46,53 +46,27 @@
                     </div>
                 </div>
             </div>
-            <div class="product-content"> 
-                {!! showContentMore($data->description,10,1) !!}
-            </div>
-            
             @php
                 $_galleries = $data->galleries;
                 $_count = count($data->galleries);
             @endphp
-
             @if( $_count > 0)
-            
-            @php
-                $_remain = 0;
-                if($_count > 5){
-                    $_remain = $_count - 5;
-                    $_count = 5;
-                }    
-                $_incr = 0;
-            @endphp
-
-            <div class="product-image imgs-grid imgs-grid-{{$_count}}" data-url="{{ $_url_detail }}" data-toggle="modal" data-target="#modalPopup">
+            <div class="product-image">
+                @php
+                $_src = '';
+                @endphp
                 @foreach($_galleries as $item)
                     @php
                         if($item->is_lock) continue; //when administrator block
-
-                        if($_incr == $_count) break;
-
-                        $_name = $item->name;
-                        $_src = getUrlStorage('products/'.$_name);
-                    @endphp
-
-                    <div class="imgs-grid-image">
-                        <div class="image-wrap">
-                            <img src="{{ $_src }}" alt="" />
-                            
-                            @if($_incr == ($_count-1) && $_remain > 0)
-                            <div class="view-all">
-                                <span class="view-all-cover"></span>
-                                <span class="view-all-text">+{{ $_remain }}</span>
-                            </div>
-                            @endif
-                        </div>
-                    </div>
-                    @php
-                        $_incr++;
+                        if($item->is_cover){
+                            $_name = $item->name;
+                            $_src = getUrlStorage('products/'.$_name);
+                        }
                     @endphp
                 @endforeach
+                @if($_src)
+                <img src="{{ $_src }}" alt="" />
+                @endif
             </div>
             @endif
 
