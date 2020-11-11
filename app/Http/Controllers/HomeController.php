@@ -61,8 +61,9 @@ class HomeController extends Controller
             $total = ceil($products->total() / $product_per_page);
 
             $html = '';
+            $limit_post_title = getLimitPostTitle();
             foreach ($products as $data) {
-              $html .= view('products.item',compact('data','page'))->render();
+              $html .= view('products.item',compact('data','page','limit_post_title'))->render();
             }
 
             if($html == ''){
