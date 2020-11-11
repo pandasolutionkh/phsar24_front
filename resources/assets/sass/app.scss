@@ -663,8 +663,8 @@ main.live{
         }
 
         .product-image{
-            min-height: 180px;
-            max-height: 180px;
+            min-height: 200px;
+            max-height: 200px;
             overflow: hidden;
             img{
                 max-width: 100%;
@@ -2067,6 +2067,21 @@ header,
     [class*="col-"]{
         padding-left: .2rem;
         padding-right: .2rem;
+    }
+
+    /*
+    * Home
+    */
+    #products{
+        &.row{
+            margin-right: -.2rem;
+            margin-left: -.2rem;
+
+            [class*="col-"] {
+                padding-left: .2rem;
+                padding-right: .2rem;
+            }
+        }
     }
 
     main{

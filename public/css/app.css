@@ -1172,8 +1172,8 @@ main.live {
 }
 
 .card-body.product .product-image {
-  min-height: 180px;
-  max-height: 180px;
+  min-height: 200px;
+  max-height: 200px;
   overflow: hidden;
 }
 
@@ -2662,6 +2662,20 @@ header,
 
   .container,
   [class*="col-"] {
+    padding-left: .2rem;
+    padding-right: .2rem;
+  }
+
+  /*
+    * Home
+    */
+
+  #products.row {
+    margin-right: -.2rem;
+    margin-left: -.2rem;
+  }
+
+  #products.row [class*="col-"] {
     padding-left: .2rem;
     padding-right: .2rem;
   }
