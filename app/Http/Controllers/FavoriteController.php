@@ -34,6 +34,7 @@ class FavoriteController extends Controller
             ->orderBy('favorites.updated_at','DESC')
             ->where('favorites.user_id', getUserId())
             ->where('products.enabled', true)
+            ->where('products.is_lock', false)
             ->select('products.*');
 
         $products = $products->paginate($per_page);

@@ -987,6 +987,10 @@ main.live {
   top: 0;
 }
 
+.drag-and-drop.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
 .file-preview-frame {
   position: relative;
   display: block;
@@ -2998,9 +3002,5 @@ header,
 
 .select2-container--default .select2-results__option[aria-disabled=true] {
   display: none;
-}
-
-.drag-and-drop.is-invalid ~ .invalid-feedback {
-  display: block;
 }
 

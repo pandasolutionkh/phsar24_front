@@ -34,6 +34,7 @@ class CategoryController extends Controller
             ->join('sub_categories','sub_categories.id','products.sub_category_id')
             ->join('categories','categories.id','sub_categories.category_id')
             ->where('products.enabled',true)
+            ->where('products.is_lock',false)
             ->where('categories.slug', $slug);
 
       if ($search) {
@@ -97,6 +98,7 @@ class CategoryController extends Controller
             ->join('sub_categories','sub_categories.id','products.sub_category_id')
             ->join('categories','categories.id','sub_categories.category_id')
             ->where('products.enabled',true)
+            ->where('products.is_lock',false)
             ->where('categories.slug', $category_slug)
             ->where('sub_categories.slug', $sub_category_slug);
 

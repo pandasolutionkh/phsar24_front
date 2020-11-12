@@ -131,6 +131,7 @@
       @php
         $_checked = ''; 
         $_name = $entity->name;
+        $_path = getUrlStorage('products/'.$_name);
         if($entity->is_cover){
           $_checked = 'checked="checked"';
         }
@@ -141,10 +142,10 @@
             @if(getExtension($_name) == 'pdf')
             <i class="fa fa-file-pdf-o fa-2x"></i>
             @else
-            <img src="{{ getUrlStorage('products/'.$_name) }}" alt=""/>
+            <img src="{{ $_path }}" alt=""/>
             @endif
             <input type="hidden" value="{{ $_name }}" name="photos[{{ $_incr }}][name]">
-            <input type="hidden" value="{{ $_name }}" name="photos[{{ $_incr }}][path]">
+            <input type="hidden" value="{{ $_path }}" name="photos[{{ $_incr }}][path]">
             <div data-img="{{ $_name }}" class="remove"></div>
           </div>
         </div>

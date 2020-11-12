@@ -23,6 +23,7 @@ class Product extends Base
         'promotion',
         'sub_category_id',
         'slug',
+        'is_lock',
         'enabled'
     ];
 

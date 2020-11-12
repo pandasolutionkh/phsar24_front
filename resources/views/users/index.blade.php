@@ -6,7 +6,7 @@
 
 @section('content')
     <h1 class="title">{{ __('Products') }}</h1>
-    <div id="products" class="make-columns"> 
+    <div id="products" class="row"> 
     @foreach($products as $key => $_entity)
         @php
             $data = $_entity;

@@ -27,11 +27,12 @@ class UserController extends Controller
     public function index(Request $request,$locale,$slug)
     {
       $product_per_page = 15;
-      
+      $limit_post_title = getLimitPostTitle();
       $products = Product::orderBy('products.updated_at','DESC')
         ->select('products.*')
         ->join('users','products.user_id','users.id')
         ->where('products.enabled',true)
+        ->where('products.is_lock',false)
         ->where('users.slug',$slug);
 
       if($request->ajax()){
@@ -44,7 +45,7 @@ class UserController extends Controller
 
             $html = '';
             foreach ($products as $data) {
-              $html .= view('products.item',compact('data','page'))->render();
+              $html .= view('products.item',compact('data','page','limit_post_title'))->render();
             }
 
             if($html == ''){
@@ -59,7 +60,7 @@ class UserController extends Controller
       $products = $products->paginate($product_per_page);
       $user = User::where('slug',$slug)->first();
 
-      return view('users.index',compact('products','page','user'));
+      return view('users.index',compact('products','page','user','limit_post_title'));
     }
 
     /**
