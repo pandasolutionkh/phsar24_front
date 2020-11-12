@@ -1,4 +1,6 @@
-
+@php
+    $_is_invalid = 'is-invalid';
+@endphp
 <div class="form-group">
     @php
     $_label = __('Photo');
@@ -26,20 +28,22 @@
     </div>
 </div>
 
-<div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
+<div class="form-group">
     @php
-    $_label = __('Name');
+        $_label = __('Name');
+        $_field = 'name';
+        $_error = ($errors->has($_field) ? $_is_invalid : '');
     @endphp
-    {!! Form::label('name', $_label.getRequireStar(), ['class' => 'control-label'],false) !!}
+    {!! Form::label($_field, $_label.getRequireStar(), ['class' => 'control-label'],false) !!}
     <div>
-        {!! Form::text('name', null, array('placeholder' => $_label,'class' => 'form-control')) !!}
-        {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
+        {!! Form::text($_field, null, array('placeholder' => $_label,'class' => "form-control $_error")) !!}
+        {!! $errors->first($_field, '<p class="invalid-feedback">:message</p>') !!}
     </div>
 </div>
 
 <div class="form-group">
     @php
-    $_label = __('Gender');
+        $_label = __('Gender');
     @endphp
     {!! Form::label('gender', $_label, ['class' => 'control-label']) !!}
     <div>
@@ -47,25 +51,29 @@
     </div>
 </div>
 
-<div class="form-group {{ $errors->has('phone') ? 'has-error' : ''}}">
+<div class="form-group">
     @php
-    $_label = __('Phone');
+        $_label = __('Phone');
+        $_field = 'phone';
+        $_error = ($errors->has($_field) ? $_is_invalid : '');
     @endphp
-    {!! Form::label('phone', $_label.getRequireStar(), ['class' => 'control-label'],false) !!}
+    {!! Form::label($_field, $_label.getRequireStar(), ['class' => 'control-label'],false) !!}
     <div>
-        {!! Form::text('phone', null, array('placeholder' => $_label,'class' => 'form-control required','data-required'=>$_label,'id'=>'phone')) !!}
-        {!! $errors->first('phone', '<p class="help-block">:message</p>') !!}
+        {!! Form::text($_field, null, array('placeholder' => $_label,'class' => "form-control required $_error",'data-required'=>$_label,'id'=>'phone')) !!}
+        {!! $errors->first($_field, '<p class="help-block">:message</p>') !!}
     </div>
 </div>
         
  <div class="form-group {{ $errors->has('email') ? 'has-error' : ''}}">
     @php
-    $_label = __('Email');
+        $_label = __('Email');
+        $_field = 'email';
+        $_error = ($errors->has($_field) ? $_is_invalid : '');
     @endphp
-    {!! Form::label('email', $_label.getRequireStar(), ['class' => 'control-label'],false) !!}
+    {!! Form::label($_field, $_label.getRequireStar(), ['class' => 'control-label'],false) !!}
     <div>
-        {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control required-or-valid-email','data-required'=>$_label,'id'=>'email')) !!}
-        {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
+        {!! Form::text($_field, null, array('placeholder' => 'Email','class' => "form-control required-or-valid-email $_error",'data-required'=>$_label,'id'=>'email')) !!}
+        {!! $errors->first($_field, '<p class="help-block">:message</p>') !!}
     </div>
 </div>
 
