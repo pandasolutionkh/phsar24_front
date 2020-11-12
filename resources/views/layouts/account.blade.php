@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="/css/animate.css"/>
     @yield('style')
     @php
-        $_v = '1.5.8';
+        $_v = '1.6.0';
     @endphp
     <link rel="stylesheet" href="/css/nprogress.css"/>
     <link rel="stylesheet" href="/css/app.css?v={!! $_v !!}"/>
@@ -124,7 +124,6 @@
     <script src="/js/nprogress.js"></script>
     <!--script src="//{{ Request::getHost() }}:6001/socket.io/socket.io.js"></script-->
     <script src="/js/app.js?v={!! $_v !!}"></script>
-    
     <script src="/js/custom.js?v={!! $_v !!}"></script>
     @yield('script')
 

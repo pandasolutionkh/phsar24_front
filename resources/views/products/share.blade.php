@@ -31,6 +31,10 @@
     @endif
 @endsection
 
+@section('style')
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.magnific-popup/1.0.0/magnific-popup.css">
+@endsection
+
 @section('content')
 @php
 $_id = $data->id;
@@ -120,7 +124,7 @@ if($_user){
 			                $_url_detail = route('products.detail',['id'=>$_id,'locale'=>getLang()]);
 			            @endphp
 
-			            <div class="product-image imgs-grid imgs-grid-{{$_count}} bg-white" data-url="{{ $_url_detail }}" data-toggle="modal" data-target="#modalPopup">
+			            <div class="imgs-grid imgs-grid-{{$_count}} bg-white">
 			                @foreach($_galleries as $item)
 			                    @php
 			                        if($item->is_lock) continue; //when administrator block
@@ -133,8 +137,9 @@ if($_user){
 
 			                    <div class="imgs-grid-image">
 			                        <div class="image-wrap">
-			                            <img src="{{ $_src }}" alt="" />
-			                            
+			                            <a href="{{ $_src }}" title="">
+			                            	<img src="{{ $_src }}" alt="" />
+			                            </a>
 			                            @if($_incr == ($_count-1) && $_remain > 0)
 			                            <div class="view-all">
 			                                <span class="view-all-cover"></span>
@@ -266,5 +271,27 @@ if($_user){
 
     </div>
 </div>
+@endsection
+
+@section('script')
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.magnific-popup/1.0.0/jquery.magnific-popup.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.imgs-grid').magnificPopup({
+			delegate: 'a',
+			type: 'image',
+			tLoading: 'Loading image #%curr%...',
+			mainClass: 'mfp-img-mobile',
+			gallery: {
+				enabled: true,
+				navigateByImgClick: true,
+				preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+			},
+			image: {
+				tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
+			}
+		});
+	});
+</script>
 @endsection
 

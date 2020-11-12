@@ -1,14 +1,12 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/css/live.css": "/css/live.css",
-    "/css/nivo-slider.css": "/css/nivo-slider.css",
     "/css/animate.css": "/css/animate.css",
+    "/css/nivo-slider.css": "/css/nivo-slider.css",
     "/js/jquery.nivo.slider.js": "/js/jquery.nivo.slider.js",
-    "/js/zoom-meeting-1.3.0.min.js": "/js/zoom-meeting-1.3.0.min.js",
-    "/css/bootstrap.css": "/css/bootstrap.css",
-    "/css/react-select.css": "/css/react-select.css",
     "/js/nprogress.js": "/js/nprogress.js",
     "/css/nprogress.css": "/css/nprogress.css",
+    "/js/magnific-popup.js": "/js/magnific-popup.js",
+    "/css/magnific-popup.css": "/css/magnific-popup.css",
     "/js/custom.js": "/js/custom.js"
 }

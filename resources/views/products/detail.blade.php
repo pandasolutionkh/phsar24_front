@@ -1,4 +1,3 @@
-
 @php
 $_time = getNumberOfDays($data->updated_at,date('Y-m-d H:i:s'));
 $_incr = 0;
