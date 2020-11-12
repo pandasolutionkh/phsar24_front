@@ -1,4 +1,3 @@
- 
 <div class="form-group">
     <?php
         $_field = 'name';
@@ -63,7 +62,15 @@
   <label>
     <button id="browse-your-file" class="btn btn-info" type="button">Browse your {{ getLimitUpload() }} image(s)...</button>
   </label>
-  <div id="drag-and-drop" class="drag-and-drop">
+  @php
+  $_invalid_c = ($errors->has('cover') ? ' is-invalid' : '');
+  $_invalid_p = ($errors->has('photos') ? ' is-invalid' : '');
+  $_cls = '';
+  if($_invalid_c or $_invalid_p){
+    $_cls = 'is-invalid';
+  }
+  @endphp
+  <div id="drag-and-drop" class="drag-and-drop {{ $_cls }}">
     @if(old('photos'))
       @php
         $_incr = 0;
@@ -130,8 +137,8 @@
   <div hidden="">
     <input type="file" multiple="multiple" id="do-upload-photos" data-type="product">
   </div>
-  {!! $errors->first('photos', '<p class="help-block">:message</p>') !!}
-  {!! $errors->first('cover', '<p class="help-block">:message</p>') !!}
+  {!! $errors->first('photos', '<p class="invalid-feedback">:message</p>') !!}
+  {!! $errors->first('cover', '<p class="invalid-feedback">:message</p>') !!}
 </div>
 
 <div class="form-group">

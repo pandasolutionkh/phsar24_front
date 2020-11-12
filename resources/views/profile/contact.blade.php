@@ -27,7 +27,7 @@
 
     {!! Form::model($userContact, ['method' => 'POST','enctype' => 'multipart/form-data','url' => route('profile.create_contact',getLang())]) !!}
         @php
-            $_is_invalid = 'is_invalid';
+            $_is_invalid = 'is-invalid';
         @endphp
 
         @php
@@ -77,8 +77,8 @@
             @endphp
             {!! Form::label($_field, $_label.getRequireStar(), ['class' => 'control-label'], false) !!}
             <div>
-                {!! Form::select($_field,getProvinces(),null,['class' => 'form-control required','data-required'=>$_label,'placeholder'=>getPleaseSelect()]) !!}
-                {!! $errors->first($_field, '<p class="help-block">:message</p>') !!}
+                {!! Form::select($_field,getProvinces(),null,['class' => "form-control required $_error",'data-required'=>$_label,'placeholder'=>getPleaseSelect()]) !!}
+                {!! $errors->first($_field, '<p class="invalid-feedback">:message</p>') !!}
             </div>
 
             {!! Form::hidden('lat',null) !!}

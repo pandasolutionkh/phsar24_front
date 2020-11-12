@@ -70,7 +70,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script src="/js/nprogress.js"></script>
-    <!-- <script src="//{{ Request::getHost() }}:6001/socket.io/socket.io.js"></script> -->
+    <!--script src="//{{ Request::getHost() }}:6001/socket.io/socket.io.js"></script-->
     <script src="/js/app.js?v={!! $_v !!}"></script>
     <script src="/js/custom.js?v={!! $_v !!}"></script>
     @yield('script')

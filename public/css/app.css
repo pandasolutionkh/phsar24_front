@@ -2892,3 +2892,7 @@ header,
   display: none;
 }
 
+.drag-and-drop.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
