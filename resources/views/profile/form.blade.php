@@ -21,7 +21,7 @@
             (Width 250px and Height166px)
         </div>
     </div>
-    <div class="invisible"> 
+    <div class="invisible h-1px"> 
     {!! Form::file('photo_file',array('placeholder' => 'Photo','class' => 'form-control','id'=>'do-upload-banner')) !!}
     {{ Form::hidden('photo_path') }}
     {{ Form::hidden('photo') }}

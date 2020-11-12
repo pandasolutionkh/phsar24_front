@@ -74,15 +74,15 @@
 				<table class="table table-bordered">
 					<thead>
 						<tr>
-							<th class="width-45px">{{ __('No') }}</th>
-							<th class="width-55px">{{ __('Photo') }}</th>
+							<th class="w-45px">{{ __('No') }}</th>
+							<th class="w-55px">{{ __('Photo') }}</th>
 							<th>{{ __('Name') }}</th>
-							<th class="width-70px">{{ __('Price') }}</th>
-							<th class="width-85px">{{ __('Promotion') }}</th>
+							<th class="w-70px">{{ __('Price') }}</th>
+							<th class="w-85px">{{ __('Promotion') }}</th>
 							<th>{{ __('Category') }}</th>
 							<th>{{ __('Sub Category') }}</th>
-							<th class="width-100px">{{ __('Created At') }}</th>
-							<th class="text-right width-85px">{{ __('Action') }}</th>
+							<th class="w-150px">{{ __('Created At') }}</th>
+							<th class="text-right w-85px">{{ __('Action') }}</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -116,7 +116,7 @@
 							<td>{{ $item->created_at }}</td>
 							
 							<td class="text-right">
-								<a title="{{ __('Delete') }}" class="btn btn-info btn-sm" href="{{ route('products.edit',['id'=>$item->id,'page'=>$page,'locale'=>getLang()]) }}">
+								<a data-toggle="tooltip" data-placement="left" title="{{ __('Edit') }}" class="btn btn-info btn-sm" href="{{ route('products.edit',['id'=>$item->id,'page'=>$page,'locale'=>getLang()]) }}">
 									<i class="fa fa-edit"></i>
 								</a>
 								

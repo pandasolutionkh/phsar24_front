@@ -88,20 +88,20 @@
                 <li><span class="nav-link disabled pl-0 pr-0">Or</span></li>
                 <li>
                     <a class="nav-link px-1" href="{{ route('register',getLang()) }}">
-                        <i class="fa fa-edit"></i> {!! __('Register') !!}
+                        <i class="fa fa-user"></i> {!! __('Register') !!}
                     </a>
                 </li>
 
                 <li>
                     <a class="btn btn-primary btn-sm" href="{{ route('products.create',getLang()) }}">
-                        {!! __('Post Product') !!}
+                        <i class="fa fa-edit"></i> {!! __('Post Product') !!}
                     </a>
                 </li>
                 
                 @else
                     <li>
                         <a class="btn btn-primary btn-sm" href="{{ route('products.create',getLang()) }}">
-                            {!! __('Post Product') !!}
+                            <i class="fa fa-edit"></i> {!! __('Post Product') !!}
                         </a>
                     </li>
                     <li class="nav-item dropdown profile">
@@ -124,7 +124,7 @@
                                         <div class="dropdown-divider my-1"></div>
 
                                         <a class="dropdown-item" href="{{ route('products.index',getLang()) }}">
-                                            <i class="fa fa-fw fa-key"></i> {!! __('Product') !!}
+                                            <i class="fa fa-fw fa-tag"></i> {!! __('Product') !!}
                                         </a>
                                         <div class="dropdown-divider my-1"></div>
                                         

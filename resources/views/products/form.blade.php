@@ -28,9 +28,20 @@
         $_field = 'price';
         $_name = __('Price');
     ?>
-    {!! Form::label($_field, $_name .' ($)', ['class' => 'control-label'],false) !!}
-    <div>
-        {!! Form::text($_field, null, array('placeholder' => $_name,'class' => 'form-control')) !!}
+    {!! Form::label($_field, $_name, ['class' => 'control-label'],false) !!}
+    <div class="input-group">
+        @php
+          $_opt = array(
+            'placeholder' => $_name,
+            'class' => 'form-control',
+            'aria-describedby'=>"basic-addon-price",
+            'autocomplete' => 'off'
+          )
+        @endphp
+        {!! Form::text($_field, null, $_opt) !!}
+        <div class="input-group-append">
+          <span class="input-group-text" id="basic-addon-price">$</span>
+        </div>
     </div>
 </div>
 
@@ -39,9 +50,20 @@
         $_field = 'promotion';
         $_name = __('Promotion');
     ?>
-    {!! Form::label($_field, $_name.' ($)', ['class' => 'control-label'],false) !!}
-    <div>
-        {!! Form::text($_field, null, array('placeholder' => $_name,'class' => 'form-control')) !!}
+    {!! Form::label($_field, $_name, ['class' => 'control-label'],false) !!}
+    <div class="input-group">
+        @php
+          $_opt = array(
+            'placeholder' => $_name,
+            'class' => 'form-control',
+            'aria-describedby'=>"basic-addon-promotion",
+            'autocomplete' => 'off'
+          )
+        @endphp
+        {!! Form::text($_field, null, $_opt) !!}
+        <div class="input-group-append">
+          <span class="input-group-text" id="basic-addon-promotion">$</span>
+        </div>
     </div>
 </div>
 
