@@ -27,31 +27,46 @@
 
     {!! Form::model($user, ['method' => 'POST','enctype' => 'multipart/form-data','url' => route('profile.resetPassword',getLang())]) !!}
 
-    
+        @php
+            $_is_invalid = 'is-invalid';
+        @endphp
+
+        @php
+            $_label = __('Current Password');
+            $_field = 'current_password';
+            $_error = ($errors->has($_field) ? $_is_invalid : '');
+        @endphp
         <div class="form-group {{ $errors->has('current_password') ? 'has-error' : ''}}">
-            @php $_label = __('Current Password'); @endphp
-            {!! Form::label('current_password', $_label.getRequireStar(), ['class' => 'control-label'],false) !!}
+            {!! Form::label($_field, $_label.getRequireStar(), ['class' => 'control-label'],false) !!}
             <div>
-                {!! Form::password('current_password', array('placeholder' => $_label,'class' => 'form-control required','data-required'=>$_label)) !!}
-                {!! $errors->first('current_password', '<p class="help-block">:message</p>') !!}
+                {!! Form::password($_field, array('placeholder' => $_label,'class' => "form-control required $_error",'data-required'=>$_label)) !!}
+                {!! $errors->first('current_password', '<p class="invalid-feedback">:message</p>') !!}
             </div>
         </div>
 
-        <div class="form-group {{ $errors->has('new_password') ? 'has-error' : ''}}">
-            @php $_label = __('New Password'); @endphp
-            {!! Form::label('new_password', $_label.getRequireStar(), ['class' => 'control-label'],false) !!}
+        @php
+            $_label = __('New Password');
+            $_field = 'new_password';
+            $_error = ($errors->has($_field) ? $_is_invalid : '');
+        @endphp
+        <div class="form-group">
+            {!! Form::label($_field, $_label.getRequireStar(), ['class' => 'control-label'],false) !!}
             <div>
-                {!! Form::password('new_password', array('placeholder' => $_label,'class' => 'form-control required','data-required'=>$_label)) !!}
-                {!! $errors->first('new_password', '<p class="help-block">:message</p>') !!}
+                {!! Form::password($_field, array('placeholder' => $_label,'class' => "form-control required $_error",'data-required'=>$_label)) !!}
+                {!! $errors->first($_field, '<p class="invalid-feedback">:message</p>') !!}
             </div>
         </div>
 
-        <div class="form-group {{ $errors->has('new_password_confirmation') ? 'has-error' : ''}}">
-            @php $_label = __('Confirm New Password'); @endphp
-            {!! Form::label('new_password_confirmation', $_label.getRequireStar(), ['class' => 'control-label'],false) !!}
+        @php
+            $_label = __('Confirm New Password');
+            $_field = 'new_password_confirmation';
+            $_error = ($errors->has($_field) ? $_is_invalid : '');
+        @endphp
+        <div class="form-group">
+            {!! Form::label($_field, $_label.getRequireStar(), ['class' => 'control-label'],false) !!}
             <div>
-                {!! Form::password('new_password_confirmation', array('placeholder' => $_label,'class' => 'form-control required','data-required'=>$_label)) !!}
-                {!! $errors->first('new_password_confirmation', '<p class="help-block">:message</p>') !!}
+                {!! Form::password($_field, array('placeholder' => $_label,'class' => "form-control required $_error",'data-required'=>$_label)) !!}
+                {!! $errors->first($_field, '<p class="invalid-feedback">:message</p>') !!}
             </div>
         </div>
     
