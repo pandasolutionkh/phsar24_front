@@ -1341,6 +1341,7 @@ main.live {
   display: inline-block;
   overflow: hidden;
   vertical-align: middle;
+  width: 100%;
 }
 
 .imgs-grid .imgs-grid-image .image-wrap img {
